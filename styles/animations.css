@@ -1,0 +1,198 @@
+/**
+ * Oyestore Design System — Animation Keyframes & Utilities
+ */
+
+@keyframes oye-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes oye-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes oye-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes oye-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes oye-slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes oye-slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes oye-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes oye-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes oye-glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 16px rgb(30 58 138 / 20%);
+  }
+  50% {
+    box-shadow: 0 0 32px rgb(30 58 138 / 40%);
+  }
+}
+
+@keyframes oye-glow-gold {
+  0%,
+  100% {
+    box-shadow: 0 0 12px rgb(212 175 55 / 15%);
+  }
+  50% {
+    box-shadow: 0 0 28px rgb(212 175 55 / 35%);
+  }
+}
+
+@keyframes oye-spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes oye-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes oye-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: oye-fade-in var(--duration-base) var(--ease-out) both;
+  }
+
+  .animate-fade-out {
+    animation: oye-fade-out var(--duration-base) var(--ease-in) both;
+  }
+
+  .animate-slide-up {
+    animation: oye-slide-up var(--duration-slow) var(--ease-premium) both;
+  }
+
+  .animate-slide-down {
+    animation: oye-slide-down var(--duration-slow) var(--ease-premium) both;
+  }
+
+  .animate-slide-in-left {
+    animation: oye-slide-in-left var(--duration-slow) var(--ease-premium) both;
+  }
+
+  .animate-slide-in-right {
+    animation: oye-slide-in-right var(--duration-slow) var(--ease-premium) both;
+  }
+
+  .animate-scale-in {
+    animation: oye-scale-in var(--duration-base) var(--ease-spring) both;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgb(217 217 217 / 12%) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: oye-shimmer 2s var(--ease-in-out) infinite;
+  }
+
+  .animate-glow-pulse {
+    animation: oye-glow-pulse 3s var(--ease-in-out) infinite;
+  }
+
+  .animate-glow-gold {
+    animation: oye-glow-gold 3s var(--ease-in-out) infinite;
+  }
+
+  .animate-spin-slow {
+    animation: oye-spin-slow 8s linear infinite;
+  }
+
+  .animate-float {
+    animation: oye-float 4s var(--ease-in-out) infinite;
+  }
+
+  .animate-gradient-shift {
+    background-size: 200% 200%;
+    animation: oye-gradient-shift 6s var(--ease-in-out) infinite;
+  }
+}

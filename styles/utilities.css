@@ -1,0 +1,120 @@
+/**
+ * Oyestore Design System — Premium Utility Classes
+ */
+
+@layer utilities {
+  /* ─── Glass Effects ───────────────────────────────────────────────────── */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+  }
+
+  .glass-dark {
+    background: var(--glass-bg-dark);
+    backdrop-filter: blur(var(--glass-blur-heavy));
+    -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
+    border: 1px solid var(--glass-border-dark);
+  }
+
+  /* ─── Premium Border ──────────────────────────────────────────────────── */
+  .premium-border {
+    position: relative;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .premium-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--gradient-border);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+  }
+
+  /* ─── Premium Shadow ────────────────────────────────────────────────── */
+  .premium-shadow {
+    box-shadow: var(--shadow-premium);
+    transition: var(--transition-shadow);
+  }
+
+  .premium-shadow:hover {
+    box-shadow: var(--shadow-lg), var(--shadow-glow-blue);
+  }
+
+  /* ─── Gradients ─────────────────────────────────────────────────────── */
+  .hero-gradient {
+    background: var(--gradient-hero);
+    position: relative;
+  }
+
+  .hero-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-hero-radial);
+    pointer-events: none;
+  }
+
+  .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* ─── Layout ──────────────────────────────────────────────────────────── */
+  .section-padding {
+    padding-top: var(--section-padding-y-sm);
+    padding-bottom: var(--section-padding-y-sm);
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: var(--section-padding-y);
+      padding-bottom: var(--section-padding-y);
+    }
+  }
+
+  .container-premium {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+  }
+
+  /* ─── Typography Helpers ────────────────────────────────────────────── */
+  .font-heading {
+    font-family: var(--font-family-heading);
+  }
+
+  .font-body {
+    font-family: var(--font-family-body);
+  }
+
+  .font-accent {
+    font-family: var(--font-family-accent);
+  }
+
+  /* ─── Transition Helpers ────────────────────────────────────────────── */
+  .transition-premium {
+    transition: var(--transition-all);
+  }
+
+  .transition-colors-premium {
+    transition: var(--transition-colors);
+  }
+
+  .transition-transform-premium {
+    transition: var(--transition-transform);
+  }
+}

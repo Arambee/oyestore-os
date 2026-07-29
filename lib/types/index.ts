@@ -23,3 +23,14 @@ export type {
   UtilityClassKey,
   ZIndexKey,
 } from "./theme";
+
+export type {
+  CategoryChip,
+  Chapter,
+  ChapterHost,
+  ChapterStats,
+  ContinueStory,
+  Creator,
+  CurrentUser,
+  NextDeparture,
+} from "./dashboard";

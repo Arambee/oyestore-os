@@ -36,7 +36,7 @@ export default function Hero() {
 
         <p className="mt-8 max-w-2xl text-lg leading-8 text-white/70">
           Hidden places. Extraordinary people. Carefully curated journeys that
-          feel less like holidays and more like stories you'll tell for years.
+          feel less like holidays and more like stories you&apos;ll tell for years.
         </p>
 
         <div className="mt-10">

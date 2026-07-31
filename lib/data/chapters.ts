@@ -4,7 +4,7 @@ export const chapters: Chapter[] = [
   {
     id: "varkala",
     slug: "varkala",
-    badge: "Chapter Two",
+    state: "Kerala",
     title: "Varkala",
     subtitle:
       "Cliffs, cafés and conversations that stay long after the sunsets.",
@@ -13,11 +13,11 @@ export const chapters: Chapter[] = [
     host: {
       name: "Mehar Sachdeva",
       avatar:
-        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80",
+        "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80",
       verified: true,
     },
     ctaLabel: "See the Story",
-    ctaHref: "/experiences/varkala",
+    ctaHref: "/destinations/kerala/varkala",
     stats: {
       travellers: 20,
       rating: 4.9,

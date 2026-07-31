@@ -25,12 +25,19 @@ export type {
 } from "./theme";
 
 export type {
-  CategoryChip,
   Chapter,
   ChapterHost,
   ChapterStats,
   ContinueStory,
   Creator,
   CurrentUser,
+  DiscoveryItem,
+  HiddenSpot,
+  HostedPlaceRef,
+  ItineraryDay,
+  Mood,
   NextDeparture,
+  Place,
+  SeasonShowcase,
+  StateChapter,
 } from "./dashboard";

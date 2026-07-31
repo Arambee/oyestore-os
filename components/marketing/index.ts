@@ -1,2 +1,2 @@
-/** Marketing components — hero sections, feature blocks, CTAs */
+/** Marketing components - hero sections, feature blocks, CTAs */
 export {};

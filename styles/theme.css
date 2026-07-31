@@ -1,51 +1,49 @@
 /**
- * Oyestore Design System — Centralized Design Tokens
+ * Oyestore Design System - Centralized Design Tokens
  * Dark mode is the default (:root). Light mode activates via `.light`.
  */
 
 :root {
   /* ─── Brand Palette ───────────────────────────────────────────────────── */
-  --color-midnight: #0b1633;
-  --color-royal-blue: #1e3a8a;
+  --color-midnight: #00021e;
+  --color-accent-red: #c8102e;
   --color-pearl: #f8f9fb;
-  --color-burgundy: #7a1124;
-  --color-champagne: #d4af37;
   --color-platinum: #d9d9d9;
   --color-slate: #1f2937;
 
-  /* ─── Semantic Colors (Dark — Default) ────────────────────────────────── */
+  /* ─── Semantic Colors (Dark - Default) ────────────────────────────────── */
   --background: var(--color-midnight);
   --foreground: var(--color-pearl);
-  --card: #0f1d42;
+  --card: #050b33;
   --card-foreground: var(--color-pearl);
-  --popover: #0f1d42;
+  --popover: #050b33;
   --popover-foreground: var(--color-pearl);
-  --primary: var(--color-royal-blue);
+  --primary: var(--color-accent-red);
   --primary-foreground: var(--color-pearl);
   --secondary: var(--color-slate);
   --secondary-foreground: var(--color-pearl);
-  --muted: #162040;
+  --muted: #0a1240;
   --muted-foreground: #94a3b8;
-  --accent: var(--color-champagne);
-  --accent-foreground: var(--color-midnight);
-  --destructive: var(--color-burgundy);
+  --accent: var(--color-accent-red);
+  --accent-foreground: var(--color-pearl);
+  --destructive: var(--color-accent-red);
   --destructive-foreground: var(--color-pearl);
   --border: rgb(217 217 217 / 12%);
   --input: rgb(217 217 217 / 15%);
-  --ring: var(--color-royal-blue);
-  --chart-1: var(--color-royal-blue);
-  --chart-2: var(--color-champagne);
-  --chart-3: var(--color-burgundy);
-  --chart-4: var(--color-platinum);
-  --chart-5: #3b5998;
-  --sidebar: #0a1329;
+  --ring: var(--color-accent-red);
+  --chart-1: var(--color-accent-red);
+  --chart-2: var(--color-pearl);
+  --chart-3: var(--color-platinum);
+  --chart-4: var(--color-slate);
+  --chart-5: #8a1f2e;
+  --sidebar: #00021f;
   --sidebar-foreground: var(--color-pearl);
-  --sidebar-primary: var(--color-royal-blue);
+  --sidebar-primary: var(--color-accent-red);
   --sidebar-primary-foreground: var(--color-pearl);
   --sidebar-accent: var(--color-slate);
   --sidebar-accent-foreground: var(--color-pearl);
   --sidebar-border: rgb(217 217 217 / 10%);
-  --sidebar-ring: var(--color-royal-blue);
+  --sidebar-ring: var(--color-accent-red);
 
   /* ─── Typography ──────────────────────────────────────────────────────── */
   --font-family-heading: var(--font-league-spartan), system-ui, sans-serif;
@@ -126,16 +124,15 @@
   --radius-full: 9999px;
 
   /* ─── Shadows ─────────────────────────────────────────────────────────── */
-  --shadow-xs: 0 1px 2px rgb(11 22 51 / 8%);
-  --shadow-sm: 0 1px 3px rgb(11 22 51 / 12%), 0 1px 2px rgb(11 22 51 / 8%);
-  --shadow-md: 0 4px 6px -1px rgb(11 22 51 / 14%), 0 2px 4px -2px rgb(11 22 51 / 10%);
-  --shadow-lg: 0 10px 15px -3px rgb(11 22 51 / 16%), 0 4px 6px -4px rgb(11 22 51 / 10%);
-  --shadow-xl: 0 20px 25px -5px rgb(11 22 51 / 18%), 0 8px 10px -6px rgb(11 22 51 / 10%);
-  --shadow-2xl: 0 25px 50px -12px rgb(11 22 51 / 30%);
-  --shadow-premium: 0 8px 32px rgb(11 22 51 / 24%), 0 0 0 1px rgb(217 217 217 / 8%);
-  --shadow-glow-blue: 0 0 24px rgb(30 58 138 / 35%);
-  --shadow-glow-gold: 0 0 24px rgb(212 175 55 / 30%);
-  --shadow-inner: inset 0 2px 4px rgb(11 22 51 / 12%);
+  --shadow-xs: 0 1px 2px rgb(0 3 41 / 8%);
+  --shadow-sm: 0 1px 3px rgb(0 3 41 / 12%), 0 1px 2px rgb(0 3 41 / 8%);
+  --shadow-md: 0 4px 6px -1px rgb(0 3 41 / 14%), 0 2px 4px -2px rgb(0 3 41 / 10%);
+  --shadow-lg: 0 10px 15px -3px rgb(0 3 41 / 16%), 0 4px 6px -4px rgb(0 3 41 / 10%);
+  --shadow-xl: 0 20px 25px -5px rgb(0 3 41 / 18%), 0 8px 10px -6px rgb(0 3 41 / 10%);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 3 41 / 30%);
+  --shadow-premium: 0 8px 32px rgb(0 3 41 / 24%), 0 0 0 1px rgb(217 217 217 / 8%);
+  --shadow-glow-accent: 0 0 24px rgb(200 16 46 / 35%);
+  --shadow-inner: inset 0 2px 4px rgb(0 3 41 / 12%);
 
   /* ─── Glass Effects ───────────────────────────────────────────────────── */
   --glass-bg: rgb(248 249 251 / 8%);
@@ -181,31 +178,31 @@
   --gradient-hero: linear-gradient(
     135deg,
     var(--color-midnight) 0%,
-    var(--color-royal-blue) 50%,
-    #0f1d42 100%
+    #4a0716 50%,
+    #050b33 100%
   );
   --gradient-hero-radial: radial-gradient(
     ellipse 80% 60% at 50% -10%,
-    rgb(30 58 138 / 45%) 0%,
+    rgb(200 16 46 / 35%) 0%,
     transparent 70%
   );
   --gradient-text: linear-gradient(
     135deg,
     var(--color-pearl) 0%,
-    var(--color-champagne) 50%,
+    var(--color-accent-red) 50%,
     var(--color-platinum) 100%
   );
   --gradient-premium: linear-gradient(
     135deg,
-    var(--color-royal-blue) 0%,
-    #2d4a9e 50%,
-    var(--color-champagne) 100%
+    var(--color-accent-red) 0%,
+    #8a1f2e 50%,
+    var(--color-pearl) 100%
   );
   --gradient-border: linear-gradient(
     135deg,
-    rgb(212 175 55 / 60%) 0%,
+    rgb(200 16 46 / 60%) 0%,
     rgb(217 217 217 / 20%) 50%,
-    rgb(30 58 138 / 40%) 100%
+    rgb(0 3 41 / 40%) 100%
   );
   --gradient-surface: linear-gradient(
     180deg,
@@ -247,69 +244,69 @@
   --card-foreground: var(--color-midnight);
   --popover: #ffffff;
   --popover-foreground: var(--color-midnight);
-  --primary: var(--color-royal-blue);
+  --primary: var(--color-accent-red);
   --primary-foreground: var(--color-pearl);
   --secondary: #eef0f4;
   --secondary-foreground: var(--color-midnight);
   --muted: #eef0f4;
   --muted-foreground: #64748b;
-  --accent: var(--color-champagne);
-  --accent-foreground: var(--color-midnight);
-  --destructive: var(--color-burgundy);
+  --accent: var(--color-accent-red);
+  --accent-foreground: var(--color-pearl);
+  --destructive: var(--color-accent-red);
   --destructive-foreground: var(--color-pearl);
-  --border: rgb(11 22 51 / 10%);
-  --input: rgb(11 22 51 / 12%);
-  --ring: var(--color-royal-blue);
+  --border: rgb(0 3 41 / 10%);
+  --input: rgb(0 3 41 / 12%);
+  --ring: var(--color-accent-red);
   --sidebar: #ffffff;
   --sidebar-foreground: var(--color-midnight);
-  --sidebar-primary: var(--color-royal-blue);
+  --sidebar-primary: var(--color-accent-red);
   --sidebar-primary-foreground: var(--color-pearl);
   --sidebar-accent: #eef0f4;
   --sidebar-accent-foreground: var(--color-midnight);
-  --sidebar-border: rgb(11 22 51 / 10%);
-  --sidebar-ring: var(--color-royal-blue);
+  --sidebar-border: rgb(0 3 41 / 10%);
+  --sidebar-ring: var(--color-accent-red);
 
   --glass-bg: rgb(255 255 255 / 70%);
-  --glass-bg-dark: rgb(11 22 51 / 5%);
-  --glass-border: rgb(11 22 51 / 10%);
-  --glass-border-dark: rgb(11 22 51 / 8%);
+  --glass-bg-dark: rgb(0 3 41 / 5%);
+  --glass-border: rgb(0 3 41 / 10%);
+  --glass-border-dark: rgb(0 3 41 / 8%);
 
-  --shadow-xs: 0 1px 2px rgb(11 22 51 / 6%);
-  --shadow-sm: 0 1px 3px rgb(11 22 51 / 8%), 0 1px 2px rgb(11 22 51 / 5%);
-  --shadow-md: 0 4px 6px -1px rgb(11 22 51 / 10%), 0 2px 4px -2px rgb(11 22 51 / 6%);
-  --shadow-lg: 0 10px 15px -3px rgb(11 22 51 / 12%), 0 4px 6px -4px rgb(11 22 51 / 6%);
-  --shadow-xl: 0 20px 25px -5px rgb(11 22 51 / 14%), 0 8px 10px -6px rgb(11 22 51 / 6%);
-  --shadow-2xl: 0 25px 50px -12px rgb(11 22 51 / 20%);
-  --shadow-premium: 0 8px 32px rgb(11 22 51 / 12%), 0 0 0 1px rgb(11 22 51 / 6%);
+  --shadow-xs: 0 1px 2px rgb(0 3 41 / 6%);
+  --shadow-sm: 0 1px 3px rgb(0 3 41 / 8%), 0 1px 2px rgb(0 3 41 / 5%);
+  --shadow-md: 0 4px 6px -1px rgb(0 3 41 / 10%), 0 2px 4px -2px rgb(0 3 41 / 6%);
+  --shadow-lg: 0 10px 15px -3px rgb(0 3 41 / 12%), 0 4px 6px -4px rgb(0 3 41 / 6%);
+  --shadow-xl: 0 20px 25px -5px rgb(0 3 41 / 14%), 0 8px 10px -6px rgb(0 3 41 / 6%);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 3 41 / 20%);
+  --shadow-premium: 0 8px 32px rgb(0 3 41 / 12%), 0 0 0 1px rgb(0 3 41 / 6%);
 }
 
-/* shadcn / next-themes compatibility — `.dark` mirrors default :root tokens */
+/* shadcn / next-themes compatibility - `.dark` mirrors default :root tokens */
 .dark {
   --background: var(--color-midnight);
   --foreground: var(--color-pearl);
-  --card: #0f1d42;
+  --card: #050b33;
   --card-foreground: var(--color-pearl);
-  --popover: #0f1d42;
+  --popover: #050b33;
   --popover-foreground: var(--color-pearl);
-  --primary: var(--color-royal-blue);
+  --primary: var(--color-accent-red);
   --primary-foreground: var(--color-pearl);
   --secondary: var(--color-slate);
   --secondary-foreground: var(--color-pearl);
-  --muted: #162040;
+  --muted: #0a1240;
   --muted-foreground: #94a3b8;
-  --accent: var(--color-champagne);
-  --accent-foreground: var(--color-midnight);
-  --destructive: var(--color-burgundy);
+  --accent: var(--color-accent-red);
+  --accent-foreground: var(--color-pearl);
+  --destructive: var(--color-accent-red);
   --destructive-foreground: var(--color-pearl);
   --border: rgb(217 217 217 / 12%);
   --input: rgb(217 217 217 / 15%);
-  --ring: var(--color-royal-blue);
-  --sidebar: #0a1329;
+  --ring: var(--color-accent-red);
+  --sidebar: #00021f;
   --sidebar-foreground: var(--color-pearl);
-  --sidebar-primary: var(--color-royal-blue);
+  --sidebar-primary: var(--color-accent-red);
   --sidebar-primary-foreground: var(--color-pearl);
   --sidebar-accent: var(--color-slate);
   --sidebar-accent-foreground: var(--color-pearl);
   --sidebar-border: rgb(217 217 217 / 10%);
-  --sidebar-ring: var(--color-royal-blue);
+  --sidebar-ring: var(--color-accent-red);
 }

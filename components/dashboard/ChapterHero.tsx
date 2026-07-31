@@ -8,32 +8,32 @@ export default function ChapterHero() {
   const chapter = chapters[0];
 
   return (
-    <section className="relative overflow-hidden rounded-3xl bg-card">
-      <div className="relative h-[520px] w-full">
+    <section className="premium-border premium-shadow relative rounded-3xl">
+      <div className="relative h-[420px] w-full overflow-hidden rounded-3xl">
         <Image
           src={chapter.image}
           alt={chapter.title}
           fill
           priority
           sizes="(min-width: 1024px) 60vw, 100vw"
-          className="object-cover"
+          className="object-cover object-bottom"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/10" />
 
-        <div className="relative flex h-full flex-col justify-end p-8">
-          <span className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-champagne/30 bg-card/70 px-4 py-1.5 text-xs font-medium tracking-wider text-champagne backdrop-blur-xl">
-            <span className="size-1.5 rounded-full bg-champagne" />
-            {chapter.badge.toUpperCase()}
+        <div className="relative flex h-full flex-col justify-end p-8 pb-16">
+          <span className="mb-3 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-card/70 px-4 py-1.5 text-xs font-medium tracking-wider text-platinum backdrop-blur-xl">
+            <span className="size-1.5 rounded-full bg-accent-red" />
+            {chapter.state.toUpperCase()} · {chapter.season.toUpperCase()} SEASON
           </span>
 
-          <h2 className="max-w-2xl text-6xl font-black leading-none tracking-tight text-pearl">
+          <h2 className="text-gradient max-w-2xl text-5xl font-black leading-none tracking-tight sm:text-6xl">
             {chapter.title}
           </h2>
 
-          <p className="mt-4 max-w-lg text-white/70">{chapter.subtitle}</p>
+          <p className="mt-3 max-w-lg text-white/70">{chapter.subtitle}</p>
 
-          <div className="mt-6 flex items-center gap-3">
+          <div className="mt-5 flex items-center gap-3">
             <Image
               src={chapter.host.avatar}
               alt={chapter.host.name}
@@ -48,7 +48,7 @@ export default function ChapterHero() {
                 {chapter.host.verified && (
                   <BadgeCheck
                     size={16}
-                    className="text-champagne"
+                    className="text-platinum"
                   />
                 )}
               </div>
@@ -57,7 +57,7 @@ export default function ChapterHero() {
 
           <Link
             href={chapter.ctaHref}
-            className="mt-6 inline-flex w-fit items-center gap-3 rounded-full bg-burgundy px-7 py-4 font-medium text-pearl transition hover:bg-burgundy/90"
+            className="mt-6 inline-flex w-fit items-center gap-3 rounded-full bg-pearl px-7 py-4 font-medium text-midnight transition hover:scale-[1.03] hover:bg-pearl/90"
           >
             {chapter.ctaLabel}
             <ArrowRight size={18} />
@@ -65,7 +65,7 @@ export default function ChapterHero() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 border-t border-border bg-card p-6 sm:grid-cols-3 lg:grid-cols-5">
+      <div className="glass-dark premium-shadow relative z-10 mx-6 -mt-10 grid grid-cols-2 gap-4 rounded-2xl p-6 sm:grid-cols-3 lg:grid-cols-5">
         <Stat
           icon={Users}
           label="Travellers"
@@ -75,7 +75,7 @@ export default function ChapterHero() {
           icon={Star}
           label="Rating"
           value={chapter.stats.rating.toFixed(1)}
-          iconClassName="text-champagne"
+          iconClassName="text-platinum"
         />
         <Stat
           icon={Clock}

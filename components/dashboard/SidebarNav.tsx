@@ -26,7 +26,7 @@ export default function SidebarNav({ items }: SidebarNavProps) {
             className={cn(
               "flex items-center gap-3 rounded-full px-4 py-2.5 text-sm font-medium transition-colors",
               active
-                ? "bg-primary text-primary-foreground"
+                ? "bg-white/10 text-foreground"
                 : "text-muted-foreground hover:bg-muted hover:text-foreground",
             )}
           >

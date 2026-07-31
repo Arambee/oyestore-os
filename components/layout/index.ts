@@ -1,2 +1,2 @@
-/** Layout components — shells, headers, footers, sidebars */
+/** Layout components - shells, headers, footers, sidebars */
 export {};

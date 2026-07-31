@@ -18,10 +18,10 @@ export default function HorizontalCarousel({
   children,
 }: HorizontalCarouselProps) {
   return (
-    <section className="py-16">
-      <div className="mx-auto max-w-7xl px-6">
+    <section>
+      <div className="mx-auto max-w-7xl">
 
-        <div className="mb-8 flex items-center justify-between">
+        <div className="mb-6 flex items-center justify-between">
           <div>
             <h2 className="text-4xl font-black text-foreground">
               {title}
@@ -37,7 +37,7 @@ export default function HorizontalCarousel({
 
         <div
           ref={containerRef}
-          className="flex gap-6 overflow-x-auto scroll-smooth pb-4"
+          className="scrollbar-none flex gap-6 overflow-x-auto scroll-smooth"
         >
           {children}
         </div>

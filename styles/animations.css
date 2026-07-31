@@ -1,5 +1,5 @@
 /**
- * Oyestore Design System — Animation Keyframes & Utilities
+ * Oyestore Design System - Animation Keyframes & Utilities
  */
 
 @keyframes oye-fade-in {
@@ -87,20 +87,20 @@
 @keyframes oye-glow-pulse {
   0%,
   100% {
-    box-shadow: 0 0 16px rgb(30 58 138 / 20%);
+    box-shadow: 0 0 16px rgb(200 16 46 / 20%);
   }
   50% {
-    box-shadow: 0 0 32px rgb(30 58 138 / 40%);
+    box-shadow: 0 0 32px rgb(200 16 46 / 40%);
   }
 }
 
-@keyframes oye-glow-gold {
+@keyframes oye-glow-accent {
   0%,
   100% {
-    box-shadow: 0 0 12px rgb(212 175 55 / 15%);
+    box-shadow: 0 0 12px rgb(200 16 46 / 15%);
   }
   50% {
-    box-shadow: 0 0 28px rgb(212 175 55 / 35%);
+    box-shadow: 0 0 28px rgb(200 16 46 / 35%);
   }
 }
 
@@ -120,6 +120,33 @@
   }
   50% {
     transform: translateY(-8px);
+  }
+}
+
+@keyframes oye-rain-fall {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+}
+
+@keyframes oye-cloud-drift {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
   }
 }
 
@@ -179,8 +206,8 @@
     animation: oye-glow-pulse 3s var(--ease-in-out) infinite;
   }
 
-  .animate-glow-gold {
-    animation: oye-glow-gold 3s var(--ease-in-out) infinite;
+  .animate-glow-accent {
+    animation: oye-glow-accent 3s var(--ease-in-out) infinite;
   }
 
   .animate-spin-slow {
@@ -194,5 +221,13 @@
   .animate-gradient-shift {
     background-size: 200% 200%;
     animation: oye-gradient-shift 6s var(--ease-in-out) infinite;
+  }
+
+  .animate-rain-fall {
+    animation: oye-rain-fall 1s linear infinite;
+  }
+
+  .animate-cloud-drift {
+    animation: oye-cloud-drift 6s var(--ease-in-out) infinite;
   }
 }

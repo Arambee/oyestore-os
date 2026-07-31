@@ -1,11 +1,4 @@
-import { Camera, Car, Compass, Map, Mountain, Palmtree } from "lucide-react";
-
-import type {
-  CategoryChip,
-  ContinueStory,
-  CurrentUser,
-  NextDeparture,
-} from "@/lib/types/dashboard";
+import type { ContinueStory, CurrentUser, NextDeparture } from "@/lib/types/dashboard";
 
 export const currentUser: CurrentUser = {
   name: "ACT",
@@ -16,21 +9,16 @@ export const continueStory: ContinueStory = {
   title: "Kerala Monsoon",
   chapterLabel: "Chapter 02",
   progressPct: 42,
-  resumeHref: "/trips/kerala-monsoon",
+  resumeHref: "/chapters/kerala/munnar",
+  image:
+    "https://images.unsplash.com/photo-1500835556837-99ac94a94552?auto=format&fit=crop&w=200&q=80",
 };
 
 export const nextDeparture: NextDeparture = {
   destination: "Goa",
   date: "14 Aug",
   daysLeft: 3,
-  href: "/trips/goa",
+  href: "/chapters/goa/goa",
+  image:
+    "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=200&q=80",
 };
-
-export const categoryChips: CategoryChip[] = [
-  { label: "Beaches", icon: Palmtree },
-  { label: "Mountains", icon: Mountain },
-  { label: "Road Trips", icon: Car },
-  { label: "Adventure", icon: Compass },
-  { label: "Weekend Getaways", icon: Map },
-  { label: "Photography", icon: Camera },
-];

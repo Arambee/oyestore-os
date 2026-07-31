@@ -10,10 +10,8 @@
 @theme inline {
   /* ─── Brand Colors ────────────────────────────────────────────────────── */
   --color-midnight: var(--color-midnight);
-  --color-royal-blue: var(--color-royal-blue);
+  --color-accent-red: var(--color-accent-red);
   --color-pearl: var(--color-pearl);
-  --color-burgundy: var(--color-burgundy);
-  --color-champagne: var(--color-champagne);
   --color-platinum: var(--color-platinum);
   --color-slate: var(--color-slate);
 
@@ -106,7 +104,7 @@
   }
 
   html {
-    @apply font-body antialiased;
+    @apply font-heading antialiased;
     color-scheme: dark;
   }
 
@@ -115,7 +113,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body;
+    @apply bg-background text-foreground font-heading;
   }
 
   h1,

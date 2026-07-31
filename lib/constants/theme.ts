@@ -1,14 +1,12 @@
 /**
- * Oyestore Design System — TypeScript Design Tokens
+ * Oyestore Design System - TypeScript Design Tokens
  * Mirrors CSS custom properties in styles/theme.css for programmatic use.
  */
 
 export const colors = {
-  midnight: "#0B1633",
-  royalBlue: "#1E3A8A",
+  midnight: "#000329",
+  accentRed: "#C8102E",
   pearl: "#F8F9FB",
-  burgundy: "#7A1124",
-  champagne: "#D4AF37",
   platinum: "#D9D9D9",
   slate: "#1F2937",
 } as const;
@@ -71,8 +69,7 @@ export const shadows = {
   xl: "var(--shadow-xl)",
   "2xl": "var(--shadow-2xl)",
   premium: "var(--shadow-premium)",
-  glowBlue: "var(--shadow-glow-blue)",
-  glowGold: "var(--shadow-glow-gold)",
+  glowAccent: "var(--shadow-glow-accent)",
   inner: "var(--shadow-inner)",
 } as const;
 
@@ -195,7 +192,7 @@ export const animations = {
   scaleIn: "animate-scale-in",
   shimmer: "animate-shimmer",
   glowPulse: "animate-glow-pulse",
-  glowGold: "animate-glow-gold",
+  glowAccent: "animate-glow-accent",
   spinSlow: "animate-spin-slow",
   float: "animate-float",
   gradientShift: "animate-gradient-shift",

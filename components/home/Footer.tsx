@@ -56,29 +56,30 @@ function FooterColumn({
   );
 }
 
+const mobileLinks = [...company, ...support, ...legal];
+
 export default function Footer() {
   return (
-    <footer className="mx-6 mb-6 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl lg:mx-8">
-      <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
-        <div className="col-span-2 sm:col-span-1">
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-xl font-black tracking-tight text-foreground"
-          >
-            <Image
-              src="/brand/oyestore-logo.png"
-              alt="Oyestore"
-              width={32}
-              height={32}
-              className="rounded-full"
-            />
-            Oyestore.
-          </Link>
-          <p className="mt-3 max-w-[220px] text-sm text-muted-foreground">
-            Curated small-group journeys to India&apos;s hidden places.
-          </p>
-        </div>
+    <footer className="mx-4 mb-6 rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl sm:mx-6 sm:p-8 lg:mx-8">
+      <Link
+        href="/"
+        className="flex items-center gap-2 text-lg font-black tracking-tight text-foreground sm:text-xl"
+      >
+        <Image
+          src="/brand/oyestore-logo.png"
+          alt="Oyestore"
+          width={28}
+          height={28}
+          className="rounded-full sm:size-8"
+        />
+        Oyestore.
+      </Link>
+      <p className="mt-2 max-w-[220px] text-xs text-muted-foreground sm:mt-3 sm:text-sm">
+        Curated small-group journeys to India&apos;s hidden places.
+      </p>
 
+      {/* Full sitemap: tablet/desktop only -- mobile already has this via the bottom tab bar + More sheet */}
+      <div className="mt-8 hidden gap-8 sm:grid sm:grid-cols-3 lg:grid-cols-4">
         <FooterColumn
           title="Discover"
           links={navigation}
@@ -97,12 +98,25 @@ export default function Footer() {
         />
       </div>
 
-      <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row">
-        <p className="text-sm text-muted-foreground">
+      {/* Condensed link row: mobile only, covers the links that aren't already in the tab bar/nav sheet */}
+      <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 sm:hidden">
+        {mobileLinks.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="text-xs text-foreground/70 transition hover:text-foreground"
+          >
+            {link.title}
+          </Link>
+        ))}
+      </div>
+
+      <div className="mt-5 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-4 sm:mt-10 sm:flex-row sm:gap-4 sm:pt-6">
+        <p className="text-xs text-muted-foreground sm:text-sm">
           © {new Date().getFullYear()} Oyestore. All rights reserved.
         </p>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           {social.map(({ label, href, icon: Icon }) => (
             <a
               key={label}
@@ -110,9 +124,9 @@ export default function Footer() {
               aria-label={label}
               target="_blank"
               rel="noreferrer"
-              className="flex size-11 items-center justify-center rounded-full border border-white/10 text-muted-foreground transition hover:bg-white/10 hover:text-foreground"
+              className="flex size-9 items-center justify-center rounded-full border border-white/10 text-muted-foreground transition hover:bg-white/10 hover:text-foreground sm:size-11"
             >
-              <Icon size={16} />
+              <Icon size={14} className="sm:size-4" />
             </a>
           ))}
         </div>

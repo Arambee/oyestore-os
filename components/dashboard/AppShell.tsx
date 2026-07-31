@@ -68,7 +68,7 @@ export default function AppShell({ children, rightRail }: AppShellProps) {
 
           <main
             ref={mainRef}
-            className="min-w-0 flex-1 space-y-10 px-6 py-8"
+            className="min-w-0 flex-1 space-y-6 px-4 py-5 sm:space-y-10 sm:px-6 sm:py-8"
           >
             {children}
           </main>

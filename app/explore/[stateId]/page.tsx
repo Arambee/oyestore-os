@@ -34,7 +34,7 @@ export default async function ExploreStatePage({ params }: ExploreStatePageProps
 
       <ExploreStatePills activeStateId={chapter.id} />
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-2 gap-3 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {chapter.places.map((place) => {
           const postCount = communityPosts.filter(
             (post) => post.stateId === chapter.id && post.placeId === place.id,
@@ -44,26 +44,26 @@ export default async function ExploreStatePage({ params }: ExploreStatePageProps
             <Link
               key={place.id}
               href={`/explore/${chapter.id}/${place.id}`}
-              className="glass-dark premium-shadow group overflow-hidden rounded-3xl"
+              className="glass-dark premium-shadow group overflow-hidden rounded-2xl sm:rounded-3xl"
             >
-              <div className="relative h-56 w-full overflow-hidden">
+              <div className="relative h-32 w-full overflow-hidden sm:h-56">
                 <Image
                   src={place.image}
                   alt={place.name}
                   fill
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 50vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-                <h3 className="absolute bottom-4 left-5 text-2xl font-black text-pearl">
+                <h3 className="absolute bottom-2 left-3 text-sm font-black text-pearl sm:bottom-4 sm:left-5 sm:text-2xl">
                   {place.name}
                 </h3>
               </div>
-              <div className="p-5">
-                <p className="line-clamp-2 text-sm text-muted-foreground">
+              <div className="p-3 sm:p-5">
+                <p className="line-clamp-2 text-xs text-muted-foreground sm:text-sm">
                   {place.description}
                 </p>
-                <p className="mt-3 text-xs text-platinum">
+                <p className="mt-2 text-[11px] text-platinum sm:mt-3 sm:text-xs">
                   {postCount} {postCount === 1 ? "post" : "posts"} this season
                 </p>
               </div>

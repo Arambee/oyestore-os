@@ -43,7 +43,7 @@ export default function DestinationsPage() {
               {region.toUpperCase()}
             </p>
 
-            <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
               {statesInRegion.map((state) => {
                 const chapter = currentSeason.chapters.find((c) => c.id === state.id);
 
@@ -75,24 +75,24 @@ export default function DestinationsPage() {
                   <Link
                     key={chapter.id}
                     href={`/destinations/${chapter.id}`}
-                    className="glass-dark premium-shadow group overflow-hidden rounded-3xl"
+                    className="glass-dark premium-shadow group overflow-hidden rounded-2xl sm:rounded-3xl"
                   >
-                    <div className="relative h-56 w-full overflow-hidden">
+                    <div className="relative h-28 w-full overflow-hidden sm:h-56">
                       <Image
                         src={chapter.image}
                         alt={chapter.name}
                         fill
-                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        sizes="(min-width: 1024px) 33vw, 50vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-                      <h3 className="absolute bottom-4 left-5 text-2xl font-black text-pearl">
+                      <h3 className="absolute bottom-2 left-3 text-sm font-black text-pearl sm:bottom-4 sm:left-5 sm:text-2xl">
                         {chapter.name}
                       </h3>
                     </div>
-                    <div className="p-5">
-                      <p className="text-sm text-muted-foreground">{chapter.tagline}</p>
-                      <p className="mt-3 text-xs text-platinum">
+                    <div className="p-3 sm:p-5">
+                      <p className="line-clamp-1 text-xs text-muted-foreground sm:text-sm">{chapter.tagline}</p>
+                      <p className="mt-2 line-clamp-1 text-[10px] text-platinum sm:mt-3 sm:text-xs">
                         {chapter.places.length} {chapter.places.length === 1 ? "page" : "pages"} ·{" "}
                         {creatorCount} {creatorCount === 1 ? "creator" : "creators"} · {postCount}{" "}
                         community {postCount === 1 ? "entry" : "entries"}

@@ -12,7 +12,7 @@ export default function CreatorCard({ id, name, verified, image }: Creator) {
   const [saved, setSaved] = useState(false);
 
   return (
-    <div className="group relative h-44 w-[82vw] shrink-0 snap-start overflow-hidden rounded-3xl sm:w-72">
+    <div className="group relative h-32 w-[46vw] shrink-0 snap-start overflow-hidden rounded-2xl sm:h-44 sm:w-72 sm:rounded-3xl">
       <Link
         href={`/creators/${id}`}
         className="absolute inset-0"
@@ -21,17 +21,18 @@ export default function CreatorCard({ id, name, verified, image }: Creator) {
           src={image}
           alt={name}
           fill
+          sizes="(min-width: 640px) 288px, 46vw"
           className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
 
-        <div className="absolute bottom-5 left-5 flex items-center gap-1.5 text-pearl">
-          <span className="font-medium">{name}</span>
+        <div className="absolute bottom-3 left-3 flex items-center gap-1.5 text-pearl sm:bottom-5 sm:left-5">
+          <span className="text-sm font-medium sm:text-base">{name}</span>
           {verified && (
             <BadgeCheck
-              size={16}
-              className="text-platinum"
+              size={14}
+              className="text-platinum sm:size-4"
             />
           )}
         </div>
@@ -42,13 +43,13 @@ export default function CreatorCard({ id, name, verified, image }: Creator) {
         onClick={() => setSaved((prev) => !prev)}
         aria-label={saved ? "Remove from saved" : "Save creator"}
         className={cn(
-          "absolute right-4 top-4 flex size-11 items-center justify-center rounded-full bg-card/60 backdrop-blur transition hover:text-accent-red",
+          "absolute right-2 top-2 flex size-9 items-center justify-center rounded-full bg-card/60 backdrop-blur transition hover:text-accent-red sm:right-4 sm:top-4 sm:size-11",
           saved ? "text-accent-red" : "text-pearl",
         )}
       >
         <Bookmark
-          size={16}
-          className={saved ? "fill-current" : undefined}
+          size={14}
+          className={cn("sm:size-4", saved ? "fill-current" : undefined)}
         />
       </button>
     </div>

@@ -41,15 +41,15 @@ export default function CreatorsPage() {
         />
       </Link>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-2 gap-3 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {creators.map((creator) => (
           <Link
             key={creator.id}
             href={`/creators/${creator.id}`}
-            className="glass-dark premium-shadow group rounded-3xl p-6"
+            className="glass-dark premium-shadow group rounded-2xl p-3 sm:rounded-3xl sm:p-6"
           >
-            <div className="flex items-center gap-4">
-              <div className="relative size-16 shrink-0 overflow-hidden rounded-full">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="relative size-12 shrink-0 overflow-hidden rounded-full sm:size-16">
                 <Image
                   src={creator.image}
                   alt={creator.name}
@@ -60,7 +60,7 @@ export default function CreatorsPage() {
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
-                  <h3 className="font-bold text-foreground">{creator.name}</h3>
+                  <h3 className="text-sm font-bold text-foreground sm:text-base">{creator.name}</h3>
                   {creator.verified && (
                     <BadgeCheck
                       size={14}
@@ -68,13 +68,13 @@ export default function CreatorsPage() {
                     />
                   )}
                 </div>
-                <p className="text-xs text-platinum">{creator.tagline}</p>
+                <p className="text-[11px] text-platinum sm:text-xs">{creator.tagline}</p>
               </div>
             </div>
 
-            <p className="mt-4 line-clamp-3 text-sm text-muted-foreground">{creator.bio}</p>
+            <p className="mt-3 line-clamp-3 text-xs text-muted-foreground sm:mt-4 sm:text-sm">{creator.bio}</p>
 
-            <p className="mt-4 text-xs font-medium tracking-wider text-muted-foreground">
+            <p className="mt-3 text-[11px] font-medium tracking-wider text-muted-foreground sm:mt-4 sm:text-xs">
               HOSTS {creator.hostedPlaces.length}{" "}
               {creator.hostedPlaces.length === 1 ? "PLACE" : "PLACES"}
             </p>

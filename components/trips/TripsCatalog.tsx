@@ -63,37 +63,37 @@ export default function TripsCatalog({ trips, chapters }: TripsCatalogProps) {
         ))}
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-2 gap-3 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {filteredTrips.map((trip) => (
           <Link
             key={`${trip.chapterId}-${trip.placeId}`}
             href={`/chapters/${trip.chapterId}/${trip.placeId}`}
-            className="glass-dark premium-shadow group overflow-hidden rounded-3xl"
+            className="glass-dark premium-shadow group overflow-hidden rounded-2xl sm:rounded-3xl"
           >
-            <div className="relative h-56 w-full overflow-hidden">
+            <div className="relative h-32 w-full overflow-hidden sm:h-56">
               <Image
                 src={trip.image}
                 alt={trip.placeName}
                 fill
-                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 50vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
               {trip.badge && (
-                <span className="absolute left-4 top-4 rounded-full border border-white/15 bg-card/70 px-3 py-1 text-[11px] font-medium tracking-wide text-platinum backdrop-blur-xl">
+                <span className="absolute left-2 top-2 rounded-full border border-white/15 bg-card/70 px-2 py-0.5 text-[10px] font-medium tracking-wide text-platinum backdrop-blur-xl sm:left-4 sm:top-4 sm:px-3 sm:py-1 sm:text-[11px]">
                   {trip.badge}
                 </span>
               )}
-              <p className="absolute bottom-11 left-5 text-xs tracking-wide text-platinum">
+              <p className="absolute bottom-7 left-3 text-[11px] tracking-wide text-platinum sm:bottom-11 sm:left-5 sm:text-xs">
                 {trip.chapterName.toUpperCase()}
               </p>
-              <h3 className="absolute bottom-4 left-5 text-2xl font-black text-pearl">
+              <h3 className="absolute bottom-2 left-3 text-sm font-black text-pearl sm:bottom-4 sm:left-5 sm:text-2xl">
                 {trip.placeName}
               </h3>
             </div>
-            <div className="p-5">
-              <p className="line-clamp-2 text-sm text-muted-foreground">{trip.description}</p>
-              <div className="mt-4 flex items-center justify-between text-sm">
+            <div className="p-3 sm:p-5">
+              <p className="line-clamp-2 text-xs text-muted-foreground sm:text-sm">{trip.description}</p>
+              <div className="mt-2 flex items-center justify-between text-[11px] sm:mt-4 sm:text-sm">
                 <span className="text-muted-foreground">{trip.duration}</span>
                 <span className="font-bold text-foreground">{trip.startingPrice}</span>
               </div>

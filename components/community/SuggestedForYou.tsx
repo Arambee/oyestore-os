@@ -83,7 +83,7 @@ export default function SuggestedForYou() {
         Matched from what you&apos;ve saved and booked - not a stranger&apos;s algorithm, just your own trail.
       </p>
 
-      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-4 grid grid-cols-2 gap-2 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {suggestions.map((suggestion) => {
           const author = communityAuthors.find((a) => a.id === suggestion.authorId);
           if (!author) return null;
@@ -91,13 +91,13 @@ export default function SuggestedForYou() {
           return (
             <div
               key={author.id}
-              className="glass-dark premium-shadow flex flex-col items-center gap-3 rounded-3xl p-5 text-center"
+              className="glass-dark premium-shadow flex flex-col items-center gap-2 rounded-2xl p-3 text-center sm:gap-3 sm:rounded-3xl sm:p-5"
             >
               <Link
                 href={`/explore/travellers/${author.id}`}
-                className="flex flex-col items-center gap-3"
+                className="flex flex-col items-center gap-2 sm:gap-3"
               >
-                <div className="relative size-16 shrink-0 overflow-hidden rounded-full">
+                <div className="relative size-12 shrink-0 overflow-hidden rounded-full sm:size-16">
                   <Image
                     src={author.avatar}
                     alt={author.name}
@@ -107,8 +107,8 @@ export default function SuggestedForYou() {
                   />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground">{author.name}</h3>
-                  <p className="mt-0.5 text-xs text-muted-foreground">{suggestion.reason}</p>
+                  <h3 className="text-sm font-bold text-foreground sm:text-base">{author.name}</h3>
+                  <p className="mt-0.5 text-[11px] text-muted-foreground sm:text-xs">{suggestion.reason}</p>
                 </div>
               </Link>
               <FollowButton authorId={author.id} />

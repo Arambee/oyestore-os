@@ -29,7 +29,7 @@ export default function StoriesPage() {
         </Link>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-2 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {sortedPosts.map((post) => {
           const author = communityAuthors.find((a) => a.id === post.authorId);
           return (

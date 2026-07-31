@@ -56,29 +56,29 @@ export default function BookingsPage() {
           PAST
         </p>
 
-        <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-4 grid grid-cols-2 gap-3 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {myProfile.trips.map((trip) => (
             <Link
               key={trip.id}
               href={trip.href}
-              className="glass-dark premium-shadow group overflow-hidden rounded-3xl"
+              className="glass-dark premium-shadow group overflow-hidden rounded-2xl sm:rounded-3xl"
             >
-              <div className="relative h-44 w-full overflow-hidden">
+              <div className="relative h-28 w-full overflow-hidden sm:h-44">
                 <Image
                   src={trip.image}
                   alt={trip.title}
                   fill
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 50vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-                <h3 className="absolute bottom-4 left-5 text-xl font-black text-pearl">
+                <h3 className="absolute bottom-2 left-3 text-sm font-black text-pearl sm:bottom-4 sm:left-5 sm:text-xl">
                   {trip.title}
                 </h3>
               </div>
-              <div className="p-5">
-                <p className="text-sm text-muted-foreground">{trip.stateName}</p>
-                <div className="mt-3 flex items-center justify-between text-xs text-muted-foreground">
+              <div className="p-3 sm:p-5">
+                <p className="text-xs text-muted-foreground sm:text-sm">{trip.stateName}</p>
+                <div className="mt-2 flex items-center justify-between text-[11px] text-muted-foreground sm:mt-3 sm:text-xs">
                   <span>{trip.date}</span>
                   <span>{trip.companion}</span>
                 </div>

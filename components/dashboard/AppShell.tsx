@@ -57,7 +57,7 @@ export default function AppShell({ children, rightRail }: AppShellProps) {
         <div className="absolute bottom-0 left-1/3 size-[24rem] rounded-full bg-white/[0.03] blur-[120px]" />
       </div>
 
-      <div className="relative pb-24 lg:pb-0">
+      <div className="relative pb-40 lg:pb-0">
         <TopBar />
 
         <div

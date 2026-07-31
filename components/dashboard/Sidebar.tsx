@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles } from "lucide-react";
+import Image from "next/image";
 
 import { homeItem, navigationGroups } from "@/lib/config/navigation";
 import { currentUser } from "@/lib/data/dashboard";
@@ -32,8 +32,13 @@ export default function Sidebar() {
       ))}
 
       <div className="glass mt-6 rounded-2xl p-4">
-        <div className="flex size-8 items-center justify-center rounded-full bg-white/10 text-foreground">
-          <Sparkles size={15} />
+        <div className="flex size-8 items-center justify-center overflow-hidden rounded-full bg-white/10 text-foreground">
+          <Image
+            src="/brand/oyestore-logo.png"
+            alt="Oyestore"
+            width={32}
+            height={32}
+          />
         </div>
         <p className="mt-3 text-sm font-bold text-foreground">Bringing Better</p>
         <p className="mt-1 text-xs text-muted-foreground">

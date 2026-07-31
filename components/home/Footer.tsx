@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Camera, MessageCircle, Users } from "lucide-react";
 
@@ -62,8 +63,15 @@ export default function Footer() {
         <div className="col-span-2 sm:col-span-1">
           <Link
             href="/"
-            className="text-xl font-black tracking-tight text-foreground"
+            className="flex items-center gap-2 text-xl font-black tracking-tight text-foreground"
           >
+            <Image
+              src="/brand/oyestore-logo.png"
+              alt="Oyestore"
+              width={32}
+              height={32}
+              className="rounded-full"
+            />
             Oyestore.
           </Link>
           <p className="mt-3 max-w-[220px] text-sm text-muted-foreground">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Bell, Home, Search, User } from "lucide-react";
 
@@ -7,8 +8,15 @@ export default function TopBar() {
       <div className="flex items-center gap-6 px-6 py-4">
         <Link
           href="/"
-          className="shrink-0 text-xl font-black tracking-tight text-foreground"
+          className="flex shrink-0 items-center gap-2 text-xl font-black tracking-tight text-foreground"
         >
+          <Image
+            src="/brand/oyestore-logo.png"
+            alt="Oyestore"
+            width={32}
+            height={32}
+            className="rounded-full"
+          />
           Oyestore.
         </Link>
 

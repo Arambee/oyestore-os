@@ -26,7 +26,7 @@ export default function FollowButton({ authorId, size = "sm" }: FollowButtonProp
       aria-pressed={following}
       className={cn(
         "flex shrink-0 items-center gap-1.5 rounded-full font-medium transition",
-        size === "sm" ? "px-3 py-1.5 text-xs" : "px-5 py-2.5 text-sm",
+        size === "sm" ? "px-3.5 py-2 text-xs" : "px-5 py-2.5 text-sm",
         following
           ? "bg-white/10 text-foreground hover:bg-white/15"
           : "bg-pearl text-background hover:bg-white",

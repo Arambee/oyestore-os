@@ -150,7 +150,7 @@ export default function HostApplicationForm() {
                 onClick={() => toggleChapter(chapter.id)}
                 aria-pressed={selected}
                 className={cn(
-                  "rounded-full border px-3.5 py-1.5 text-sm font-medium transition",
+                  "rounded-full border px-4 py-2.5 text-sm font-medium transition",
                   selected
                     ? "border-white/25 bg-white/10 text-foreground"
                     : "border-transparent bg-white/5 text-muted-foreground hover:bg-white/10",

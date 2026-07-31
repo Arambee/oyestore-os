@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 
 
 import Footer from "@/components/home/Footer";
 
+import MobileTabBar from "./MobileTabBar";
 import Sidebar from "./Sidebar";
 import TopBar from "./TopBar";
 
@@ -56,7 +57,7 @@ export default function AppShell({ children, rightRail }: AppShellProps) {
         <div className="absolute bottom-0 left-1/3 size-[24rem] rounded-full bg-white/[0.03] blur-[120px]" />
       </div>
 
-      <div className="relative">
+      <div className="relative pb-24 lg:pb-0">
         <TopBar />
 
         <div
@@ -77,6 +78,8 @@ export default function AppShell({ children, rightRail }: AppShellProps) {
 
         <Footer />
       </div>
+
+      <MobileTabBar />
     </div>
   );
 }

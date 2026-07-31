@@ -95,7 +95,7 @@ export default function ProfilePage() {
             }}
           />
 
-          <div className="relative flex flex-wrap justify-center gap-6 sm:gap-10">
+          <div className="relative flex flex-wrap justify-center gap-4 sm:gap-10">
             {trips.map((trip, index) => (
               <PassportStamp
                 key={trip.id}
@@ -126,7 +126,7 @@ export default function ProfilePage() {
                 sizes="(min-width: 1024px) 20vw, 33vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-black/0 opacity-0 transition group-hover:bg-black/50 group-hover:opacity-100">
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-black/50 opacity-100 transition sm:bg-black/0 sm:opacity-0 sm:group-hover:bg-black/50 sm:group-hover:opacity-100">
                 <div className="flex items-center gap-1.5 text-pearl">
                   <Heart
                     size={16}

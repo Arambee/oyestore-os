@@ -23,7 +23,7 @@ export default function PassportStamp({
     <Link
       href={href}
       style={{ transform: `rotate(${rotate}deg)` }}
-      className="group relative w-36 shrink-0 transition-transform duration-300 hover:z-10 hover:rotate-0 hover:scale-110 sm:w-40"
+      className="group relative w-32 shrink-0 transition-transform duration-300 hover:z-10 hover:rotate-0 hover:scale-110 sm:w-40"
     >
       <div className="absolute -top-2.5 left-1/2 z-10 size-4 -translate-x-1/2 rounded-full bg-gradient-to-br from-white to-platinum shadow-md">
         <div className="absolute inset-0 m-auto size-1.5 rounded-full bg-accent-red" />

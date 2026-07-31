@@ -19,13 +19,13 @@ export default function DiscoveryCard({
   return (
     <Link
       href={href}
-      className="group relative h-44 w-72 shrink-0 overflow-hidden rounded-3xl"
+      className="group relative h-44 w-[82vw] shrink-0 snap-start overflow-hidden rounded-3xl sm:w-72"
     >
       <Image
         src={image}
         alt={title}
         fill
-        sizes="288px"
+        sizes="(min-width: 640px) 288px, 82vw"
         className="object-cover transition-transform duration-700 group-hover:scale-110"
       />
 

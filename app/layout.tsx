@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import {
   Inter,
   League_Spartan,
@@ -34,6 +34,13 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Oyestore",
   description: "Premium commerce experience",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#00021e",
+  viewportFit: "cover",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({

@@ -21,9 +21,9 @@ export default function HorizontalCarousel({
     <section>
       <div className="mx-auto max-w-7xl">
 
-        <div className="mb-6 flex items-center justify-between">
+        <div className="mb-4 flex items-center justify-between sm:mb-6">
           <div>
-            <h2 className="text-4xl font-black text-foreground">
+            <h2 className="text-2xl font-black text-foreground sm:text-3xl lg:text-4xl">
               {title}
             </h2>
 
@@ -37,7 +37,7 @@ export default function HorizontalCarousel({
 
         <div
           ref={containerRef}
-          className="scrollbar-none flex gap-6 overflow-x-auto scroll-smooth"
+          className="scrollbar-none flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth sm:gap-6"
         >
           {children}
         </div>

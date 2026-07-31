@@ -12,7 +12,7 @@ export default function CreatorCard({ id, name, verified, image }: Creator) {
   const [saved, setSaved] = useState(false);
 
   return (
-    <div className="group relative h-44 w-72 shrink-0 overflow-hidden rounded-3xl">
+    <div className="group relative h-44 w-[82vw] shrink-0 snap-start overflow-hidden rounded-3xl sm:w-72">
       <Link
         href={`/creators/${id}`}
         className="absolute inset-0"
@@ -42,7 +42,7 @@ export default function CreatorCard({ id, name, verified, image }: Creator) {
         onClick={() => setSaved((prev) => !prev)}
         aria-label={saved ? "Remove from saved" : "Save creator"}
         className={cn(
-          "absolute right-4 top-4 flex size-9 items-center justify-center rounded-full bg-card/60 backdrop-blur transition hover:text-accent-red",
+          "absolute right-4 top-4 flex size-11 items-center justify-center rounded-full bg-card/60 backdrop-blur transition hover:text-accent-red",
           saved ? "text-accent-red" : "text-pearl",
         )}
       >

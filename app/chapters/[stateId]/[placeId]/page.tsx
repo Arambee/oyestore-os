@@ -47,7 +47,7 @@ export default async function PlacePage({
               <p className="text-xs font-medium tracking-wider text-platinum">
                 {chapter.name.toUpperCase()} CHAPTER
               </p>
-              <h1 className="text-gradient mt-2 text-5xl font-black leading-none tracking-tight">
+              <h1 className="text-gradient mt-2 text-4xl font-black leading-none tracking-tight sm:text-5xl">
                 {place.name}
               </h1>
               <p className="mt-3 max-w-lg text-white/70">{place.description}</p>

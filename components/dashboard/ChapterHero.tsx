@@ -27,7 +27,7 @@ export default function ChapterHero() {
             {chapter.state.toUpperCase()} · {chapter.season.toUpperCase()} SEASON
           </span>
 
-          <h2 className="text-gradient max-w-2xl text-5xl font-black leading-none tracking-tight sm:text-6xl">
+          <h2 className="text-gradient max-w-2xl text-4xl font-black leading-none tracking-tight sm:text-5xl lg:text-6xl">
             {chapter.title}
           </h2>
 

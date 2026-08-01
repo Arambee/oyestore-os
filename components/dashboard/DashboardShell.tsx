@@ -14,6 +14,8 @@ import ChapterHero from "./ChapterHero";
 import CreatorsRail from "./CreatorsRail";
 import DiscoveryRail from "./DiscoveryRail";
 import GreetingBanner from "./GreetingBanner";
+import HighlightStrip from "./HighlightStrip";
+import MoodRailCircular from "./MoodRailCircular";
 import RightRail from "./RightRail";
 
 const chapterItems = currentSeason.chapters.map((chapter) => ({
@@ -44,7 +46,14 @@ export default function DashboardShell() {
         items={chapterItems}
       />
 
-      <DiscoveryRail
+      <div className="hidden lg:block">
+        <DiscoveryRail
+          title="Mood"
+          subtitle="Where's your mood taking you today?"
+          items={moodItems}
+        />
+      </div>
+      <MoodRailCircular
         title="Mood"
         subtitle="Where's your mood taking you today?"
         items={moodItems}
@@ -63,6 +72,20 @@ export default function DashboardShell() {
         subtitle={`The best of ${currentSeason.name} while it lasts.`}
         items={bestOfSeason}
       />
+
+      <div className="lg:hidden">
+        <HighlightStrip
+          eyebrow={
+            festivals[0].badge
+              ? `Festival bonanza · ${festivals[0].badge}`
+              : "Festival bonanza"
+          }
+          title={festivals[0].title}
+          subtitle={festivals[0].subtitle}
+          ctaLabel="Time your trip"
+          href="/destinations/kerala"
+        />
+      </div>
 
       <DiscoveryRail
         title="Festival Bonanza"

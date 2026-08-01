@@ -24,47 +24,55 @@ export default function MobileTabBar() {
   return (
     <>
       <div className="safe-bottom fixed inset-x-0 bottom-0 z-40 lg:hidden">
-        <MobileContinueBar />
+        <div className="px-3 pb-3">
+          <div className="mb-2">
+            <MobileContinueBar />
+          </div>
 
-        <nav className="glass-dark flex h-16 items-stretch justify-around border-t border-white/10">
-          {TABS.map((tab) => {
-            const active = pathname === tab.href;
-            const Icon = tab.icon;
+          <nav className="glass-dark premium-shadow flex items-stretch justify-around gap-1 rounded-full border border-white/10 p-1.5">
+            {TABS.map((tab) => {
+              const active = pathname === tab.href;
+              const Icon = tab.icon;
 
-            return (
-              <Link
-                key={tab.href}
-                href={tab.href}
-                className={cn(
-                  "flex min-w-11 flex-1 flex-col items-center justify-center gap-1 text-[11px] font-medium transition-colors",
-                  active ? "text-foreground" : "text-muted-foreground",
-                )}
-              >
-                <Icon
-                  size={20}
-                  strokeWidth={active ? 2.5 : 2}
-                />
-                {tab.title}
-              </Link>
-            );
-          })}
+              return (
+                <Link
+                  key={tab.href}
+                  href={tab.href}
+                  className={cn(
+                    "flex min-w-11 flex-1 flex-col items-center justify-center gap-0.5 rounded-full py-2 text-[10.5px] font-semibold transition-all",
+                    active
+                      ? "bg-gradient-to-br from-accent-red to-accent-red/70 text-pearl shadow-[0_4px_14px_-2px_rgba(200,16,46,0.55)]"
+                      : "text-muted-foreground",
+                  )}
+                >
+                  <Icon
+                    size={19}
+                    strokeWidth={active ? 2.5 : 2}
+                  />
+                  {tab.title}
+                </Link>
+              );
+            })}
 
-          <button
-            type="button"
-            onClick={() => setMoreOpen(true)}
-            aria-label="More"
-            className={cn(
-              "flex min-w-11 flex-1 flex-col items-center justify-center gap-1 text-[11px] font-medium transition-colors",
-              moreOpen ? "text-foreground" : "text-muted-foreground",
-            )}
-          >
-            <Menu
-              size={20}
-              strokeWidth={moreOpen ? 2.5 : 2}
-            />
-            More
-          </button>
-        </nav>
+            <button
+              type="button"
+              onClick={() => setMoreOpen(true)}
+              aria-label="More"
+              className={cn(
+                "flex min-w-11 flex-1 flex-col items-center justify-center gap-0.5 rounded-full py-2 text-[10.5px] font-semibold transition-all",
+                moreOpen
+                  ? "bg-gradient-to-br from-accent-red to-accent-red/70 text-pearl shadow-[0_4px_14px_-2px_rgba(200,16,46,0.55)]"
+                  : "text-muted-foreground",
+              )}
+            >
+              <Menu
+                size={19}
+                strokeWidth={moreOpen ? 2.5 : 2}
+              />
+              More
+            </button>
+          </nav>
+        </div>
       </div>
 
       <MobileMoreSheet

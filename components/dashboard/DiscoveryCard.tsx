@@ -19,7 +19,7 @@ export default function DiscoveryCard({
   return (
     <Link
       href={href}
-      className="group relative h-32 w-[46vw] shrink-0 snap-start overflow-hidden rounded-2xl sm:h-44 sm:w-72 sm:rounded-3xl"
+      className="group premium-shadow relative h-32 w-[46vw] shrink-0 snap-start overflow-hidden rounded-2xl border border-white/10 sm:h-44 sm:w-72 sm:rounded-3xl"
     >
       <Image
         src={image}
@@ -32,7 +32,8 @@ export default function DiscoveryCard({
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-transparent" />
 
       {badge && (
-        <span className="absolute left-2.5 top-2.5 rounded-full border border-white/15 bg-card/70 px-2.5 py-0.5 text-[10px] font-medium tracking-wide text-platinum backdrop-blur-xl sm:left-4 sm:top-4 sm:px-3 sm:py-1 sm:text-[11px]">
+        <span className="absolute left-2.5 top-2.5 inline-flex items-center gap-1.5 rounded-full border border-accent-red/30 bg-card/80 px-2.5 py-0.5 text-[10px] font-semibold tracking-wide text-pearl backdrop-blur-xl sm:left-4 sm:top-4 sm:px-3 sm:py-1 sm:text-[11px]">
+          <span className="size-1.5 shrink-0 rounded-full bg-accent-red" />
           {badge}
         </span>
       )}

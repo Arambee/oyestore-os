@@ -12,7 +12,7 @@ export default function CreatorCard({ id, name, verified, image }: Creator) {
   const [saved, setSaved] = useState(false);
 
   return (
-    <div className="group relative h-32 w-[46vw] shrink-0 snap-start overflow-hidden rounded-2xl sm:h-44 sm:w-72 sm:rounded-3xl">
+    <div className="group premium-shadow relative h-32 w-[46vw] shrink-0 snap-start overflow-hidden rounded-2xl border border-white/10 sm:h-44 sm:w-72 sm:rounded-3xl">
       <Link
         href={`/creators/${id}`}
         className="absolute inset-0"

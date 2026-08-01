@@ -10,11 +10,11 @@ export default function MobileContinueBar() {
   return (
     <Link
       href={continueStory.resumeHref}
-      className="glass-dark relative flex items-center gap-3 border-t border-white/10 px-4 py-2.5"
+      className="glass-dark premium-shadow relative flex items-center gap-3 overflow-hidden rounded-2xl border border-white/10 px-4 py-2.5"
     >
       <div className="absolute inset-x-0 top-0 h-0.5 bg-muted">
         <div
-          className="h-full bg-platinum"
+          className="h-full bg-gradient-to-r from-accent-red to-accent-red/60"
           style={{ width: `${continueStory.progressPct}%` }}
         />
       </div>

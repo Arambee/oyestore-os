@@ -1,8 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Camera, MessageCircle, Users } from "lucide-react";
+import { Camera, LifeBuoy, MessageCircle, Sparkles, Users } from "lucide-react";
 
 import { navigation } from "@/lib/config/navigation";
+
+const quickTiles = [
+  { title: "Host a trip", href: "/creators/host", icon: Sparkles },
+  { title: "Community", href: "/communities", icon: Users },
+  { title: "Help centre", href: "/help", icon: LifeBuoy },
+];
 
 const company = [
   { title: "About Oyestore", href: "/about" },
@@ -96,6 +102,24 @@ export default function Footer() {
           title="Legal"
           links={legal}
         />
+      </div>
+
+      {/* Quick-action tiles: mobile only */}
+      <div className="mt-5 grid grid-cols-3 gap-2 sm:hidden">
+        {quickTiles.map(({ title, href, icon: Icon }) => (
+          <Link
+            key={href}
+            href={href}
+            className="flex flex-col items-center gap-2 rounded-2xl border border-accent-red/20 bg-accent-red/10 px-2 py-3 text-center"
+          >
+            <span className="flex size-8 items-center justify-center rounded-full bg-accent-red/15 text-accent-red">
+              <Icon size={15} />
+            </span>
+            <span className="text-[10px] font-semibold leading-tight text-foreground">
+              {title}
+            </span>
+          </Link>
+        ))}
       </div>
 
       {/* Condensed link row: mobile only, covers the links that aren't already in the tab bar/nav sheet */}

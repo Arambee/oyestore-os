@@ -58,10 +58,10 @@ export default function ChapterHero() {
 
             <Link
               href={chapter.ctaHref}
-              className="inline-flex w-fit items-center gap-2 rounded-full bg-pearl px-5 py-2.5 text-sm font-medium text-midnight transition hover:scale-[1.03] hover:bg-pearl/90 sm:gap-3 sm:px-7 sm:py-4 sm:text-base"
+              className="inline-flex w-fit items-center gap-2 rounded-full bg-pearl px-5 py-2.5 text-sm font-medium text-midnight transition hover:scale-[1.03] hover:bg-pearl/90"
             >
               {chapter.ctaLabel}
-              <ArrowRight size={18} />
+              <ArrowRight size={16} />
             </Link>
           </div>
         </div>

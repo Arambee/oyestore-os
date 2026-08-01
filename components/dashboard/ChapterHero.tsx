@@ -9,7 +9,7 @@ export default function ChapterHero() {
 
   return (
     <section className="premium-border premium-shadow relative rounded-3xl">
-      <div className="relative h-[360px] w-full overflow-hidden rounded-3xl sm:h-[420px]">
+      <div className="relative h-[310px] w-full overflow-hidden rounded-3xl sm:h-[420px]">
         <Image
           src={chapter.image}
           alt={chapter.title}

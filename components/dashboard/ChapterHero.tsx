@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, BadgeCheck, Calendar, Clock, Star, Tag, Users } from "lucide-react";
 
 import { chapters } from "@/lib/data/chapters";
+import { cn } from "@/lib/utils";
 
 export default function ChapterHero() {
   const chapter = chapters[0];
@@ -91,6 +92,7 @@ export default function ChapterHero() {
           icon={Calendar}
           label="Upcoming Date"
           value={chapter.stats.upcomingDate}
+          className="col-span-2 justify-center sm:col-span-1 sm:justify-start"
         />
       </div>
     </section>
@@ -102,14 +104,16 @@ function Stat({
   label,
   value,
   iconClassName,
+  className,
 }: {
   icon: typeof Users;
   label: string;
   value: string;
   iconClassName?: string;
+  className?: string;
 }) {
   return (
-    <div className="flex items-center gap-2 sm:gap-3">
+    <div className={cn("flex items-center gap-2 sm:gap-3", className)}>
       <Icon
         size={16}
         className={iconClassName ?? "text-muted-foreground"}

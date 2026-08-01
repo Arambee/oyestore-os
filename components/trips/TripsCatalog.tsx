@@ -80,7 +80,8 @@ export default function TripsCatalog({ trips, chapters }: TripsCatalogProps) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
               {trip.badge && (
-                <span className="absolute left-2 top-2 rounded-full border border-white/15 bg-card/70 px-2 py-0.5 text-[10px] font-medium tracking-wide text-platinum backdrop-blur-xl sm:left-4 sm:top-4 sm:px-3 sm:py-1 sm:text-[11px]">
+                <span className="absolute left-2 top-2 inline-flex items-center gap-1.5 rounded-full border border-accent-red/30 bg-card/80 px-2 py-0.5 text-[10px] font-semibold tracking-wide text-pearl backdrop-blur-xl sm:left-4 sm:top-4 sm:px-3 sm:py-1 sm:text-[11px]">
+                  <span className="size-1.5 shrink-0 rounded-full bg-accent-red" />
                   {trip.badge}
                 </span>
               )}

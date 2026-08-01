@@ -14,7 +14,7 @@ export default function PostCard({ post, href, author }: PostCardProps) {
   return (
     <Link
       href={href}
-      className="glass-dark group relative aspect-[4/5] overflow-hidden rounded-2xl"
+      className="glass-dark premium-shadow group relative aspect-[4/5] overflow-hidden rounded-2xl"
     >
       <Image
         src={post.image}

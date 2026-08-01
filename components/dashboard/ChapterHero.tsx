@@ -9,7 +9,7 @@ export default function ChapterHero() {
 
   return (
     <section className="premium-border premium-shadow relative rounded-3xl">
-      <div className="relative h-[310px] w-full overflow-hidden rounded-3xl sm:h-[420px]">
+      <div className="relative h-[310px] w-full overflow-hidden rounded-3xl sm:h-[320px]">
         <Image
           src={chapter.image}
           alt={chapter.title}
@@ -21,12 +21,12 @@ export default function ChapterHero() {
 
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/10" />
 
-        <div className="relative flex h-full flex-col justify-end p-6 pb-9 sm:p-8 sm:pb-16">
-          <span className="mb-3 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-card/70 px-3 py-1 text-[11px] font-medium tracking-wider text-platinum backdrop-blur-xl sm:px-4 sm:py-1.5 sm:text-xs">
-            <span className="size-1.5 rounded-full bg-accent-red" />
-            {chapter.state.toUpperCase()} · {chapter.season.toUpperCase()} SEASON
-          </span>
+        <span className="absolute left-6 top-6 z-10 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-card/70 px-3 py-1 text-[11px] font-medium tracking-wider text-platinum backdrop-blur-xl sm:px-4 sm:py-1.5 sm:text-xs">
+          <span className="size-1.5 rounded-full bg-accent-red" />
+          {chapter.state.toUpperCase()} · {chapter.season.toUpperCase()} SEASON
+        </span>
 
+        <div className="relative flex h-full flex-col justify-end p-6 pb-9 sm:p-8 sm:pb-16">
           <h2 className="text-gradient max-w-2xl text-4xl font-black leading-none tracking-tight sm:text-5xl lg:text-6xl">
             {chapter.title}
           </h2>

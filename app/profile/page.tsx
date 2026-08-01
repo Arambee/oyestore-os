@@ -13,7 +13,7 @@ export default function ProfilePage() {
   return (
     <AppShell>
       <section className="premium-shadow relative overflow-hidden rounded-3xl">
-        <div className="relative h-64 w-full">
+        <div className="relative h-36 w-full sm:h-64">
           <Image
             src={coverImage}
             alt=""
@@ -25,26 +25,26 @@ export default function ProfilePage() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         </div>
 
-        <div className="glass-dark relative flex flex-col gap-6 p-6 pt-0 sm:flex-row sm:items-end sm:justify-between">
-          <div className="-mt-12 flex items-end gap-5">
-            <div className="flex size-24 shrink-0 items-center justify-center rounded-full border-4 border-background bg-white/10 text-3xl font-bold text-foreground">
+        <div className="glass-dark relative flex flex-col gap-3 p-4 pt-0 sm:flex-row sm:items-end sm:justify-between sm:gap-6 sm:p-6">
+          <div className="-mt-8 flex items-end gap-3 sm:-mt-12 sm:gap-5">
+            <div className="flex size-16 shrink-0 items-center justify-center rounded-full border-[3px] border-background bg-white/10 text-xl font-bold text-foreground sm:size-24 sm:border-4 sm:text-3xl">
               {name.charAt(0)}
             </div>
             <div className="pb-1">
-              <h1 className="text-3xl font-black text-foreground">{name}</h1>
-              <p className="text-sm text-muted-foreground">
+              <h1 className="text-2xl font-black text-foreground sm:text-3xl">{name}</h1>
+              <p className="text-xs text-muted-foreground sm:text-sm">
                 Member since {memberSince}
               </p>
             </div>
           </div>
 
-          <button className="glass flex shrink-0 items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-foreground transition hover:bg-white/10">
-            <Pencil size={15} />
+          <button className="glass flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-foreground transition hover:bg-white/10 sm:px-5 sm:py-2.5 sm:text-sm">
+            <Pencil size={13} className="sm:size-[15px]" />
             Edit Profile
           </button>
         </div>
 
-        <div className="glass-dark flex flex-wrap items-center gap-x-8 gap-y-4 rounded-2xl px-6 py-5">
+        <div className="glass-dark grid grid-cols-2 gap-x-6 gap-y-4 rounded-2xl px-4 py-4 sm:flex sm:flex-wrap sm:items-center sm:gap-x-8 sm:gap-y-4 sm:px-6 sm:py-5">
           <Stat
             value={stats.tripsAttended}
             label="Trips attended"
@@ -68,6 +68,7 @@ export default function ProfilePage() {
           <Stat
             value={stats.following}
             label="Following"
+            className="col-span-2 justify-self-center sm:col-span-auto sm:justify-self-auto"
           />
         </div>
       </section>
@@ -144,15 +145,23 @@ export default function ProfilePage() {
   );
 }
 
-function Stat({ value, label }: { value: number; label: string }) {
+function Stat({
+  value,
+  label,
+  className,
+}: {
+  value: number;
+  label: string;
+  className?: string;
+}) {
   return (
-    <div>
-      <p className="text-2xl font-black text-foreground">{value}</p>
-      <p className="text-sm text-muted-foreground">{label}</p>
+    <div className={className}>
+      <p className="text-xl font-black text-foreground sm:text-2xl">{value}</p>
+      <p className="text-xs text-muted-foreground sm:text-sm">{label}</p>
     </div>
   );
 }
 
 function Divider() {
-  return <div className="h-8 w-px bg-white/10" />;
+  return <div className="hidden h-8 w-px bg-white/10 sm:block" />;
 }

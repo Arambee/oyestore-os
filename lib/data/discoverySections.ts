@@ -86,7 +86,7 @@ export const festivals: DiscoveryItem[] = [
     image:
       "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=80",
     badge: "Sep 2026",
-    href: "/festivals/onam",
+    href: "/destinations/kerala",
   },
   {
     id: "festival-ganesh-chaturthi",
@@ -95,7 +95,7 @@ export const festivals: DiscoveryItem[] = [
     image:
       "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?auto=format&fit=crop&w=900&q=80",
     badge: "Aug 2026",
-    href: "/festivals/ganesh-chaturthi",
+    href: "/destinations/goa",
   },
   {
     id: "festival-golu",
@@ -104,7 +104,7 @@ export const festivals: DiscoveryItem[] = [
     image:
       "https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=900&q=80",
     badge: "Oct 2026",
-    href: "/festivals/golu",
+    href: "/destinations/tamil-nadu",
   },
   {
     id: "festival-dasara",
@@ -113,7 +113,7 @@ export const festivals: DiscoveryItem[] = [
     image:
       "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80",
     badge: "Oct 2026",
-    href: "/festivals/dasara",
+    href: "/destinations/karnataka",
   },
 ];
 

@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight, BadgeCheck, Calendar, Clock, Star, Tag, Users } from "lucide-react";
 
 import { chapters } from "@/lib/data/chapters";
-import { cn } from "@/lib/utils";
 
 export default function ChapterHero() {
   const chapter = chapters[0];
@@ -68,7 +67,33 @@ export default function ChapterHero() {
         </div>
       </div>
 
-      <div className="glass-dark premium-shadow relative z-10 mx-4 -mt-6 grid grid-cols-2 gap-3 rounded-2xl p-4 sm:mx-6 sm:-mt-10 sm:grid-cols-3 sm:gap-4 sm:p-6 lg:grid-cols-5">
+      {/* Mobile: compact single-row chip strip -- same 5 stats, a tenth the visual weight */}
+      <div className="scrollbar-none relative z-10 mx-4 -mt-5 flex gap-2 overflow-x-auto sm:hidden">
+        <StatChip
+          icon={Users}
+          value={String(chapter.stats.travellers)}
+        />
+        <StatChip
+          icon={Star}
+          value={chapter.stats.rating.toFixed(1)}
+          iconClassName="text-platinum"
+        />
+        <StatChip
+          icon={Clock}
+          value={`${chapter.stats.durationNights}N`}
+        />
+        <StatChip
+          icon={Tag}
+          value={chapter.stats.startingPrice}
+        />
+        <StatChip
+          icon={Calendar}
+          value={chapter.stats.upcomingDate}
+        />
+      </div>
+
+      {/* Desktop/tablet: full labeled stat grid */}
+      <div className="glass-dark premium-shadow relative z-10 mx-6 -mt-10 hidden grid-cols-3 gap-4 rounded-2xl p-6 sm:grid lg:grid-cols-5">
         <Stat
           icon={Users}
           label="Travellers"
@@ -94,10 +119,29 @@ export default function ChapterHero() {
           icon={Calendar}
           label="Upcoming Date"
           value={chapter.stats.upcomingDate}
-          className="col-span-2 justify-center sm:col-span-1 sm:justify-start"
         />
       </div>
     </section>
+  );
+}
+
+function StatChip({
+  icon: Icon,
+  value,
+  iconClassName,
+}: {
+  icon: typeof Users;
+  value: string;
+  iconClassName?: string;
+}) {
+  return (
+    <div className="glass-dark premium-shadow flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-3.5 py-2 text-xs font-bold text-foreground">
+      <Icon
+        size={14}
+        className={iconClassName ?? "text-muted-foreground"}
+      />
+      {value}
+    </div>
   );
 }
 
@@ -106,23 +150,21 @@ function Stat({
   label,
   value,
   iconClassName,
-  className,
 }: {
   icon: typeof Users;
   label: string;
   value: string;
   iconClassName?: string;
-  className?: string;
 }) {
   return (
-    <div className={cn("flex items-center gap-2 sm:gap-3", className)}>
+    <div className="flex items-center gap-3">
       <Icon
         size={16}
         className={iconClassName ?? "text-muted-foreground"}
       />
       <div>
-        <p className="text-[10px] text-muted-foreground sm:text-xs">{label}</p>
-        <p className="text-sm font-bold text-foreground sm:text-base">{value}</p>
+        <p className="text-xs text-muted-foreground">{label}</p>
+        <p className="text-base font-bold text-foreground">{value}</p>
       </div>
     </div>
   );

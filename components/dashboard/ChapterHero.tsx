@@ -33,7 +33,7 @@ export default function ChapterHero() {
 
           <p className="mt-3 max-w-lg text-sm text-white/70 sm:mt-3 sm:text-base">{chapter.subtitle}</p>
 
-          <div className="mt-6 flex flex-wrap items-center justify-between gap-4 sm:mt-6">
+          <div className="mt-6 flex flex-wrap items-center gap-4 sm:mt-6 sm:gap-10">
             <div className="flex items-center gap-3">
               <Image
                 src={chapter.host.avatar}

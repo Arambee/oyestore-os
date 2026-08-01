@@ -17,7 +17,7 @@ export const chapters: Chapter[] = [
       verified: true,
     },
     ctaLabel: "See the Story",
-    ctaHref: "/destinations/kerala/varkala",
+    ctaHref: "/chapters/kerala/varkala",
     stats: {
       travellers: 20,
       rating: 4.9,

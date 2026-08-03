@@ -861,6 +861,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
               credit toward a future chapter, your choice.
             </li>
             <li>One free date change if requested 15+ days before departure, subject to seat availability.</li>
+            <li>Any refund amount is credited back to your original payment method within 21 days.</li>
           </ul>
         </section>
 

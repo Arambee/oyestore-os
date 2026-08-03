@@ -7,7 +7,10 @@ import {
   Calendar,
   Check,
   Compass,
+  Flag,
+  Flower2,
   Heart,
+  HeartHandshake,
   MessageCircle,
   Sparkles,
   Tag,
@@ -29,8 +32,6 @@ export const metadata: Metadata = {
 
 const perfectFor = ["Solo Travellers", "Friends", "Couples", "Creators", "First-Time Group Travellers"];
 
-const HERO_IMAGE = "https://images.unsplash.com/photo-1655394602738-eff266100405?auto=format&fit=crop&w=1200&q=80";
-
 type ChapterDay = {
   day: string;
   title: string;
@@ -43,6 +44,9 @@ type Chapter = {
   navLabel: string;
   navDates: string;
   badge: string;
+  badgeIcon: typeof Flag;
+  themeColor: string;
+  heroImage: string;
   heroTitle: string;
   heroSubtitle: string;
   price: string;
@@ -66,6 +70,9 @@ const chapters: Chapter[] = [
     navLabel: "Independence Day",
     navDates: "14-16 Aug 2026",
     badge: "INDEPENDENCE DAY CHAPTER · 14-16 AUG 2026",
+    badgeIcon: Flag,
+    themeColor: "#FF9933",
+    heroImage: "https://images.unsplash.com/photo-1655394602738-eff266100405?auto=format&fit=crop&w=1200&q=80",
     heroTitle: "Varkala asks you to stay.",
     heroSubtitle: "Some places ask you to visit. This one doesn't let you leave on time.",
     price: "₹12,999 onwards",
@@ -168,6 +175,9 @@ const chapters: Chapter[] = [
     navLabel: "Raksha Bandhan",
     navDates: "28-30 Aug 2026",
     badge: "RAKSHA BANDHAN CHAPTER · 28-30 AUG 2026",
+    badgeIcon: HeartHandshake,
+    themeColor: "#FB7185",
+    heroImage: "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1200&q=80",
     heroTitle: "This Raksha Bandhan, make memories together.",
     heroSubtitle:
       "Some bonds are built by blood. Some are built by choice. Trade the crowded malls for cliffside sunsets.",
@@ -277,6 +287,9 @@ const chapters: Chapter[] = [
     navLabel: "Onam",
     navDates: "26-29 Aug 2026",
     badge: "ONAM CHAPTER · 26-29 AUG 2026",
+    badgeIcon: Flower2,
+    themeColor: "#F5B841",
+    heroImage: "https://images.unsplash.com/photo-1414609245224-afa02bfb3fda?auto=format&fit=crop&w=1200&q=80",
     heroTitle: "Come home to Kerala this Onam.",
     heroSubtitle:
       "Homes bloom with Pookalams, families gather for the Sadya, and an entire state slows down to celebrate. This year, celebrate it beside the Arabian Sea.",
@@ -469,7 +482,10 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             backgroundSize: "48px 48px",
           }}
         />
-        <div className="absolute -left-40 -top-40 size-[32rem] rounded-full bg-accent-red/10 blur-[120px]" />
+        <div
+          className="absolute -left-40 -top-40 size-[32rem] rounded-full opacity-[0.12] blur-[120px] transition-colors duration-500"
+          style={{ backgroundColor: chapter.themeColor }}
+        />
         <div className="absolute right-0 top-1/3 size-[28rem] rounded-full bg-[#fffff0]/[0.03] blur-[120px]" />
         <div className="absolute bottom-0 left-1/3 size-[24rem] rounded-full bg-[#fffff0]/[0.03] blur-[120px]" />
       </div>
@@ -509,11 +525,18 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
                 href={c.id === chapters[0].id ? "/varkala" : `/varkala?chapter=${c.id}`}
                 className={`flex shrink-0 flex-col rounded-2xl border px-4 py-2.5 transition ${
                   c.id === chapter.id
-                    ? "border-[#fffff0]/25 bg-[#fffff0]/10"
+                    ? "border-[#fffff0]/25"
                     : "border-[#fffff0]/10 bg-[#fffff0]/[0.02] hover:bg-[#fffff0]/5"
                 }`}
+                style={c.id === chapter.id ? { backgroundColor: `${c.themeColor}1a` } : undefined}
               >
-                <span className="text-sm font-bold text-foreground">{c.navLabel}</span>
+                <span className="flex items-center gap-1.5 text-sm font-bold text-foreground">
+                  <c.badgeIcon
+                    size={13}
+                    style={{ color: c.themeColor }}
+                  />
+                  {c.navLabel}
+                </span>
                 <span className="text-xs text-muted-foreground">{c.navDates}</span>
               </Link>
             ))}
@@ -524,8 +547,9 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           <div className="premium-border premium-shadow relative rounded-3xl">
             <div className="relative h-[420px] w-full overflow-hidden rounded-3xl sm:h-[480px]">
               <Image
-                src={HERO_IMAGE}
-                alt="Varkala"
+                key={chapter.heroImage}
+                src={chapter.heroImage}
+                alt={chapter.navLabel}
                 fill
                 priority
                 sizes="(min-width: 1024px) 60vw, 100vw"
@@ -534,7 +558,10 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/10" />
 
               <span className="absolute left-6 top-6 z-10 inline-flex w-fit items-center gap-2 rounded-full border border-[#fffff0]/15 bg-card/70 px-3 py-1 text-[11px] font-medium tracking-wider text-platinum backdrop-blur-xl sm:px-4 sm:py-1.5 sm:text-xs">
-                <span className="size-1.5 rounded-full bg-accent-red" />
+                <chapter.badgeIcon
+                  size={12}
+                  style={{ color: chapter.themeColor }}
+                />
                 {chapter.badge}
               </span>
 

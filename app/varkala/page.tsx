@@ -5,6 +5,7 @@ import {
   ArrowRight,
   Bus,
   Calendar,
+  Car,
   Check,
   Compass,
   Flag,
@@ -62,12 +63,21 @@ function whatsappHref(message: string) {
 }
 
 export const metadata: Metadata = {
-  title: "Varkala, Kerala | Oyestore",
+  title: "Varkala & Sri Lanka | Oyestore",
   description:
-    "Three chapters to Varkala this season - Independence Day, Raksha Bandhan and Onam. Message us on WhatsApp for dates and details.",
+    "Four chapters this season - Independence Day, Raksha Bandhan and Onam in Varkala, plus The Odyssey road trip across Sri Lanka. Message us on WhatsApp for dates and details.",
 };
 
-const perfectFor = ["Solo Travellers", "Friends", "Couples", "Creators", "First-Time Group Travellers"];
+const varkalaHiddenSpots = [
+  {
+    name: "Jatayu Earth Center",
+    description: "The world's largest bird sculpture, carved into a hilltop.",
+  },
+  {
+    name: "Papanasam Beach Cliff Walk",
+    description: "A quiet clifftop trail above the main beach, best at dusk.",
+  },
+];
 
 type ChapterDay = {
   day: string;
@@ -93,10 +103,12 @@ type Chapter = {
   dateChip: string;
   aboutHook: string;
   aboutBody: string;
+  perfectFor: string[];
   days: ChapterDay[];
   experiences: string[];
   included: string[];
   notIncluded: string[];
+  hiddenSpots?: { name: string; description: string }[];
   beforeYouBook: string;
   whatsappMessage: string;
 };
@@ -121,6 +133,8 @@ const chapters: Chapter[] = [
       "Days begin with ocean air, drift through cafés overlooking the Arabian Sea, and end with sunsets that convince everyone to postpone tomorrow.",
     aboutBody:
       "This chapter isn't designed around rushing from one attraction to another - it's built around freedom. Freedom to stop wherever the road feels beautiful, to have conversations that weren't planned, to remember what weekends are supposed to feel like. Your official trip title, host and surprise experiences are revealed 72 hours before departure - because some stories deserve to unfold naturally.",
+    perfectFor: ["Solo Travellers", "Friends", "Couples", "Creators", "First-Time Group Travellers"],
+    hiddenSpots: varkalaHiddenSpots,
     days: [
       {
         day: "0",
@@ -227,6 +241,8 @@ const chapters: Chapter[] = [
       "Leave behind the crowded malls, predictable lunches and routine celebrations. Trade them for cliffside sunsets, road trips that never seem to end, and morning chai overlooking the Arabian Sea.",
     aboutBody:
       "Whether you're travelling with your brother, your sister, your best friend or simply by yourself, this is a weekend built around connection. Because family isn't always who you grow up with - sometimes, it's who you travel with. Varkala & Kollam, over 3 days and 4 nights.",
+    perfectFor: ["Solo Travellers", "Friends", "Couples", "Creators", "First-Time Group Travellers"],
+    hiddenSpots: varkalaHiddenSpots,
     days: [
       {
         day: "0",
@@ -339,6 +355,8 @@ const chapters: Chapter[] = [
       "Some festivals are watched. Some festivals are celebrated. And then there is Onam - for a few magical days every year, Kerala transforms.",
     aboutBody:
       "Homes bloom with intricate Pookalams crafted from fresh flowers, families gather around banana leaves for a feast prepared with love, temples echo with prayers, and an entire state slows down to celebrate gratitude, harvest and togetherness. Over four unforgettable days - Bangalore to Varkala to Thiruvananthapuram to Kollam to Bangalore - you'll witness the soul of God's Own Country through its people, traditions, coastline, backwaters and timeless culture. An AC journey, hosted by Oyestore.",
+    perfectFor: ["Solo Travellers", "Friends", "Couples", "Creators", "First-Time Group Travellers"],
+    hiddenSpots: varkalaHiddenSpots,
     days: [
       {
         day: "0",
@@ -436,6 +454,162 @@ const chapters: Chapter[] = [
       "Every chapter is intentionally designed to stay flexible - weather changes, people change, and some of the best discoveries aren't found on Google Maps. The itinerary above is an overview of the experience; your official trip title, host reveal, meeting points, timings and surprise experiences are shared 72 hours before departure. Seats are limited to 20 people for the 26-29 August 2026 dates - message us on WhatsApp to lock yours in.",
     whatsappMessage:
       "Hi! I'm interested in the Onam Varkala chapter (26-29 Aug 2026, 4 Days/5 Nights). Can you share pricing and more details?",
+  },
+  {
+    id: "sri-lanka-odyssey",
+    navLabel: "Sri Lanka",
+    navDates: "15-21 Oct 2026",
+    badge: "THE ODYSSEY · SRI LANKA · 15-21 OCT 2026",
+    badgeIcon: Car,
+    themeColor: "#2DD4BF",
+    heroImage: "https://images.unsplash.com/photo-1595949481531-e460a8af2ec3?auto=format&fit=crop&w=1200&q=80",
+    heroTitle: "Drive an island. Collect stories.",
+    heroSubtitle:
+      "800+ kilometres across one of the world's most diverse islands - mountain roads, tea plantations, wildlife safaris and endless coastlines.",
+    price: "₹59,999 per person",
+    duration: "7 Days · 6 Nights",
+    departure: "Bengaluru / Pan India",
+    seats: "20 explorers",
+    dateChip: "15-21 Oct 2026",
+    aboutHook:
+      "Some countries are visited. Some countries are experienced. And then there is Sri Lanka - an island where mountain roads disappear into clouds, tea plantations stretch endlessly across the hills, and every coastal highway feels like it was built for road trips.",
+    aboutBody:
+      "For seven unforgettable days, we'll drive over 800+ kilometres across one of the world's most diverse islands - waking before sunrise for wildlife safaris, stopping at cafés we never planned to visit, driving through misty mountains, tropical forests and endless coastlines. This isn't about reaching destinations - it's about discovering everything in between. A self-drive convoy of 6 cars, 20 explorers, from Colombo through the tea hills to Yala's wilderness and Galle's coast, and back.",
+    perfectFor: [
+      "Solo Travellers",
+      "Friends",
+      "Couples",
+      "Creators",
+      "Road Trip Lovers",
+      "First-Time International Travellers",
+    ],
+    days: [
+      {
+        day: "0",
+        title: "Meet The Convoy",
+        description: "Arrival in Sri Lanka - meet your fellow explorers before an entirely new country awaits.",
+        activities: [
+          "Arrival in Sri Lanka, meet your fellow explorers",
+          "Load the playlists, pick your road-trip snacks",
+          "Today, we leave behind familiar roads",
+        ],
+      },
+      {
+        day: "1",
+        title: "From Colombo to the Hills",
+        description: "~140 km. Arrive in Colombo before sunrise, collect the convoy, and drive toward Sri Lanka's cultural capital.",
+        activities: [
+          "Complete immigration, licence registration and collect the convoy vehicles",
+          "Pinnawala Elephant Sanctuary (private experience) - elephant bathing & feeding",
+          "Mawanella Spice Garden, scenic mountain drive",
+          "Temple of the Sacred Tooth, Kandyan cultural performance",
+          "Settle into a hillside resort overlooking Kandy",
+        ],
+      },
+      {
+        day: "2",
+        title: "Through the Tea Hills",
+        description: "~100 km. One of Sri Lanka's most beautiful drives - rolling hills, tea plantations, waterfalls, cool mountain air.",
+        activities: [
+          "Royal Botanical Gardens, Tea Factory Experience",
+          "Bhakta Hanuman Temple, Ramboda Falls",
+          "Strawberry farms, Gregory Lake",
+          "Evening free to explore Nuwara Eliya",
+        ],
+      },
+      {
+        day: "3",
+        title: "The Long Way South",
+        description: "~170 km. One of the world's most scenic train journeys, then a drive toward Yala National Park.",
+        activities: [
+          "Optional: board the famous Nanu Oya-Ella train while the convoy continues by road",
+          "Group reunites in Ella, drives toward Yala National Park",
+          "Check into the safari resort - sleep early, tomorrow starts before sunrise",
+        ],
+      },
+      {
+        day: "4",
+        title: "Into the Wild",
+        description: "~220 km. A pre-dawn safari through Yala National Park, then one of Sri Lanka's most spectacular coastal drives.",
+        activities: [
+          "Yala National Park safari before dawn - elephants, leopards, sloth bears, peacocks, crocodiles",
+          "Coastal drive: ocean on one side, palm trees on the other, stopping wherever the road surprises us",
+          "Explore Galle's Dutch Fort and old streets",
+          "Continue to Bentota for a beachside resort stay",
+        ],
+      },
+      {
+        day: "5",
+        title: "The Ocean Chapter",
+        description: "No alarms today - just waves. A free day on Bentota's coastline.",
+        activities: [
+          "Optional: jet ski, banana boat, water skiing, snorkelling, scuba diving, windsurfing",
+          "Or simply find your own stretch of beach",
+          "Evening bonfire, community dinner, stories under the stars",
+        ],
+      },
+      {
+        day: "6",
+        title: "The Last Drive",
+        description: "Bentota to Colombo, with stops along the way before one final night in the city.",
+        activities: [
+          "Kosgoda Turtle Hatchery, Madu River Mangroves",
+          "Hidden cafés, roadside fruit stalls",
+          "Return the convoy vehicles, check into the Colombo resort",
+          "Street food, shopping, music and one final dinner together",
+        ],
+      },
+      {
+        day: "7",
+        title: "Until the Next Road",
+        description: "Breakfast, airport transfers, one last goodbye - the expedition ends, the stories don't.",
+        activities: ["Breakfast", "Airport transfers", "One last goodbye"],
+      },
+    ],
+    experiences: [
+      "Mountain roads",
+      "Tea country",
+      "Elephant encounters",
+      "Scenic train journey",
+      "Wildlife safari",
+      "Historic cities",
+      "Surf beaches",
+      "Coastal roads",
+      "Sunset drives",
+      "Community experiences",
+      "Photography-friendly locations",
+      "Hidden local gems",
+      "Slow travel",
+      "Unexpected stops",
+    ],
+    included: [
+      "Premium resorts & villas",
+      "Self-drive convoy",
+      "Airport transfers",
+      "Daily breakfast",
+      "Selected dinners",
+      "Pinnawala Elephant Experience",
+      "Tea factory visit",
+      "Yala National Park safari",
+      "Turtle hatchery visit",
+      "Madu River experience",
+      "Entry tickets (as per itinerary)",
+      "Dedicated Oyestore crew",
+    ],
+    notIncluded: [
+      "International flights",
+      "Lunch & dinner (unless mentioned)",
+      "Fuel & toll sharing (if applicable)",
+      "Refundable security deposit for cars",
+      "Personal expenses",
+      "Optional adventure activities",
+      "Shopping & souvenirs",
+      "Anything not mentioned above",
+    ],
+    beforeYouBook:
+      "Every expedition is intentionally designed to stay flexible - weather changes, roads surprise us, and some of the best memories happen when we decide to take the longer route. The itinerary above is a guide, not a rigid schedule; your official convoy details, vehicle allocations, meeting points and surprise experiences are shared before departure. Dates are 15-21 October 2026 (tentative) and seats are limited to 20 explorers - message us on WhatsApp to lock yours in.",
+    whatsappMessage:
+      "Hi! I'm interested in The Odyssey - Sri Lanka road trip (15-21 Oct 2026, ₹59,999 · 7 Days/6 Nights). Can you share more details?",
   },
 ];
 
@@ -565,7 +739,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
 
       <main className="relative mx-auto max-w-4xl space-y-20 px-4 pb-32 sm:space-y-28 sm:px-6 sm:pb-20">
         <section>
-          <p className="text-xs font-medium tracking-wider text-platinum">THREE CHAPTERS TO VARKALA THIS SEASON</p>
+          <p className="text-xs font-medium tracking-wider text-platinum">FOUR CHAPTERS THIS SEASON · VARKALA &amp; SRI LANKA</p>
           <div className="scrollbar-none mt-3 flex gap-2 overflow-x-auto">
             {chapters.map((c) => (
               <Link
@@ -709,7 +883,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           <p className="mt-4 max-w-2xl text-muted-foreground">{chapter.aboutBody}</p>
 
           <div className="mt-5 flex flex-wrap gap-2">
-            {perfectFor.map((tag) => (
+            {chapter.perfectFor.map((tag) => (
               <span
                 key={tag}
                 className="rounded-full border border-[#fffff0]/10 bg-[#fffff0]/5 px-3 py-1.5 text-xs text-foreground/80"
@@ -783,20 +957,22 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             ))}
           </div>
 
-          <div className="glass-dark premium-shadow mt-4 rounded-2xl p-5">
-            <p className="flex items-center gap-1.5 text-xs font-medium tracking-wider text-platinum">
-              <Compass size={12} />
-              A COUPLE OF SPOTS YOU&apos;LL FIND
-            </p>
-            <div className="mt-3 grid gap-3 sm:grid-cols-2">
-              {hiddenSpots.map((spot) => (
-                <div key={spot.name}>
-                  <p className="font-semibold text-foreground">{spot.name}</p>
-                  <p className="text-sm text-muted-foreground">{spot.description}</p>
-                </div>
-              ))}
+          {chapter.hiddenSpots && (
+            <div className="glass-dark premium-shadow mt-4 rounded-2xl p-5">
+              <p className="flex items-center gap-1.5 text-xs font-medium tracking-wider text-platinum">
+                <Compass size={12} />
+                A COUPLE OF SPOTS YOU&apos;LL FIND
+              </p>
+              <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                {chapter.hiddenSpots.map((spot) => (
+                  <div key={spot.name}>
+                    <p className="font-semibold text-foreground">{spot.name}</p>
+                    <p className="text-sm text-muted-foreground">{spot.description}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </section>
 
         <section className="grid gap-4 sm:grid-cols-2">

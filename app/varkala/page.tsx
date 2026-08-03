@@ -5,7 +5,6 @@ import {
   ArrowRight,
   Bus,
   Calendar,
-  Camera,
   Check,
   Compass,
   Flag,
@@ -21,6 +20,42 @@ import {
 
 const INSTAGRAM_URL = "https://www.instagram.com/oyestoreforgram/";
 const WHATSAPP_NUMBER = "918400181281";
+
+function InstagramIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <rect
+        x="2"
+        y="2"
+        width="20"
+        height="20"
+        rx="5"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        r="4.5"
+      />
+      <circle
+        cx="17.2"
+        cy="6.8"
+        r="1.1"
+        fill="currentColor"
+        stroke="none"
+      />
+    </svg>
+  );
+}
 
 function whatsappHref(message: string) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -514,7 +549,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             aria-label="Oyestore on Instagram"
             className="flex size-9 items-center justify-center rounded-full border border-[#fffff0]/15 bg-[#fffff0]/5 text-foreground transition hover:bg-[#fffff0]/10"
           >
-            <Camera size={16} />
+            <InstagramIcon size={16} />
           </a>
           <a
             href={waHref}
@@ -857,7 +892,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             aria-label="Oyestore on Instagram"
             className="flex size-9 items-center justify-center rounded-full border border-[#fffff0]/15 bg-[#fffff0]/5 text-foreground transition hover:bg-[#fffff0]/10"
           >
-            <Camera size={16} />
+            <InstagramIcon size={16} />
           </a>
           <p className="text-center text-xs text-muted-foreground">
             © {new Date().getFullYear()} Oyestore. All rights reserved.

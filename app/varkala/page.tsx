@@ -228,7 +228,7 @@ const chapters: Chapter[] = [
     badge: "RAKSHA BANDHAN CHAPTER · 28-30 AUG 2026",
     badgeIcon: HeartHandshake,
     themeColor: "#FB7185",
-    heroImage: "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "https://images.unsplash.com/photo-1646299588107-40fabeca07da?auto=format&fit=crop&w=1200&q=80",
     heroTitle: "This Raksha Bandhan, make memories together.",
     heroSubtitle:
       "Some bonds are built by blood. Some are built by choice. Trade the crowded malls for cliffside sunsets.",
@@ -342,7 +342,7 @@ const chapters: Chapter[] = [
     badge: "ONAM CHAPTER · 26-29 AUG 2026",
     badgeIcon: Flower2,
     themeColor: "#F5B841",
-    heroImage: "https://images.unsplash.com/photo-1414609245224-afa02bfb3fda?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "https://images.unsplash.com/photo-1663002422178-369db7cc8509?auto=format&fit=crop&w=1200&q=80",
     heroTitle: "Come home to Kerala this Onam.",
     heroSubtitle:
       "Homes bloom with Pookalams, families gather for the Sadya, and an entire state slows down to celebrate. This year, celebrate it beside the Arabian Sea.",
@@ -462,7 +462,7 @@ const chapters: Chapter[] = [
     badge: "THE ODYSSEY · SRI LANKA · 15-21 OCT 2026",
     badgeIcon: Car,
     themeColor: "#2DD4BF",
-    heroImage: "https://images.unsplash.com/photo-1595949481531-e460a8af2ec3?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "https://images.unsplash.com/photo-1778506200826-f2d1a883fdf9?auto=format&fit=crop&w=1200&q=80",
     heroTitle: "Drive an island. Collect stories.",
     heroSubtitle:
       "800+ kilometres across one of the world's most diverse islands - mountain roads, tea plantations, wildlife safaris and endless coastlines.",

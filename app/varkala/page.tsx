@@ -5,6 +5,7 @@ import {
   ArrowRight,
   Bus,
   Calendar,
+  Camera,
   Check,
   Compass,
   Flag,
@@ -18,6 +19,7 @@ import {
   X,
 } from "lucide-react";
 
+const INSTAGRAM_URL = "https://www.instagram.com/oyestoreforgram/";
 const WHATSAPP_NUMBER = "918400181281";
 
 function whatsappHref(message: string) {
@@ -504,15 +506,26 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           />
           Oyestore.
         </Link>
-        <a
-          href={waHref}
-          target="_blank"
-          rel="noreferrer"
-          className="hidden items-center gap-2 rounded-full bg-pearl px-5 py-2.5 text-sm font-medium text-midnight transition hover:scale-[1.03] hover:bg-pearl/90 sm:flex"
-        >
-          <MessageCircle size={16} />
-          WhatsApp us
-        </a>
+        <div className="flex items-center gap-2.5">
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Oyestore on Instagram"
+            className="flex size-9 items-center justify-center rounded-full border border-[#fffff0]/15 bg-[#fffff0]/5 text-foreground transition hover:bg-[#fffff0]/10"
+          >
+            <Camera size={16} />
+          </a>
+          <a
+            href={waHref}
+            target="_blank"
+            rel="noreferrer"
+            className="hidden items-center gap-2 rounded-full bg-pearl px-5 py-2.5 text-sm font-medium text-midnight transition hover:scale-[1.03] hover:bg-pearl/90 sm:flex"
+          >
+            <MessageCircle size={16} />
+            WhatsApp us
+          </a>
+        </div>
       </header>
 
       <main className="relative mx-auto max-w-4xl space-y-20 px-4 pb-32 sm:space-y-28 sm:px-6 sm:pb-20">
@@ -836,9 +849,20 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           />
         </a>
 
-        <p className="pb-4 text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Oyestore. All rights reserved.
-        </p>
+        <div className="flex flex-col items-center gap-3 pb-4">
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Oyestore on Instagram"
+            className="flex size-9 items-center justify-center rounded-full border border-[#fffff0]/15 bg-[#fffff0]/5 text-foreground transition hover:bg-[#fffff0]/10"
+          >
+            <Camera size={16} />
+          </a>
+          <p className="text-center text-xs text-muted-foreground">
+            © {new Date().getFullYear()} Oyestore. All rights reserved.
+          </p>
+        </div>
       </main>
 
       <a

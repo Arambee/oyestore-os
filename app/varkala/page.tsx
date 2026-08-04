@@ -67,13 +67,17 @@ function InstagramIcon({ size = 16 }: { size?: number }) {
 }
 
 function OyestoreDot() {
+  // A literal "." glyph rendered in a non-default color shifts up off the
+  // baseline in this typeface (confirmed independent of font-weight/family/
+  // size - any explicit color on an isolated "." span causes it, plain
+  // white/inherited does not). Drawing the dot as a small circle sidesteps
+  // that entirely and guarantees it sits flush on the baseline.
   return (
     <span
-      className="text-red-500"
-      style={{ animation: "oye-dot-pulse 1.8s ease-in-out infinite", transformOrigin: "bottom" }}
-    >
-      .
-    </span>
+      aria-hidden
+      className="ml-px inline-block size-[0.16em] shrink-0 rounded-full bg-red-500 align-baseline"
+      style={{ animation: "oye-dot-pulse 1.8s ease-in-out infinite" }}
+    />
   );
 }
 
@@ -906,7 +910,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             height={30}
             className="rounded-full"
           />
-          <span>
+          <span aria-label="Oyestore.">
             Oyestore<OyestoreDot />
           </span>
         </Link>
@@ -1339,7 +1343,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
                 height={30}
                 className="rounded-full"
               />
-              <span>
+              <span aria-label="Oyestore.">
                 Oyestore<OyestoreDot />
               </span>
             </Link>

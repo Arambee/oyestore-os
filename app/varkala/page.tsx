@@ -689,7 +689,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
   const waHref = whatsappHref(chapter.whatsappMessage);
 
   return (
-    <div className="relative min-h-screen bg-[#2B1B12]">
+    <div className="relative min-h-screen bg-[#170200]">
       <div
         aria-hidden
         className="pointer-events-none fixed inset-0 overflow-hidden"
@@ -738,7 +738,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             href={waHref}
             target="_blank"
             rel="noreferrer"
-            className="hidden items-center gap-2 rounded-full bg-[#FFFFF0] px-5 py-2.5 text-sm font-medium text-[#2B1B12] transition hover:scale-[1.03] hover:bg-[#FFFFF0]/90 sm:flex"
+            className="hidden items-center gap-2 rounded-full bg-[#FFFFF0] px-5 py-2.5 text-sm font-medium text-[#170200] transition hover:scale-[1.03] hover:bg-[#FFFFF0]/90 sm:flex"
           >
             <MessageCircle size={16} />
             WhatsApp us
@@ -788,7 +788,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/10" />
 
-              <span className="absolute left-6 top-6 z-10 inline-flex w-fit items-center gap-2 rounded-full border border-[#fffff0]/15 bg-[#2B1B12]/70 px-3 py-1 text-[11px] font-medium tracking-wider text-[#D4B896] backdrop-blur-xl sm:px-4 sm:py-1.5 sm:text-xs">
+              <span className="absolute left-6 top-6 z-10 inline-flex w-fit items-center gap-2 rounded-full border border-[#fffff0]/15 bg-[#170200]/70 px-3 py-1 text-[11px] font-medium tracking-wider text-[#D4B896] backdrop-blur-xl sm:px-4 sm:py-1.5 sm:text-xs">
                 <chapter.badgeIcon
                   size={12}
                   style={{ color: chapter.themeColor }}
@@ -911,7 +911,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
                 key={day.day}
                 className="relative"
               >
-                <span className="absolute -left-[calc(2rem+1px)] top-0 flex size-8 items-center justify-center rounded-full border border-[#954535]/50 bg-[#2B1B12] text-xs font-bold text-[#C97A63]">
+                <span className="absolute -left-[calc(2rem+1px)] top-0 flex size-8 items-center justify-center rounded-full border border-[#954535]/50 bg-[#170200] text-xs font-bold text-[#C97A63]">
                   {day.day}
                 </span>
                 <p className="text-xs font-medium tracking-wider text-[#D4B896]">DAY {day.day}</p>

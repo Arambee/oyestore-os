@@ -67,7 +67,14 @@ function InstagramIcon({ size = 16 }: { size?: number }) {
 }
 
 function OyestoreDot() {
-  return <span className="animate-pulse text-red-500">.</span>;
+  return (
+    <span
+      className="text-red-500"
+      style={{ animation: "oye-dot-pulse 1.8s ease-in-out infinite", transformOrigin: "bottom" }}
+    >
+      .
+    </span>
+  );
 }
 
 function whatsappHref(message: string) {
@@ -861,6 +868,12 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
 
   return (
     <div className="relative min-h-screen bg-background">
+      <style>{`
+        @keyframes oye-dot-pulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.4); }
+        }
+      `}</style>
       <div
         aria-hidden
         className="pointer-events-none fixed inset-0 overflow-hidden"

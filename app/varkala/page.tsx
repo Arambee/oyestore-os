@@ -689,7 +689,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
   const waHref = whatsappHref(chapter.whatsappMessage);
 
   return (
-    <div className="relative min-h-screen bg-[#170200]">
+    <div className="relative min-h-screen bg-background">
       <div
         aria-hidden
         className="pointer-events-none fixed inset-0 overflow-hidden"
@@ -713,7 +713,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
       <header className="relative mx-auto flex max-w-4xl items-center justify-between px-4 py-6 sm:px-6">
         <Link
           href="/varkala"
-          className="flex items-center gap-2 text-lg font-black tracking-tight text-[#FFFFF0]"
+          className="flex items-center gap-2 text-lg font-black tracking-tight text-foreground"
         >
           <Image
             src="/brand/oyestore-logo.png"
@@ -730,7 +730,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             target="_blank"
             rel="noreferrer"
             aria-label="Oyestore on Instagram"
-            className="flex size-9 items-center justify-center rounded-full border border-[#fffff0]/15 bg-[#fffff0]/5 text-[#FFFFF0] transition hover:bg-[#fffff0]/10"
+            className="flex size-9 items-center justify-center rounded-full border border-[#fffff0]/15 bg-[#fffff0]/5 text-foreground transition hover:bg-[#fffff0]/10"
           >
             <InstagramIcon size={16} />
           </a>
@@ -738,7 +738,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             href={waHref}
             target="_blank"
             rel="noreferrer"
-            className="hidden items-center gap-2 rounded-full bg-[#FFFFF0] px-5 py-2.5 text-sm font-medium text-[#170200] transition hover:scale-[1.03] hover:bg-[#FFFFF0]/90 sm:flex"
+            className="hidden items-center gap-2 rounded-full bg-pearl px-5 py-2.5 text-sm font-medium text-midnight transition hover:scale-[1.03] hover:bg-pearl/90 sm:flex"
           >
             <MessageCircle size={16} />
             WhatsApp us
@@ -748,7 +748,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
 
       <main className="relative mx-auto max-w-4xl space-y-20 px-4 sm:space-y-28 sm:px-6">
         <section>
-          <p className="text-xs font-medium tracking-wider text-[#D4B896]">FOUR CHAPTERS THIS SEASON · VARKALA &amp; SRI LANKA</p>
+          <p className="text-xs font-medium tracking-wider text-platinum">FOUR CHAPTERS THIS SEASON · VARKALA &amp; SRI LANKA</p>
           <div className="scrollbar-none mt-3 flex gap-2 overflow-x-auto">
             {chapters.map((c) => (
               <Link
@@ -761,21 +761,21 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
                 }`}
                 style={c.id === chapter.id ? { backgroundColor: `${c.themeColor}1a` } : undefined}
               >
-                <span className="flex items-center gap-1.5 text-sm font-bold text-[#FFFFF0]">
+                <span className="flex items-center gap-1.5 text-sm font-bold text-foreground">
                   <c.badgeIcon
                     size={13}
                     style={{ color: c.themeColor }}
                   />
                   {c.navLabel}
                 </span>
-                <span className="text-xs text-[#B8977A]">{c.navDates}</span>
+                <span className="text-xs text-muted-foreground">{c.navDates}</span>
               </Link>
             ))}
           </div>
         </section>
 
         <section>
-          <div className="border border-[#FFFFF0]/[0.12] premium-shadow relative rounded-3xl">
+          <div className="premium-border premium-shadow relative rounded-3xl">
             <div className="relative h-[420px] w-full overflow-hidden rounded-3xl sm:h-[480px]">
               <Image
                 key={chapter.heroImage}
@@ -788,7 +788,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/10" />
 
-              <span className="absolute left-6 top-6 z-10 inline-flex w-fit items-center gap-2 rounded-full border border-[#fffff0]/15 bg-[#170200]/70 px-3 py-1 text-[11px] font-medium tracking-wider text-[#D4B896] backdrop-blur-xl sm:px-4 sm:py-1.5 sm:text-xs">
+              <span className="absolute left-6 top-6 z-10 inline-flex w-fit items-center gap-2 rounded-full border border-[#fffff0]/15 bg-card/70 px-3 py-1 text-[11px] font-medium tracking-wider text-platinum backdrop-blur-xl sm:px-4 sm:py-1.5 sm:text-xs">
                 <chapter.badgeIcon
                   size={12}
                   style={{ color: chapter.themeColor }}
@@ -797,7 +797,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
               </span>
 
               <div className="relative flex h-full flex-col justify-end p-6 sm:p-10">
-                <h1 className="text-[#FFFFF0] max-w-xl text-4xl font-black leading-[1.02] tracking-tight sm:text-6xl">
+                <h1 className="text-gradient max-w-xl text-4xl font-black leading-[1.02] tracking-tight sm:text-6xl">
                   {chapter.heroTitle}
                 </h1>
                 <p className="mt-3 max-w-md text-[#fffff0]/70">{chapter.heroSubtitle}</p>
@@ -814,7 +814,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
                   </a>
                   <a
                     href="#the-chapter"
-                    className="inline-flex items-center gap-2 rounded-full border border-[#fffff0]/20 bg-[#fffff0]/5 px-5 py-2.5 text-sm font-medium text-[#FFFFF0] backdrop-blur-xl transition hover:bg-[#fffff0]/10"
+                    className="inline-flex items-center gap-2 rounded-full border border-[#fffff0]/20 bg-[#fffff0]/5 px-5 py-2.5 text-sm font-medium text-pearl backdrop-blur-xl transition hover:bg-[#fffff0]/10"
                   >
                     See the chapter
                     <ArrowRight size={14} />
@@ -823,7 +823,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
               </div>
             </div>
 
-            <div className="backdrop-blur-xl bg-[#3D2A1C]/70 border border-[#FFFFF0]/10 premium-shadow relative z-10 mx-6 -mt-8 hidden grid-cols-4 gap-4 rounded-2xl p-6 sm:grid">
+            <div className="glass-dark premium-shadow relative z-10 mx-6 -mt-8 hidden grid-cols-4 gap-4 rounded-2xl p-6 sm:grid">
               <Stat
                 icon={Tag}
                 label="Starts From"
@@ -871,31 +871,31 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           {whyOyestore.map(({ icon: Icon, title, description }) => (
             <div
               key={title}
-              className="backdrop-blur-xl bg-[#3D2A1C]/70 border border-[#FFFFF0]/10 premium-shadow flex items-start gap-3 rounded-2xl p-5"
+              className="glass-dark premium-shadow flex items-start gap-3 rounded-2xl p-5"
             >
-              <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#fffff0]/5 text-[#D4B896]">
+              <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#fffff0]/5 text-platinum">
                 <Icon size={16} />
               </span>
               <div>
-                <p className="font-bold text-[#FFFFF0]">{title}</p>
-                <p className="mt-1 text-sm text-[#B8977A]">{description}</p>
+                <p className="font-bold text-foreground">{title}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{description}</p>
               </div>
             </div>
           ))}
         </section>
 
         <section>
-          <p className="text-xs font-medium tracking-wider text-[#D4B896]">ABOUT THE CHAPTER</p>
-          <p className="mt-4 max-w-2xl text-xl font-medium leading-snug text-[#FFFFF0]/90 sm:text-2xl">
+          <p className="text-xs font-medium tracking-wider text-platinum">ABOUT THE CHAPTER</p>
+          <p className="mt-4 max-w-2xl text-xl font-medium leading-snug text-foreground/90 sm:text-2xl">
             {chapter.aboutHook}
           </p>
-          <p className="mt-4 max-w-2xl text-[#B8977A]">{chapter.aboutBody}</p>
+          <p className="mt-4 max-w-2xl text-muted-foreground">{chapter.aboutBody}</p>
 
           <div className="mt-5 flex flex-wrap gap-2">
             {chapter.perfectFor.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-[#fffff0]/10 bg-[#fffff0]/5 px-3 py-1.5 text-xs text-[#FFFFF0]/80"
+                className="rounded-full border border-[#fffff0]/10 bg-[#fffff0]/5 px-3 py-1.5 text-xs text-foreground/80"
               >
                 {tag}
               </span>
@@ -904,24 +904,24 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
         </section>
 
         <section id="the-chapter">
-          <p className="text-xs font-medium tracking-wider text-[#D4B896]">THE CHAPTER</p>
+          <p className="text-xs font-medium tracking-wider text-platinum">THE CHAPTER</p>
           <div className="relative mt-6 space-y-8 border-l border-[#fffff0]/10 pl-8">
             {chapter.days.map((day) => (
               <div
                 key={day.day}
                 className="relative"
               >
-                <span className="absolute -left-[calc(2rem+1px)] top-0 flex size-8 items-center justify-center rounded-full border border-[#954535]/50 bg-[#170200] text-xs font-bold text-[#C97A63]">
+                <span className="absolute -left-[calc(2rem+1px)] top-0 flex size-8 items-center justify-center rounded-full border border-[#fffff0]/15 bg-background text-xs font-bold text-foreground">
                   {day.day}
                 </span>
-                <p className="text-xs font-medium tracking-wider text-[#D4B896]">DAY {day.day}</p>
-                <h3 className="mt-1 text-xl font-bold text-[#FFFFF0]">{day.title}</h3>
-                <p className="mt-1.5 max-w-2xl text-sm text-[#FFFFF0]/80">{day.description}</p>
+                <p className="text-xs font-medium tracking-wider text-platinum">DAY {day.day}</p>
+                <h3 className="mt-1 text-xl font-bold text-foreground">{day.title}</h3>
+                <p className="mt-1.5 max-w-2xl text-sm text-foreground/80">{day.description}</p>
                 <ul className="mt-3 max-w-2xl space-y-1.5">
                   {day.activities.map((activity) => (
                     <li
                       key={activity}
-                      className="flex items-start gap-2 text-sm text-[#B8977A]"
+                      className="flex items-start gap-2 text-sm text-muted-foreground"
                     >
                       <span className="mt-2 size-1 shrink-0 rounded-full bg-[#fffff0]/25" />
                       {activity}
@@ -934,12 +934,12 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
         </section>
 
         <section>
-          <p className="text-xs font-medium tracking-wider text-[#D4B896]">WHAT YOU&apos;LL EXPERIENCE</p>
+          <p className="text-xs font-medium tracking-wider text-platinum">WHAT YOU&apos;LL EXPERIENCE</p>
           <div className="mt-4 flex flex-wrap gap-2">
             {chapter.experiences.map((experience) => (
               <span
                 key={experience}
-                className="rounded-full border border-[#fffff0]/10 bg-[#fffff0]/5 px-3 py-1.5 text-xs text-[#FFFFF0]/80"
+                className="rounded-full border border-[#fffff0]/10 bg-[#fffff0]/5 px-3 py-1.5 text-xs text-foreground/80"
               >
                 {experience}
               </span>
@@ -948,12 +948,12 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
         </section>
 
         <section>
-          <p className="text-xs font-medium tracking-wider text-[#D4B896]">SNEAK PEEK</p>
+          <p className="text-xs font-medium tracking-wider text-platinum">SNEAK PEEK</p>
           <div className="mt-4 grid h-64 grid-cols-4 grid-rows-2 gap-3 sm:h-80">
             {sneakPeek.map((photo) => (
               <div
                 key={photo.id}
-                className={`border border-[#FFFFF0]/[0.12] relative overflow-hidden rounded-2xl ${photo.className}`}
+                className={`premium-border relative overflow-hidden rounded-2xl ${photo.className}`}
               >
                 <Image
                   src={photo.image}
@@ -967,16 +967,16 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           </div>
 
           {chapter.hiddenSpots && (
-            <div className="backdrop-blur-xl bg-[#3D2A1C]/70 border border-[#FFFFF0]/10 premium-shadow mt-4 rounded-2xl p-5">
-              <p className="flex items-center gap-1.5 text-xs font-medium tracking-wider text-[#D4B896]">
+            <div className="glass-dark premium-shadow mt-4 rounded-2xl p-5">
+              <p className="flex items-center gap-1.5 text-xs font-medium tracking-wider text-platinum">
                 <Compass size={12} />
                 A COUPLE OF SPOTS YOU&apos;LL FIND
               </p>
               <div className="mt-3 grid gap-3 sm:grid-cols-2">
                 {chapter.hiddenSpots.map((spot) => (
                   <div key={spot.name}>
-                    <p className="font-semibold text-[#FFFFF0]">{spot.name}</p>
-                    <p className="text-sm text-[#B8977A]">{spot.description}</p>
+                    <p className="font-semibold text-foreground">{spot.name}</p>
+                    <p className="text-sm text-muted-foreground">{spot.description}</p>
                   </div>
                 ))}
               </div>
@@ -985,13 +985,13 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
         </section>
 
         <section className="grid gap-4 sm:grid-cols-2">
-          <div className="backdrop-blur-xl bg-[#3D2A1C]/70 border border-[#FFFFF0]/10 premium-shadow rounded-2xl p-5">
-            <p className="text-xs font-medium tracking-wider text-[#D4B896]">INCLUDED</p>
+          <div className="glass-dark premium-shadow rounded-2xl p-5">
+            <p className="text-xs font-medium tracking-wider text-platinum">INCLUDED</p>
             <ul className="mt-3 space-y-2.5">
               {chapter.included.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2 text-sm text-[#FFFFF0]/90"
+                  className="flex items-start gap-2 text-sm text-foreground/90"
                 >
                   <Check
                     size={16}
@@ -1003,17 +1003,17 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             </ul>
           </div>
 
-          <div className="backdrop-blur-xl bg-[#3D2A1C]/70 border border-[#FFFFF0]/10 premium-shadow rounded-2xl p-5">
-            <p className="text-xs font-medium tracking-wider text-[#D4B896]">NOT INCLUDED</p>
+          <div className="glass-dark premium-shadow rounded-2xl p-5">
+            <p className="text-xs font-medium tracking-wider text-platinum">NOT INCLUDED</p>
             <ul className="mt-3 space-y-2.5">
               {chapter.notIncluded.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2 text-sm text-[#B8977A]"
+                  className="flex items-start gap-2 text-sm text-muted-foreground"
                 >
                   <X
                     size={16}
-                    className="mt-0.5 shrink-0 text-[#954535]"
+                    className="mt-0.5 shrink-0 text-muted-foreground"
                   />
                   {item}
                 </li>
@@ -1022,25 +1022,25 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           </div>
         </section>
 
-        <section className="backdrop-blur-xl bg-[#3D2A1C]/70 border border-[#FFFFF0]/10 premium-shadow rounded-2xl p-5 sm:p-6">
-          <p className="text-xs font-medium tracking-wider text-[#D4B896]">BEFORE YOU BOOK</p>
-          <p className="mt-2 text-sm text-[#B8977A]">{chapter.beforeYouBook}</p>
+        <section className="glass-dark premium-shadow rounded-2xl p-5 sm:p-6">
+          <p className="text-xs font-medium tracking-wider text-platinum">BEFORE YOU BOOK</p>
+          <p className="mt-2 text-sm text-muted-foreground">{chapter.beforeYouBook}</p>
         </section>
 
-        <section className="backdrop-blur-xl bg-[#3D2A1C]/70 border border-[#FFFFF0]/10 premium-shadow rounded-2xl p-5 sm:p-6">
-          <p className="text-xs font-medium tracking-wider text-[#D4B896]">CANCELLATION & REFUND POLICY</p>
+        <section className="glass-dark premium-shadow rounded-2xl p-5 sm:p-6">
+          <p className="text-xs font-medium tracking-wider text-platinum">CANCELLATION & REFUND POLICY</p>
           <div className="mt-3 divide-y divide-[#fffff0]/10">
             {refundTiers.map((tier) => (
               <div
                 key={tier.window}
                 className="flex items-center justify-between gap-3 py-3"
               >
-                <span className="text-sm text-[#FFFFF0]/90">{tier.window}</span>
-                <span className="shrink-0 text-sm font-bold text-[#C97A63]">{tier.refund}</span>
+                <span className="text-sm text-foreground/90">{tier.window}</span>
+                <span className="shrink-0 text-sm font-bold text-foreground">{tier.refund}</span>
               </div>
             ))}
           </div>
-          <ul className="mt-4 space-y-1.5 text-sm text-[#B8977A]">
+          <ul className="mt-4 space-y-1.5 text-sm text-muted-foreground">
             <li>
               If Oyestore cancels the chapter (low sign-ups, weather, safety) - full refund or
               credit toward a future chapter, your choice.
@@ -1054,30 +1054,30 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           href={waHref}
           target="_blank"
           rel="noreferrer"
-          className="backdrop-blur-xl bg-[#3D2A1C]/70 border border-[#FFFFF0]/10 premium-shadow group relative flex items-center justify-between overflow-hidden rounded-3xl p-6 sm:p-8"
+          className="glass-dark premium-shadow group relative flex items-center justify-between overflow-hidden rounded-3xl p-6 sm:p-8"
         >
           <div className="relative">
-            <p className="flex items-center gap-1.5 text-xs font-medium tracking-wider text-[#D4B896]">
+            <p className="flex items-center gap-1.5 text-xs font-medium tracking-wider text-platinum">
               <MessageCircle size={12} />
               STILL HAVE QUESTIONS?
             </p>
-            <h3 className="mt-1 text-2xl font-bold text-[#FFFFF0] sm:text-3xl">Chat with us on WhatsApp</h3>
-            <p className="mt-1 text-sm text-[#FFFFF0]/60 sm:text-base">+91 84001 81281</p>
+            <h3 className="mt-1 text-2xl font-bold text-pearl sm:text-3xl">Chat with us on WhatsApp</h3>
+            <p className="mt-1 text-sm text-pearl/60 sm:text-base">+91 84001 81281</p>
           </div>
           <ArrowRight
             size={22}
-            className="relative shrink-0 text-[#FFFFF0] transition-transform group-hover:translate-x-1"
+            className="relative shrink-0 text-pearl transition-transform group-hover:translate-x-1"
           />
         </a>
 
       </main>
 
       <footer className="relative mx-auto max-w-4xl px-4 pb-32 sm:px-6 sm:pb-16">
-        <div className="backdrop-blur-xl bg-[#3D2A1C]/70 border border-[#FFFFF0]/10 premium-shadow rounded-3xl p-6 sm:p-10">
+        <div className="glass-dark premium-shadow rounded-3xl p-6 sm:p-10">
           <div className="max-w-md">
             <Link
               href="/varkala"
-              className="flex items-center gap-2 text-lg font-black tracking-tight text-[#FFFFF0]"
+              className="flex items-center gap-2 text-lg font-black tracking-tight text-foreground"
             >
               <Image
                 src="/brand/oyestore-logo.png"
@@ -1088,8 +1088,8 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
               />
               Oyestore.
             </Link>
-            <p className="text-[#FFFFF0] mt-2 text-xs font-bold uppercase tracking-[0.2em]">Bringing Better.</p>
-            <p className="mt-4 text-sm text-[#B8977A]">
+            <p className="text-gradient mt-2 text-xs font-bold uppercase tracking-[0.2em]">Bringing Better.</p>
+            <p className="mt-4 text-sm text-muted-foreground">
               Oyestore is a creator-led community travel platform - small-group chapters hosted by
               real people who&apos;ve actually made the trip, not a booking engine. This page covers
               what&apos;s live right now; there&apos;s a much bigger vault of destinations, creators
@@ -1101,7 +1101,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Message Oyestore on WhatsApp"
-                className="flex size-9 items-center justify-center rounded-full border border-[#fffff0]/15 bg-[#fffff0]/5 text-[#FFFFF0] transition hover:bg-[#fffff0]/10"
+                className="flex size-9 items-center justify-center rounded-full border border-[#fffff0]/15 bg-[#fffff0]/5 text-foreground transition hover:bg-[#fffff0]/10"
               >
                 <MessageCircle size={16} />
               </a>
@@ -1110,14 +1110,14 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Oyestore on Instagram"
-                className="flex size-9 items-center justify-center rounded-full border border-[#fffff0]/15 bg-[#fffff0]/5 text-[#FFFFF0] transition hover:bg-[#fffff0]/10"
+                className="flex size-9 items-center justify-center rounded-full border border-[#fffff0]/15 bg-[#fffff0]/5 text-foreground transition hover:bg-[#fffff0]/10"
               >
                 <InstagramIcon size={16} />
               </a>
               <a
                 href="mailto:central@oyestore.in"
                 aria-label="Email Oyestore"
-                className="flex size-9 items-center justify-center rounded-full border border-[#fffff0]/15 bg-[#fffff0]/5 text-[#FFFFF0] transition hover:bg-[#fffff0]/10"
+                className="flex size-9 items-center justify-center rounded-full border border-[#fffff0]/15 bg-[#fffff0]/5 text-foreground transition hover:bg-[#fffff0]/10"
               >
                 <Mail size={16} />
               </a>
@@ -1126,12 +1126,12 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
 
           <div className="mt-10 grid gap-8 sm:grid-cols-2">
             <div>
-              <p className="text-xs font-medium tracking-wider text-[#D4B896]">WHAT WE&apos;RE BUILDING</p>
+              <p className="text-xs font-medium tracking-wider text-platinum">WHAT WE&apos;RE BUILDING</p>
               <ul className="mt-3 space-y-2.5">
                 {ecosystemPillars.map((pillar) => (
                   <li
                     key={pillar}
-                    className="flex items-start gap-2 text-sm text-[#B8977A]"
+                    className="flex items-start gap-2 text-sm text-muted-foreground"
                   >
                     <span className="mt-2 size-1 shrink-0 rounded-full bg-[#fffff0]/25" />
                     {pillar}
@@ -1141,13 +1141,13 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             </div>
 
             <div>
-              <p className="text-xs font-medium tracking-wider text-[#D4B896]">THIS SEASON</p>
+              <p className="text-xs font-medium tracking-wider text-platinum">THIS SEASON</p>
               <ul className="mt-3 space-y-3">
                 {chapters.map((c) => (
                   <li key={c.id}>
                     <Link
                       href={c.id === chapters[0].id ? "/varkala" : `/varkala?chapter=${c.id}`}
-                      className="group flex items-center justify-between gap-2 text-sm text-[#FFFFF0]/90 transition hover:text-[#FFFFF0]"
+                      className="group flex items-center justify-between gap-2 text-sm text-foreground/90 transition hover:text-foreground"
                     >
                       <span className="flex items-center gap-2">
                         <c.badgeIcon
@@ -1155,11 +1155,11 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
                           style={{ color: c.themeColor }}
                         />
                         {c.navLabel}
-                        <span className="text-[#B8977A]">· {c.navDates}</span>
+                        <span className="text-muted-foreground">· {c.navDates}</span>
                       </span>
                       <ArrowUpRight
                         size={14}
-                        className="shrink-0 text-[#B8977A] opacity-0 transition group-hover:opacity-100"
+                        className="shrink-0 text-muted-foreground opacity-0 transition group-hover:opacity-100"
                       />
                     </Link>
                   </li>
@@ -1169,10 +1169,10 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           </div>
 
           <div className="mt-10 flex flex-col items-center gap-2 border-t border-[#fffff0]/10 pt-6 text-center sm:flex-row sm:justify-between sm:text-left">
-            <p className="text-xs text-[#B8977A]">
+            <p className="text-xs text-muted-foreground">
               © {new Date().getFullYear()} Oyestore. All rights reserved.
             </p>
-            <p className="text-xs text-[#B8977A]">Bringing Better - one chapter at a time.</p>
+            <p className="text-xs text-muted-foreground">Bringing Better - one chapter at a time.</p>
           </div>
         </div>
       </footer>
@@ -1182,7 +1182,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
         target="_blank"
         rel="noreferrer"
         aria-label="Message Oyestore on WhatsApp"
-        className="backdrop-blur-xl bg-[#3D2A1C]/70 border border-[#FFFFF0]/10 premium-shadow fixed inset-x-4 bottom-4 z-20 flex items-center justify-center gap-2 rounded-full bg-[#25D366]/95 py-4 text-sm font-semibold text-[#052e16] sm:hidden"
+        className="glass-dark premium-shadow fixed inset-x-4 bottom-4 z-20 flex items-center justify-center gap-2 rounded-full bg-[#25D366]/95 py-4 text-sm font-semibold text-[#052e16] sm:hidden"
       >
         <MessageCircle size={18} />
         Chat on WhatsApp
@@ -1193,10 +1193,10 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
 
 function StatChip({ icon: Icon, value }: { icon: typeof Users; value: string }) {
   return (
-    <div className="backdrop-blur-xl bg-[#3D2A1C]/70 border border-[#FFFFF0]/10 premium-shadow flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-3.5 py-2 text-xs font-bold text-[#FFFFF0]">
+    <div className="glass-dark premium-shadow flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-3.5 py-2 text-xs font-bold text-foreground">
       <Icon
         size={14}
-        className="text-[#D4B896]"
+        className="text-platinum"
       />
       {value}
     </div>
@@ -1208,11 +1208,11 @@ function Stat({ icon: Icon, label, value }: { icon: typeof Users; label: string;
     <div className="flex items-center gap-3">
       <Icon
         size={16}
-        className="text-[#D4B896]"
+        className="text-platinum"
       />
       <div>
-        <p className="text-xs text-[#B8977A]">{label}</p>
-        <p className="text-base font-bold text-[#FFFFF0]">{value}</p>
+        <p className="text-xs text-muted-foreground">{label}</p>
+        <p className="text-base font-bold text-foreground">{value}</p>
       </div>
     </div>
   );

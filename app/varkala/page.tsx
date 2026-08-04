@@ -6,6 +6,7 @@ import {
   ArrowUpRight,
   Bus,
   Calendar,
+  Camera,
   Car,
   Check,
   Compass,
@@ -13,12 +14,17 @@ import {
   Flower2,
   Heart,
   HeartHandshake,
+  Layers,
   Mail,
   MessageCircle,
+  Network,
   Sparkles,
+  Sprout,
+  Store,
   Tag,
   Users,
   X,
+  Zap,
 } from "lucide-react";
 
 const INSTAGRAM_URL = "https://www.instagram.com/oyestoreforgram/";
@@ -58,6 +64,10 @@ function InstagramIcon({ size = 16 }: { size?: number }) {
       />
     </svg>
   );
+}
+
+function OyestoreDot() {
+  return <span className="animate-pulse text-red-500">.</span>;
 }
 
 function whatsappHref(message: string) {
@@ -111,6 +121,7 @@ type Chapter = {
   included: string[];
   notIncluded: string[];
   hiddenSpots?: { name: string; description: string }[];
+  sneakPeek: { id: string; alt: string; image: string; className: string }[];
   beforeYouBook: string;
   whatsappMessage: string;
 };
@@ -137,6 +148,40 @@ const chapters: Chapter[] = [
       "This chapter isn't designed around rushing from one attraction to another - it's built around freedom. Freedom to stop wherever the road feels beautiful, to have conversations that weren't planned, to remember what weekends are supposed to feel like. Your official trip title, host and surprise experiences are revealed 72 hours before departure - because some stories deserve to unfold naturally.",
     perfectFor: ["Solo Travellers", "Friends", "Couples", "Creators", "First-Time Group Travellers"],
     hiddenSpots: varkalaHiddenSpots,
+    sneakPeek: [
+      {
+        id: "id-1",
+        alt: "Weekend crew from a past Independence Day chapter",
+        image: "/varkala/sneak-1.jpg",
+        className: "col-span-2 row-span-2",
+      },
+      {
+        id: "id-2",
+        alt: "Watching the sun go down from the Varkala cliff",
+        image: "/varkala/gallery-sunset.jpg",
+        className: "col-span-2",
+      },
+      {
+        id: "id-3",
+        alt: "Bonfire night on the beach",
+        image: "/varkala/gallery-bonfire.jpg",
+        className: "col-span-2",
+      },
+      { id: "id-4", alt: "Kayaking out on the water", image: "/varkala/gallery-kayak.jpg", className: "" },
+      {
+        id: "id-5",
+        alt: "The red cliffs of Varkala meeting the Arabian Sea",
+        image: "/varkala/gallery-beach-cliff.jpg",
+        className: "",
+      },
+      { id: "id-6", alt: "A candid moment from a past chapter", image: "/varkala/sneak-2.jpg", className: "" },
+      {
+        id: "id-7",
+        alt: "Looking out over the valley on a past chapter",
+        image: "/varkala/sneak-3.jpg",
+        className: "",
+      },
+    ],
     days: [
       {
         day: "0",
@@ -245,6 +290,45 @@ const chapters: Chapter[] = [
       "Whether you're travelling with your brother, your sister, your best friend or simply by yourself, this is a weekend built around connection. Because family isn't always who you grow up with - sometimes, it's who you travel with. Varkala & Kollam, over 3 days and 4 nights.",
     perfectFor: ["Solo Travellers", "Friends", "Couples", "Creators", "First-Time Group Travellers"],
     hiddenSpots: varkalaHiddenSpots,
+    sneakPeek: [
+      {
+        id: "rb-1",
+        alt: "A candid moment from a past chapter",
+        image: "/varkala/sneak-2.jpg",
+        className: "col-span-2 row-span-2",
+      },
+      {
+        id: "rb-2",
+        alt: "Tying rakhi, the old-fashioned way",
+        image: "/varkala/gallery-rakhi.jpg",
+        className: "col-span-2",
+      },
+      {
+        id: "rb-3",
+        alt: "Poolside evenings",
+        image: "/varkala/gallery-pool.jpg",
+        className: "col-span-2",
+      },
+      { id: "rb-4", alt: "Beach volleyball at sunset", image: "/varkala/gallery-volleyball.jpg", className: "" },
+      {
+        id: "rb-5",
+        alt: "Catching up as the sun sets",
+        image: "/varkala/gallery-beach-friends.jpg",
+        className: "",
+      },
+      {
+        id: "rb-6",
+        alt: "Travellers from a past Oyestore chapter",
+        image: "/varkala/sneak-1.jpg",
+        className: "",
+      },
+      {
+        id: "rb-7",
+        alt: "Looking out over the valley on a past chapter",
+        image: "/varkala/sneak-3.jpg",
+        className: "",
+      },
+    ],
     days: [
       {
         day: "0",
@@ -359,6 +443,45 @@ const chapters: Chapter[] = [
       "Homes bloom with intricate Pookalams crafted from fresh flowers, families gather around banana leaves for a feast prepared with love, temples echo with prayers, and an entire state slows down to celebrate gratitude, harvest and togetherness. Over four unforgettable days - Bangalore to Varkala to Thiruvananthapuram to Kollam to Bangalore - you'll witness the soul of God's Own Country through its people, traditions, coastline, backwaters and timeless culture. An AC journey, hosted by Oyestore.",
     perfectFor: ["Solo Travellers", "Friends", "Couples", "Creators", "First-Time Group Travellers"],
     hiddenSpots: varkalaHiddenSpots,
+    sneakPeek: [
+      {
+        id: "on-1",
+        alt: "Looking out over the valley on a past chapter",
+        image: "/varkala/sneak-3.jpg",
+        className: "col-span-2 row-span-2",
+      },
+      {
+        id: "on-2",
+        alt: "A traditional Onam sadya, served on a banana leaf",
+        image: "/varkala/gallery-sadya.jpg",
+        className: "col-span-2",
+      },
+      {
+        id: "on-3",
+        alt: "Cruising the backwaters on a houseboat",
+        image: "/varkala/gallery-houseboat.jpg",
+        className: "col-span-2",
+      },
+      {
+        id: "on-4",
+        alt: "Rangoli, hand-drawn to welcome the season",
+        image: "/varkala/gallery-rangoli.jpg",
+        className: "",
+      },
+      { id: "on-5", alt: "A Kerala temple on the heritage walk", image: "/varkala/gallery-temple.jpg", className: "" },
+      {
+        id: "on-6",
+        alt: "Travellers from a past Oyestore chapter",
+        image: "/varkala/sneak-1.jpg",
+        className: "",
+      },
+      {
+        id: "on-7",
+        alt: "A candid moment from a past chapter",
+        image: "/varkala/sneak-2.jpg",
+        className: "",
+      },
+    ],
     days: [
       {
         day: "0",
@@ -484,6 +607,40 @@ const chapters: Chapter[] = [
       "Creators",
       "Road Trip Lovers",
       "First-Time International Travellers",
+    ],
+    sneakPeek: [
+      {
+        id: "sl-1",
+        alt: "Sigiriya, the ancient rock fortress",
+        image: "/varkala/gallery-sigiriya.jpg",
+        className: "col-span-2 row-span-2",
+      },
+      {
+        id: "sl-2",
+        alt: "Crossing the Nine Arches Bridge by train",
+        image: "/varkala/gallery-nine-arch.jpg",
+        className: "col-span-2",
+      },
+      {
+        id: "sl-3",
+        alt: "Elephants in the wild",
+        image: "/varkala/gallery-elephant.jpg",
+        className: "col-span-2",
+      },
+      { id: "sl-4", alt: "Tea country in the central highlands", image: "/varkala/gallery-tea.jpg", className: "" },
+      { id: "sl-5", alt: "Galle Fort's old lighthouse", image: "/varkala/gallery-galle.jpg", className: "" },
+      {
+        id: "sl-6",
+        alt: "On the road, somewhere between towns",
+        image: "/varkala/gallery-road-trip.jpg",
+        className: "",
+      },
+      {
+        id: "sl-7",
+        alt: "The southern coastline from above",
+        image: "/varkala/gallery-sl-coast.jpg",
+        className: "",
+      },
     ],
     days: [
       {
@@ -615,6 +772,41 @@ const chapters: Chapter[] = [
   },
 ];
 
+const futurePillars = [
+  {
+    icon: Layers,
+    title: "Chapters Instead of Packages",
+    description: "Experiences built around seasons, cultures, festivals and road trips - not generic itineraries.",
+  },
+  {
+    icon: Sprout,
+    title: "Living Destinations",
+    description:
+      "Every trip contributes new cafés, scenic routes, viewpoints, hidden gems and local recommendations. Destinations evolve with every chapter.",
+  },
+  {
+    icon: Camera,
+    title: "Creator-Led Discovery",
+    description: "The people who truly know a destination help shape how it's experienced. Authentic stories over curated advertisements.",
+  },
+  {
+    icon: Store,
+    title: "Local-First Travel",
+    description:
+      "An ecosystem where local cafés, artists, photographers, guides and small businesses become part of every journey - not just stops along the way.",
+  },
+  {
+    icon: Zap,
+    title: "Technology That Connects",
+    description: "Less time switching between apps. More time experiencing places. Technology should simplify travel, not define it.",
+  },
+  {
+    icon: Network,
+    title: "An Ecosystem That Grows",
+    description: "Every traveller leaves behind something valuable. Every chapter improves the next. Every destination becomes richer over time.",
+  },
+];
+
 const whyOyestore = [
   {
     icon: Sparkles,
@@ -638,27 +830,6 @@ const ecosystemPillars = [
   "A destinations vault written by locals and creators who've actually been there, not scraped listings",
   "A creator network - real hosts building a track record chapter by chapter, not a rotating agency guide",
   "A community feed that grows with every trip - the photos, stories and recommendations feed straight back into the next chapter",
-];
-
-const sneakPeek = [
-  {
-    id: "sneak-1",
-    alt: "Travellers from a past Oyestore chapter",
-    image: "/varkala/sneak-1.jpg",
-    className: "col-span-2 row-span-2",
-  },
-  {
-    id: "sneak-2",
-    alt: "A candid moment from a past chapter",
-    image: "/varkala/sneak-2.jpg",
-    className: "col-span-2",
-  },
-  {
-    id: "sneak-3",
-    alt: "Looking out over the valley on a past chapter",
-    image: "/varkala/sneak-3.jpg",
-    className: "col-span-2",
-  },
 ];
 
 const hiddenSpots = [
@@ -722,7 +893,9 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             height={30}
             className="rounded-full"
           />
-          Oyestore.
+          <span>
+            Oyestore<OyestoreDot />
+          </span>
         </Link>
         <div className="flex items-center gap-2.5">
           <a
@@ -949,8 +1122,8 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
 
         <section>
           <p className="text-xs font-medium tracking-wider text-platinum">SNEAK PEEK</p>
-          <div className="mt-4 grid h-64 grid-cols-4 grid-rows-2 gap-3 sm:h-80">
-            {sneakPeek.map((photo) => (
+          <div className="mt-4 grid h-[30rem] grid-cols-4 grid-rows-3 gap-3 sm:h-[34rem]">
+            {chapter.sneakPeek.map((photo) => (
               <div
                 key={photo.id}
                 className={`premium-border relative overflow-hidden rounded-2xl ${photo.className}`}
@@ -1070,6 +1243,73 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           />
         </a>
 
+        <section className="glass-dark premium-shadow rounded-3xl p-6 sm:p-10">
+          <p className="text-xs font-medium tracking-wider text-platinum">THE FUTURE WE&apos;RE BUILDING</p>
+
+          <p className="mt-4 text-lg font-semibold text-foreground sm:text-xl">Travel today is disconnected.</p>
+          <div className="mt-3 space-y-1 text-sm text-muted-foreground">
+            <p>You discover destinations on Instagram.</p>
+            <p>Plan them on Google.</p>
+            <p>Read blogs for recommendations.</p>
+            <p>Open Maps for cafés.</p>
+            <p>Watch YouTube for itineraries.</p>
+            <p>Ask Reddit what to avoid.</p>
+            <p>Book somewhere else.</p>
+          </div>
+          <p className="mt-3 text-sm text-muted-foreground">
+            And once the trip ends, everything you&apos;ve learned disappears.
+          </p>
+
+          <p className="mt-6 font-semibold text-foreground">We believe travel deserves something better.</p>
+          <p className="mt-2 text-sm text-muted-foreground">
+            We&apos;re building a travel ecosystem where discovery, planning, creators, local businesses,
+            experiences and travellers exist in one connected world.
+          </p>
+          <div className="mt-3 space-y-1 text-sm text-muted-foreground">
+            <p>A place where every journey leaves behind knowledge.</p>
+            <p>Every creator adds perspective.</p>
+            <p>Every local business becomes discoverable.</p>
+            <p>And every chapter makes the next one better.</p>
+          </div>
+
+          <p className="text-gradient mt-6 text-sm font-semibold sm:text-base">
+            Because the future of travel isn&apos;t about visiting more places. It&apos;s about
+            understanding them better.
+          </p>
+
+          <p className="mt-10 text-xs font-medium tracking-wider text-platinum">WHAT THAT FUTURE LOOKS LIKE</p>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            {futurePillars.map(({ icon: Icon, title, description }) => (
+              <div
+                key={title}
+                className="rounded-2xl border border-[#fffff0]/10 bg-[#fffff0]/5 p-5"
+              >
+                <Icon
+                  size={18}
+                  className="text-foreground/70"
+                />
+                <p className="mt-3 font-semibold text-foreground">{title}</p>
+                <p className="mt-1.5 text-sm text-muted-foreground">{description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 border-t border-[#fffff0]/10 pt-6">
+            <p className="text-xs font-medium tracking-wider text-platinum">OUR VISION</p>
+            <div className="mt-3 space-y-1 text-sm text-muted-foreground">
+              <p>We&apos;re not building another travel company.</p>
+              <p>We&apos;re building the infrastructure for a better way to explore the world.</p>
+              <p>
+                One where people, places and stories become part of a connected ecosystem that grows
+                stronger with every journey.
+              </p>
+            </div>
+            <p className="text-gradient mt-3 text-sm font-bold uppercase tracking-[0.15em]">
+              One chapter at a time.
+            </p>
+          </div>
+        </section>
+
       </main>
 
       <footer className="relative mx-auto max-w-4xl px-4 pb-32 sm:px-6 sm:pb-16">
@@ -1086,9 +1326,13 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
                 height={30}
                 className="rounded-full"
               />
-              Oyestore.
+              <span>
+                Oyestore<OyestoreDot />
+              </span>
             </Link>
-            <p className="text-gradient mt-2 text-xs font-bold uppercase tracking-[0.2em]">Bringing Better.</p>
+            <p className="text-gradient mt-2 text-xs font-bold uppercase tracking-[0.2em]">
+              Building Better. One Chapter at a Time.
+            </p>
             <p className="mt-4 text-sm text-muted-foreground">
               Oyestore is a creator-led community travel platform - small-group chapters hosted by
               real people who&apos;ve actually made the trip, not a booking engine. This page covers
@@ -1172,7 +1416,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             <p className="text-xs text-muted-foreground">
               © {new Date().getFullYear()} Oyestore. All rights reserved.
             </p>
-            <p className="text-xs text-muted-foreground">Bringing Better - one chapter at a time.</p>
+            <p className="text-xs text-muted-foreground">Building Better - one chapter at a time.</p>
           </div>
         </div>
       </footer>

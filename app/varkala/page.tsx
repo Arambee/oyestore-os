@@ -1050,7 +1050,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
         <div className="absolute bottom-0 left-1/3 size-[24rem] rounded-full bg-[#fffff0]/[0.03] blur-[120px]" />
       </div>
 
-      <header className="relative mx-auto flex max-w-4xl items-center justify-between px-4 py-6 sm:px-6">
+      <header className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-6 sm:px-6">
         <Link
           href="/varkala"
           className="flex items-center gap-2 text-lg font-black tracking-tight text-foreground"
@@ -1088,7 +1088,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
         </div>
       </header>
 
-      <main className="relative mx-auto max-w-4xl space-y-20 px-4 sm:space-y-28 sm:px-6">
+      <main className="relative mx-auto max-w-6xl space-y-20 px-4 sm:space-y-28 sm:px-6">
         <section>
           <p className="text-xs font-medium tracking-wider text-platinum">FIVE CHAPTERS THIS SEASON · VARKALA, MUNNAR &amp; SRI LANKA</p>
           <div className="scrollbar-none mt-3 flex gap-2 overflow-x-auto">
@@ -1481,7 +1481,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
 
       </main>
 
-      <footer className="relative mx-auto max-w-4xl px-4 pb-32 sm:px-6 sm:pb-16">
+      <footer className="relative mx-auto max-w-6xl px-4 pb-32 sm:px-6 sm:pb-16">
         <div className="glass-dark premium-shadow rounded-3xl p-6 sm:p-10">
           <div className="max-w-md">
             <Link

@@ -1088,7 +1088,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
         </div>
       </header>
 
-      <main className="relative mx-auto max-w-6xl space-y-20 px-4 sm:space-y-28 sm:px-6">
+      <main className="relative mx-auto max-w-6xl space-y-10 px-4 sm:space-y-16 sm:px-6">
         <section>
           <p className="text-xs font-medium tracking-wider text-platinum">FIVE CHAPTERS THIS SEASON · VARKALA, MUNNAR &amp; SRI LANKA</p>
           <div className="scrollbar-none mt-3 flex gap-2 overflow-x-auto">

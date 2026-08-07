@@ -169,8 +169,8 @@ const chapters: Chapter[] = [
       },
       {
         id: "id-2",
-        alt: "Watching the sun go down from the Varkala cliff",
-        image: "/varkala/gallery-sunset.jpg",
+        alt: "The crew on the cliff rocks",
+        image: "/varkala/gallery-cliff-crew-selfie.jpg",
         className: "col-span-2",
       },
       {
@@ -191,13 +191,13 @@ const chapters: Chapter[] = [
         image: "/varkala/gallery-beach-cliff.jpg",
         className: "",
       },
-      { id: "id-6", alt: "A candid moment from a past chapter", image: "/varkala/sneak-2.jpg", className: "" },
       {
-        id: "id-7",
-        alt: "Looking out over the valley on a past chapter",
-        image: "/varkala/sneak-3.jpg",
+        id: "id-6",
+        alt: "Taking in the view from the cliff",
+        image: "/varkala/gallery-cliff-crew-candid.jpg",
         className: "",
       },
+      { id: "id-7", alt: "A candid moment from a past chapter", image: "/varkala/sneak-2.jpg", className: "" },
     ],
     days: [
       {
@@ -322,8 +322,8 @@ const chapters: Chapter[] = [
       },
       {
         id: "rb-3",
-        alt: "Poolside evenings",
-        image: "/varkala/gallery-pool.jpg",
+        alt: "The crew, beach day",
+        image: "/varkala/gallery-beach-crew-shirtless.jpg",
         className: "col-span-2",
       },
       { id: "rb-4", alt: "Beach volleyball at sunset", image: "/varkala/gallery-volleyball.jpg", className: "" },
@@ -335,8 +335,8 @@ const chapters: Chapter[] = [
       },
       {
         id: "rb-6",
-        alt: "Travellers from a past Oyestore chapter",
-        image: "/varkala/sneak-1.jpg",
+        alt: "Evening at the shack with the crew",
+        image: "/varkala/gallery-crew-shack-night.jpg",
         className: "",
       },
       {
@@ -475,8 +475,8 @@ const chapters: Chapter[] = [
       },
       {
         id: "on-3",
-        alt: "Cruising the backwaters on a houseboat",
-        image: "/varkala/gallery-houseboat.jpg",
+        alt: "Sunset from the ferry",
+        image: "/varkala/gallery-ferry-sunset.jpg",
         className: "col-span-2",
       },
       {
@@ -485,17 +485,22 @@ const chapters: Chapter[] = [
         image: "/varkala/gallery-rangoli.jpg",
         className: "",
       },
-      { id: "on-5", alt: "A Kerala temple on the heritage walk", image: "/varkala/gallery-temple.jpg", className: "" },
+      {
+        id: "on-5",
+        alt: "A temple chariot on the road",
+        image: "/varkala/gallery-temple-chariot.jpg",
+        className: "",
+      },
       {
         id: "on-6",
-        alt: "Travellers from a past Oyestore chapter",
-        image: "/varkala/sneak-1.jpg",
+        alt: "Wandering the village streets",
+        image: "/varkala/gallery-village-street.jpg",
         className: "",
       },
       {
         id: "on-7",
-        alt: "A candid moment from a past chapter",
-        image: "/varkala/sneak-2.jpg",
+        alt: "Travellers from a past Oyestore chapter",
+        image: "/varkala/sneak-1.jpg",
         className: "",
       },
     ],
@@ -1296,7 +1301,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
 
         <section>
           <p className="text-xs font-medium tracking-wider text-platinum">SNEAK PEEK</p>
-          <div className="mt-4 grid h-[30rem] grid-cols-4 grid-rows-3 gap-3 sm:h-[34rem]">
+          <div className="mt-4 grid grid-cols-4 auto-rows-[9rem] gap-3 sm:auto-rows-[10.5rem]">
             {chapter.sneakPeek.map((photo) => (
               <div
                 key={photo.id}

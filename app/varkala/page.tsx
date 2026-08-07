@@ -179,7 +179,12 @@ const chapters: Chapter[] = [
         image: "/varkala/gallery-bonfire.jpg",
         className: "col-span-2",
       },
-      { id: "id-4", alt: "Kayaking out on the water", image: "/varkala/gallery-kayak.jpg", className: "" },
+      {
+        id: "id-4",
+        alt: "The crew kayaking through the backwaters",
+        image: "/varkala/gallery-kayak-real.jpg",
+        className: "",
+      },
       {
         id: "id-5",
         alt: "The red cliffs of Varkala meeting the Arabian Sea",
@@ -324,8 +329,8 @@ const chapters: Chapter[] = [
       { id: "rb-4", alt: "Beach volleyball at sunset", image: "/varkala/gallery-volleyball.jpg", className: "" },
       {
         id: "rb-5",
-        alt: "Catching up as the sun sets",
-        image: "/varkala/gallery-beach-friends.jpg",
+        alt: "Beach day with the crew",
+        image: "/varkala/gallery-beach-crew.jpg",
         className: "",
       },
       {

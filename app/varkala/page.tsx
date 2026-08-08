@@ -95,11 +95,43 @@ export const metadata: Metadata = {
 const varkalaHiddenSpots = [
   {
     name: "Jatayu Earth Center",
-    description: "The world's largest bird sculpture, carved into a hilltop.",
+    description: "An epic hilltop escape where Kerala's landscape meets one of the world's largest bird sculptures.",
   },
   {
-    name: "Papanasam Beach Cliff Walk",
-    description: "A quiet clifftop trail above the main beach, best at dusk.",
+    name: "Varkala Cliff",
+    description: "Red cliffs, endless Arabian Sea, and the best place to catch the evening slow down.",
+  },
+  {
+    name: "Papanasam Beach",
+    description: "Varkala's iconic beach - where sunset, sea and spirituality meet.",
+  },
+  {
+    name: "Kappil Beach & Backwaters",
+    description: "One side is the sea. The other is the backwaters. The road between them is the experience.",
+  },
+  {
+    name: "Black Sand Beach",
+    description: "A quieter stretch of coast with striking dark sand and far fewer crowds.",
+  },
+  {
+    name: "Janardhana Swamy Temple",
+    description: "A centuries-old temple perched near the sea, carrying Varkala's spiritual side.",
+  },
+  {
+    name: "Sivagiri Mutt",
+    description: "A peaceful hilltop landmark dedicated to the legacy of Sree Narayana Guru.",
+  },
+  {
+    name: "Edava Beach",
+    description: "A quieter coastline for when you want Varkala without the crowd.",
+  },
+  {
+    name: "Mangrove Kayaking",
+    description: "Swap the open sea for narrow waterways, mangroves and a completely different side of Kerala.",
+  },
+  {
+    name: "Cliffside Café Hopping",
+    description: "Coffee, conversations and an Arabian Sea view - basically Varkala in one frame.",
   },
 ];
 
@@ -1322,7 +1354,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             <div className="glass-dark premium-shadow mt-4 rounded-2xl p-5">
               <p className="flex items-center gap-1.5 text-xs font-medium tracking-wider text-platinum">
                 <Compass size={12} />
-                A COUPLE OF SPOTS YOU&apos;LL FIND
+                SPOTS YOU&apos;LL FIND IN VARKALA
               </p>
               <div className="mt-3 grid gap-3 sm:grid-cols-2">
                 {chapter.hiddenSpots.map((spot) => (

@@ -7,6 +7,7 @@ import {
   Check,
   ClipboardList,
   Compass,
+  MessageCircle,
   Sparkles,
   TrendingUp,
   Users,
@@ -14,8 +15,15 @@ import {
 
 const INSTAGRAM_URL = "https://www.instagram.com/oyestoreforgram/";
 const APPLICATION_FORM_URL = "https://forms.gle/RF4dAHzkXZCv4qTT8";
+const WHATSAPP_NUMBER = "918400181281";
+const WHATSAPP_MESSAGE =
+  "Hi! I'm interested in hosting a chapter with Oyestore. Can you share more details on how it works?";
 const THEME_COLOR = "#FBBF24";
 const MIN_FOLLOWERS = 25000;
+
+function whatsappHref(message: string) {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
 
 function InstagramIcon({ size = 16 }: { size?: number }) {
   return (
@@ -121,6 +129,8 @@ const requirements = [
 ];
 
 export default function HostWithUsPage() {
+  const waHref = whatsappHref(WHATSAPP_MESSAGE);
+
   return (
     <div className="relative min-h-screen bg-background">
       <style>{`
@@ -176,13 +186,13 @@ export default function HostWithUsPage() {
             <InstagramIcon size={16} />
           </a>
           <a
-            href={APPLICATION_FORM_URL}
+            href={waHref}
             target="_blank"
             rel="noreferrer"
             className="hidden items-center gap-2 rounded-full bg-pearl px-5 py-2.5 text-sm font-medium text-midnight transition hover:scale-[1.03] hover:bg-pearl/90 sm:flex"
           >
-            <ClipboardList size={16} />
-            Apply to host
+            <MessageCircle size={16} />
+            WhatsApp us
           </a>
         </div>
       </header>

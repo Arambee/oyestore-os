@@ -359,7 +359,12 @@ const chapters: Chapter[] = [
         image: "/varkala/gallery-beach-crew-shirtless.jpg",
         className: "col-span-2",
       },
-      { id: "rb-4", alt: "Beach volleyball at sunset", image: "/varkala/gallery-volleyball.jpg", className: "" },
+      {
+        id: "rb-4",
+        alt: "A surf lesson at sunset",
+        image: "/varkala/gallery-surf-lesson-sunset.jpg",
+        className: "",
+      },
       {
         id: "rb-5",
         alt: "Beach day with the crew",
@@ -368,8 +373,8 @@ const chapters: Chapter[] = [
       },
       {
         id: "rb-6",
-        alt: "Evening at the shack with the crew",
-        image: "/varkala/gallery-crew-shack-night.jpg",
+        alt: "Catching your breath after a surf session",
+        image: "/varkala/gallery-surf-solo.jpg",
         className: "",
       },
       {

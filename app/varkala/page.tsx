@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import StickyBookingCard from "./StickyBookingCard";
 import type { Metadata } from "next";
 import {
   ArrowRight,
@@ -1662,6 +1663,14 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
         </section>
 
       </main>
+
+      {chapter.id === "independence-day" && (
+        <StickyBookingCard
+          price={chapter.price}
+          waHref={waHref}
+          advantage={oyestoreAdvantage}
+        />
+      )}
 
       <footer className="relative mx-auto max-w-6xl px-4 pb-32 sm:px-6 sm:pb-16">
         <div className="glass-dark premium-shadow rounded-3xl p-6 sm:p-10">

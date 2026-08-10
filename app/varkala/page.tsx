@@ -1623,7 +1623,20 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             </div>
           </div>
 
-          <div className="mt-10 flex flex-col items-center gap-2 border-t border-[#fffff0]/10 pt-6 text-center sm:flex-row sm:justify-between sm:text-left">
+          <div className="mt-8">
+            <Link
+              href="/host"
+              className="group inline-flex items-center gap-1.5 text-sm font-medium text-foreground/90 transition hover:text-foreground"
+            >
+              Got an audience? Host a chapter with us
+              <ArrowUpRight
+                size={14}
+                className="shrink-0 text-muted-foreground transition group-hover:translate-x-0.5 group-hover:translate-y-[-0.5px] group-hover:text-foreground"
+              />
+            </Link>
+          </div>
+
+          <div className="mt-6 flex flex-col items-center gap-2 border-t border-[#fffff0]/10 pt-6 text-center sm:flex-row sm:justify-between sm:text-left">
             <p className="text-xs text-muted-foreground">
               © {new Date().getFullYear()} Oyestore. All rights reserved.
             </p>

@@ -19,6 +19,7 @@ import {
   MessageCircle,
   Mountain,
   Network,
+  Shield,
   Sparkles,
   Sprout,
   Store,
@@ -1030,6 +1031,33 @@ const whyOyestore = [
   },
 ];
 
+const oyestorePromise = "You pick the place. We take care of the rest.";
+
+const oyestoreAdvantage = [
+  "Stay in handpicked places",
+  "Curated local experiences",
+  "Everything planned before you arrive",
+  "No itinerary headaches",
+  "Real-time trip updates",
+  "A host who actually knows the destination",
+];
+
+const diyComparison = [
+  { task: "Find a place to stay", diy: "Hours of scrolling listings", oyestore: "Handpicked, already done" },
+  { task: "Figure out transport", diy: "Compare cabs, buses, routes", oyestore: "Planned for you" },
+  { task: "Research what's worth seeing", diy: "Dig through blogs and reels", oyestore: "Curated by people who've been" },
+  { task: "Build an itinerary", diy: "Piece it together yourself", oyestore: "Done before you arrive" },
+  { task: "Coordinate everything on the day", diy: "You're the trip manager", oyestore: "You just show up" },
+];
+
+const afterYouBookSteps = [
+  { title: "Book", description: "Message us on WhatsApp and lock your seat." },
+  { title: "Confirmation", description: "Payment details and booking confirmation, sent right away." },
+  { title: "Trip updates", description: "Logistics, packing notes and reminders as the date gets closer." },
+  { title: "Pre-trip briefing", description: "A final rundown before departure - meeting point, host intro, what to expect." },
+  { title: "Show up & travel", description: "The rest is on us." },
+];
+
 const ecosystemPillars = [
   "A themed chapter every season - Independence Day, Raksha Bandhan, Onam, Munnar x Vagamon, and expeditions like The Odyssey - never the same trip twice",
   "A destinations vault written by locals and creators who've actually been there, not scraped listings",
@@ -1218,6 +1246,16 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
                     <ArrowRight size={14} />
                   </a>
                 </div>
+
+                {chapter.id === "independence-day" && (
+                  <a
+                    href="#cancellation"
+                    className="mt-4 inline-flex w-fit items-center gap-1.5 text-xs text-[#fffff0]/60 underline decoration-[#fffff0]/30 underline-offset-4 transition hover:text-[#fffff0]/90"
+                  >
+                    <Shield size={12} />
+                    Plans change - flexible cancellation. See the policy.
+                  </a>
+                )}
               </div>
             </div>
 
@@ -1281,6 +1319,58 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             </div>
           ))}
         </section>
+
+        {chapter.id === "independence-day" && (
+          <section className="glass-dark premium-shadow rounded-3xl p-6 sm:p-10">
+            <p className="text-gradient max-w-xl text-2xl font-black leading-snug sm:text-3xl">
+              {oyestorePromise}
+            </p>
+
+            <div className="mt-8 grid gap-8 sm:grid-cols-2">
+              <div>
+                <p className="text-xs font-medium tracking-wider text-platinum">WHY OYESTORE?</p>
+                <ul className="mt-3 space-y-2.5">
+                  {oyestoreAdvantage.map((point) => (
+                    <li
+                      key={point}
+                      className="flex items-start gap-2 text-sm text-foreground/90"
+                    >
+                      <Check
+                        size={16}
+                        className="mt-0.5 shrink-0 text-[#25D366]"
+                      />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <p className="text-xs font-medium tracking-wider text-platinum">PLAN IT YOURSELF, OR DON&apos;T</p>
+                <div className="mt-3 space-y-2.5">
+                  {diyComparison.map((row) => (
+                    <div
+                      key={row.task}
+                      className="rounded-xl border border-[#fffff0]/10 bg-[#fffff0]/[0.03] p-3"
+                    >
+                      <p className="text-sm font-medium text-foreground/90">{row.task}</p>
+                      <div className="mt-1.5 flex items-center gap-2 text-xs">
+                        <span className="text-muted-foreground/70 line-through decoration-[#fffff0]/20">
+                          {row.diy}
+                        </span>
+                        <ArrowRight
+                          size={11}
+                          className="shrink-0 text-muted-foreground/50"
+                        />
+                        <span className="font-medium text-[#25D366]">{row.oyestore}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
         <section>
           <p className="text-xs font-medium tracking-wider text-platinum">ABOUT THE CHAPTER</p>
@@ -1347,6 +1437,11 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
 
         <section>
           <p className="text-xs font-medium tracking-wider text-platinum">SNEAK PEEK</p>
+          {chapter.id === "independence-day" && (
+            <p className="mt-1.5 text-sm text-muted-foreground">
+              Not a brochure. These are our travellers.
+            </p>
+          )}
           <div className="mt-4 grid grid-cols-4 auto-rows-[9rem] gap-3 sm:auto-rows-[10.5rem]">
             {chapter.sneakPeek.map((photo) => (
               <div
@@ -1381,6 +1476,12 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             </div>
           )}
         </section>
+
+        {chapter.id === "independence-day" && (
+          <p className="max-w-xl text-xl font-medium leading-snug text-foreground/90 sm:text-2xl">
+            You just show up. We&apos;ve handled the rest.
+          </p>
+        )}
 
         <section className="grid gap-4 sm:grid-cols-2">
           <div className="glass-dark premium-shadow rounded-2xl p-5">
@@ -1425,7 +1526,10 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           <p className="mt-2 text-sm text-muted-foreground">{chapter.beforeYouBook}</p>
         </section>
 
-        <section className="glass-dark premium-shadow rounded-2xl p-5 sm:p-6">
+        <section
+          id="cancellation"
+          className="glass-dark premium-shadow rounded-2xl p-5 sm:p-6"
+        >
           <p className="text-xs font-medium tracking-wider text-platinum">CANCELLATION & REFUND POLICY</p>
           <div className="mt-3 divide-y divide-[#fffff0]/10">
             {refundTiers.map((tier) => (
@@ -1447,6 +1551,28 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             <li>Any refund amount is credited back to your original payment method within 21 days.</li>
           </ul>
         </section>
+
+        {chapter.id === "independence-day" && (
+          <section>
+            <p className="text-xs font-medium tracking-wider text-platinum">WHAT HAPPENS AFTER I BOOK?</p>
+            <div className="mt-4 space-y-3">
+              {afterYouBookSteps.map((step, index) => (
+                <div
+                  key={step.title}
+                  className="glass-dark premium-shadow flex gap-4 rounded-2xl p-5"
+                >
+                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#25D366]/15 text-sm font-bold text-[#25D366]">
+                    {index + 1}
+                  </span>
+                  <div>
+                    <p className="font-semibold text-foreground">{step.title}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">{step.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         <a
           href={waHref}

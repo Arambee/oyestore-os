@@ -13,10 +13,19 @@ export default function StickyBookingCard({ price, waHref, advantage }: StickyBo
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 500);
+    const onScroll = () => {
+      const pastHero = window.scrollY > 500;
+      const footer = document.getElementById("site-footer");
+      const footerInView = footer ? footer.getBoundingClientRect().top < window.innerHeight : false;
+      setVisible(pastHero && !footerInView);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   return (

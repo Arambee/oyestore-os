@@ -329,7 +329,7 @@ const chapters: Chapter[] = [
     heroTitle: "This Raksha Bandhan, make memories together.",
     heroSubtitle:
       "Some bonds are built by blood. Some are built by choice. Trade the crowded malls for cliffside sunsets.",
-    price: "Message us for pricing",
+    price: "₹12,999 onwards",
     duration: "3 Days · 4 Nights",
     departure: "Bangalore / Pan India",
     seats: "20 people",
@@ -469,7 +469,7 @@ const chapters: Chapter[] = [
     beforeYouBook:
       "Every chapter is intentionally designed to stay flexible - weather changes, people change, and some of the best discoveries aren't found on Google Maps. The itinerary above is an overview of the experience; your official trip title, host reveal, meeting points, timings and surprise experiences are shared 72 hours before departure. Seats are limited to 20 people for the 28-30 August 2026 dates - message us on WhatsApp to lock yours in.",
     whatsappMessage:
-      "Hi! I'm interested in the Raksha Bandhan Varkala chapter (28-30 Aug 2026, 3 Days/4 Nights). Can you share pricing and more details?",
+      "Hi! I'm interested in the Raksha Bandhan Varkala chapter (28-30 Aug 2026, ₹12,999 · 3 Days/4 Nights). Can you share more details?",
   },
   {
     id: "onam",
@@ -646,7 +646,7 @@ const chapters: Chapter[] = [
     heroTitle: "Let the mountains conquer your mind.",
     heroSubtitle:
       "Freedom isn't always found by the sea. Sometimes it's waiting at the next hairpin bend.",
-    price: "Message us for pricing",
+    price: "₹14,999 onwards",
     duration: "3 Days · 4 Nights",
     departure: "Bangalore / Pan India",
     seats: "20 people",
@@ -784,7 +784,7 @@ const chapters: Chapter[] = [
     beforeYouBook:
       "Every chapter is intentionally designed to remain flexible - weather changes, people change, and some of the best discoveries aren't found on Google Maps. The itinerary above is an overview of the experience; your official trip title, host reveal, meeting points, timings and surprise experiences are shared 72 hours before departure. AC transportation from Bangalore is optional and billed at real-time bus fares, so it's quoted separately when you book. Seats are limited to 20 people for the 21-23 August 2026 dates - message us on WhatsApp to lock yours in.",
     whatsappMessage:
-      "Hi! I'm interested in the Munnar x Vagamon chapter (21-23 Aug 2026, ₹ TBA · 3 Days/4 Nights). Can you share pricing and more details?",
+      "Hi! I'm interested in the Munnar x Vagamon chapter (21-23 Aug 2026, ₹14,999 · 3 Days/4 Nights). Can you share more details?",
   },
   {
     id: "sri-lanka-odyssey",
@@ -1651,7 +1651,10 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
         advantage={oyestoreAdvantage}
       />
 
-      <footer className="relative mx-auto max-w-6xl px-4 pb-32 sm:px-6 sm:pb-16">
+      <footer
+        id="site-footer"
+        className="relative mx-auto max-w-6xl px-4 pb-32 sm:px-6 sm:pb-16"
+      >
         <div className="glass-dark premium-shadow rounded-3xl p-6 sm:p-10">
           <div className="max-w-md">
             <Link
@@ -1778,7 +1781,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
         target="_blank"
         rel="noreferrer"
         aria-label="Message Oyestore on WhatsApp"
-        className="glass-dark premium-shadow fixed inset-x-4 bottom-4 z-20 flex items-center justify-center gap-2 rounded-full bg-[#25D366]/95 py-4 text-sm font-semibold text-[#052e16] sm:hidden"
+        className="premium-shadow fixed inset-x-4 bottom-4 z-20 flex items-center justify-center gap-2 rounded-full bg-[#25D366] py-4 text-sm font-semibold text-[#052e16] sm:hidden"
       >
         <MessageCircle size={18} />
         Chat on WhatsApp

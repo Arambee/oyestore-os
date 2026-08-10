@@ -1088,6 +1088,12 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           className="absolute -left-40 -top-40 size-[32rem] rounded-full opacity-[0.12] blur-[120px] transition-colors duration-500"
           style={{ backgroundColor: chapter.themeColor }}
         />
+        {chapter.id === "independence-day" && (
+          <div
+            className="absolute -bottom-40 -right-40 size-[28rem] rounded-full opacity-[0.08] blur-[120px]"
+            style={{ backgroundColor: "#138808" }}
+          />
+        )}
         <div className="absolute right-0 top-1/3 size-[28rem] rounded-full bg-[#fffff0]/[0.03] blur-[120px]" />
         <div className="absolute bottom-0 left-1/3 size-[24rem] rounded-full bg-[#fffff0]/[0.03] blur-[120px]" />
       </div>
@@ -1137,6 +1143,14 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           </a>
         </div>
       </header>
+
+      {chapter.id === "independence-day" && (
+        <div
+          aria-hidden
+          className="relative mx-auto h-[3px] max-w-6xl rounded-full opacity-70"
+          style={{ background: "linear-gradient(to right, #FF9933, #FFFFFF, #138808)" }}
+        />
+      )}
 
       <main className="relative mx-auto max-w-6xl space-y-10 px-4 sm:space-y-16 sm:px-6">
         <section>

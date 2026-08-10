@@ -1109,6 +1109,14 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           </span>
         </Link>
         <div className="flex items-center gap-2.5">
+          <Link
+            href="/host"
+            className="flex items-center gap-1.5 rounded-full border border-[#fffff0]/15 bg-[#fffff0]/5 px-3 py-2 text-xs font-medium text-foreground/90 transition hover:bg-[#fffff0]/10 hover:text-foreground sm:px-4 sm:text-sm"
+          >
+            <Sparkles size={14} />
+            <span className="hidden sm:inline">Host with us</span>
+            <span className="sm:hidden">Host</span>
+          </Link>
           <a
             href={INSTAGRAM_URL}
             target="_blank"

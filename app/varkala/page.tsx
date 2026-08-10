@@ -325,7 +325,7 @@ const chapters: Chapter[] = [
     badge: "RAKSHA BANDHAN CHAPTER · 28-30 AUG 2026",
     badgeIcon: HeartHandshake,
     themeColor: "#FB7185",
-    heroImage: "https://images.unsplash.com/photo-1646299588107-40fabeca07da?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "https://images.unsplash.com/photo-1645484013523-a8f0cae92612?auto=format&fit=crop&w=1200&q=80",
     heroTitle: "This Raksha Bandhan, make memories together.",
     heroSubtitle:
       "Some bonds are built by blood. Some are built by choice. Trade the crowded malls for cliffside sunsets.",

@@ -1144,14 +1144,6 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
         </div>
       </header>
 
-      {chapter.id === "independence-day" && (
-        <div
-          aria-hidden
-          className="relative mx-auto h-[3px] max-w-6xl rounded-full opacity-70"
-          style={{ background: "linear-gradient(to right, #FF9933, #FFFFFF, #138808)" }}
-        />
-      )}
-
       <main className="relative mx-auto max-w-6xl space-y-10 px-4 sm:space-y-16 sm:px-6">
         <section>
           <p className="text-xs font-medium tracking-wider text-platinum">FIVE CHAPTERS THIS SEASON · VARKALA, MUNNAR &amp; SRI LANKA</p>

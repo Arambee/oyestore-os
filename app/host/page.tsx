@@ -5,17 +5,15 @@ import {
   ArrowRight,
   Camera,
   Check,
+  ClipboardList,
   Compass,
-  MessageCircle,
   Sparkles,
   TrendingUp,
   Users,
 } from "lucide-react";
 
 const INSTAGRAM_URL = "https://www.instagram.com/oyestoreforgram/";
-const WHATSAPP_NUMBER = "918400181281";
-const WHATSAPP_MESSAGE =
-  "Hi! I'm interested in hosting a chapter with Oyestore. Can you share more details on how it works?";
+const APPLICATION_FORM_URL = "https://forms.gle/RF4dAHzkXZCv4qTT8";
 const THEME_COLOR = "#FBBF24";
 const MIN_FOLLOWERS = 25000;
 
@@ -66,10 +64,6 @@ function OyestoreDot() {
       style={{ animation: "oye-dot-pulse 1.8s ease-in-out infinite" }}
     />
   );
-}
-
-function whatsappHref(message: string) {
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
 export const metadata: Metadata = {
@@ -127,8 +121,6 @@ const requirements = [
 ];
 
 export default function HostWithUsPage() {
-  const waHref = whatsappHref(WHATSAPP_MESSAGE);
-
   return (
     <div className="relative min-h-screen bg-background">
       <style>{`
@@ -184,13 +176,13 @@ export default function HostWithUsPage() {
             <InstagramIcon size={16} />
           </a>
           <a
-            href={waHref}
+            href={APPLICATION_FORM_URL}
             target="_blank"
             rel="noreferrer"
             className="hidden items-center gap-2 rounded-full bg-pearl px-5 py-2.5 text-sm font-medium text-midnight transition hover:scale-[1.03] hover:bg-pearl/90 sm:flex"
           >
-            <MessageCircle size={16} />
-            WhatsApp us
+            <ClipboardList size={16} />
+            Apply to host
           </a>
         </div>
       </header>
@@ -217,12 +209,12 @@ export default function HostWithUsPage() {
 
           <div className="mt-6 flex flex-wrap gap-2.5">
             <a
-              href={waHref}
+              href={APPLICATION_FORM_URL}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-[#052e16] transition hover:scale-[1.03]"
+              className="inline-flex items-center gap-2 rounded-full bg-pearl px-5 py-2.5 text-sm font-semibold text-midnight transition hover:scale-[1.03] hover:bg-pearl/90"
             >
-              <MessageCircle size={16} />
+              <ClipboardList size={16} />
               Apply to host
             </a>
             <a
@@ -303,18 +295,18 @@ export default function HostWithUsPage() {
         </section>
 
         <a
-          href={waHref}
+          href={APPLICATION_FORM_URL}
           target="_blank"
           rel="noreferrer"
           className="glass-dark premium-shadow group relative flex items-center justify-between overflow-hidden rounded-3xl p-6 sm:p-8"
         >
           <div className="relative">
             <p className="flex items-center gap-1.5 text-xs font-medium tracking-wider text-platinum">
-              <MessageCircle size={12} />
+              <ClipboardList size={12} />
               READY TO HOST?
             </p>
-            <h3 className="mt-1 text-2xl font-bold text-pearl sm:text-3xl">Chat with us on WhatsApp</h3>
-            <p className="mt-1 text-sm text-pearl/60 sm:text-base">+91 84001 81281</p>
+            <h3 className="mt-1 text-2xl font-bold text-pearl sm:text-3xl">Fill out the application</h3>
+            <p className="mt-1 text-sm text-pearl/60 sm:text-base">Takes about 5 minutes - reviewed by hand</p>
           </div>
           <ArrowRight
             size={22}
@@ -335,12 +327,12 @@ export default function HostWithUsPage() {
       </main>
 
       <a
-        href={waHref}
+        href={APPLICATION_FORM_URL}
         target="_blank"
         rel="noreferrer"
-        className="fixed inset-x-4 bottom-4 z-20 flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3.5 text-sm font-semibold text-[#052e16] shadow-lg transition hover:scale-[1.02] sm:hidden"
+        className="fixed inset-x-4 bottom-4 z-20 flex items-center justify-center gap-2 rounded-full bg-pearl px-5 py-3.5 text-sm font-semibold text-midnight shadow-lg transition hover:scale-[1.02] sm:hidden"
       >
-        <MessageCircle size={16} />
+        <ClipboardList size={16} />
         Apply to host
       </a>
     </div>

@@ -20,7 +20,6 @@ import {
   MessageCircle,
   Mountain,
   Network,
-  Shield,
   Sparkles,
   Sprout,
   Store,
@@ -1247,16 +1246,6 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
                     <ArrowRight size={14} />
                   </a>
                 </div>
-
-                {chapter.id === "independence-day" && (
-                  <a
-                    href="#cancellation"
-                    className="mt-4 inline-flex w-fit items-center gap-1.5 text-xs text-[#fffff0]/60 underline decoration-[#fffff0]/30 underline-offset-4 transition hover:text-[#fffff0]/90"
-                  >
-                    <Shield size={12} />
-                    Plans change - flexible cancellation. See the policy.
-                  </a>
-                )}
               </div>
             </div>
 
@@ -1321,11 +1310,10 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           ))}
         </section>
 
-        {chapter.id === "independence-day" && (
-          <section className="glass-dark premium-shadow rounded-3xl p-6 sm:p-10">
-            <p className="text-gradient max-w-xl text-2xl font-black leading-snug sm:text-3xl">
-              {oyestorePromise}
-            </p>
+        <section className="glass-dark premium-shadow rounded-3xl p-6 sm:p-10">
+          <p className="text-gradient max-w-xl text-2xl font-black leading-snug sm:text-3xl">
+            {oyestorePromise}
+          </p>
 
             <div className="mt-8 grid gap-8 sm:grid-cols-2">
               <div>
@@ -1370,8 +1358,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
                 </div>
               </div>
             </div>
-          </section>
-        )}
+        </section>
 
         <section>
           <p className="text-xs font-medium tracking-wider text-platinum">ABOUT THE CHAPTER</p>
@@ -1438,11 +1425,9 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
 
         <section>
           <p className="text-xs font-medium tracking-wider text-platinum">SNEAK PEEK</p>
-          {chapter.id === "independence-day" && (
-            <p className="mt-1.5 text-sm text-muted-foreground">
-              Not a brochure. These are our travellers.
-            </p>
-          )}
+          <p className="mt-1.5 text-sm text-muted-foreground">
+            Not a brochure. These are our travellers.
+          </p>
           <div className="mt-4 grid grid-cols-4 auto-rows-[9rem] gap-3 sm:auto-rows-[10.5rem]">
             {chapter.sneakPeek.map((photo) => (
               <div
@@ -1478,11 +1463,9 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           )}
         </section>
 
-        {chapter.id === "independence-day" && (
-          <p className="max-w-xl text-xl font-medium leading-snug text-foreground/90 sm:text-2xl">
-            You just show up. We&apos;ve handled the rest.
-          </p>
-        )}
+        <p className="max-w-xl text-xl font-medium leading-snug text-foreground/90 sm:text-2xl">
+          You just show up. We&apos;ve handled the rest.
+        </p>
 
         <section className="grid gap-4 sm:grid-cols-2">
           <div className="glass-dark premium-shadow rounded-2xl p-5">
@@ -1553,27 +1536,25 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           </ul>
         </section>
 
-        {chapter.id === "independence-day" && (
-          <section>
-            <p className="text-xs font-medium tracking-wider text-platinum">WHAT HAPPENS AFTER I BOOK?</p>
-            <div className="mt-4 space-y-3">
-              {afterYouBookSteps.map((step, index) => (
-                <div
-                  key={step.title}
-                  className="glass-dark premium-shadow flex gap-4 rounded-2xl p-5"
-                >
-                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#25D366]/15 text-sm font-bold text-[#25D366]">
-                    {index + 1}
-                  </span>
-                  <div>
-                    <p className="font-semibold text-foreground">{step.title}</p>
-                    <p className="mt-1 text-sm text-muted-foreground">{step.description}</p>
-                  </div>
+        <section>
+          <p className="text-xs font-medium tracking-wider text-platinum">WHAT HAPPENS AFTER I BOOK?</p>
+          <div className="mt-4 space-y-3">
+            {afterYouBookSteps.map((step, index) => (
+              <div
+                key={step.title}
+                className="glass-dark premium-shadow flex gap-4 rounded-2xl p-5"
+              >
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#25D366]/15 text-sm font-bold text-[#25D366]">
+                  {index + 1}
+                </span>
+                <div>
+                  <p className="font-semibold text-foreground">{step.title}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{step.description}</p>
                 </div>
-              ))}
-            </div>
-          </section>
-        )}
+              </div>
+            ))}
+          </div>
+        </section>
 
         <a
           href={waHref}
@@ -1664,13 +1645,11 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
 
       </main>
 
-      {chapter.id === "independence-day" && (
-        <StickyBookingCard
-          price={chapter.price}
-          waHref={waHref}
-          advantage={oyestoreAdvantage}
-        />
-      )}
+      <StickyBookingCard
+        price={chapter.price}
+        waHref={waHref}
+        advantage={oyestoreAdvantage}
+      />
 
       <footer className="relative mx-auto max-w-6xl px-4 pb-32 sm:px-6 sm:pb-16">
         <div className="glass-dark premium-shadow rounded-3xl p-6 sm:p-10">

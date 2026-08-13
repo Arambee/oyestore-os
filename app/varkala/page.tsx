@@ -4,6 +4,7 @@ import Homepage from "./Homepage";
 import StickyBookingCard from "./StickyBookingCard";
 import TripCalendar from "./TripCalendar";
 import type { Metadata } from "next";
+import type { ComponentType, CSSProperties, SVGProps } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -13,27 +14,82 @@ import {
   Car,
   Check,
   Compass,
-  Flag,
   Flower2,
   Heart,
   HeartHandshake,
+  Kayak,
   Layers,
   Mail,
   MessageCircle,
   Mountain,
   Network,
+  Scooter,
   Sparkles,
   Sprout,
   Store,
   Tag,
   Users,
-  Waves,
   X,
   Zap,
 } from "lucide-react";
 
 const INSTAGRAM_URL = "https://www.instagram.com/oyestoreforgram/";
 const WHATSAPP_NUMBER = "918400181281";
+
+// A generic "badge icon" - any component (lucide or hand-drawn) that can
+// carry a chapter's activity glyph at a given size/color.
+type IconComponent = ComponentType<{ size?: number; className?: string; style?: CSSProperties }>;
+
+// lucide-react has no surfboard or horse icon - hand-drawn to match the
+// line-icon style already used for InstagramIcon.
+function SurfboardIcon({ size = 16, ...props }: { size?: number } & SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+      {...props}
+    >
+      <path d="M4 20c3-11 6-16 9.5-17.5C16 1.5 17 3 16.5 5.5 15 12 10 17 4 20Z" />
+      <path d="M7 15.5 15 7" />
+    </svg>
+  );
+}
+
+function HorseIcon({ size = 16, ...props }: { size?: number } & SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+      {...props}
+    >
+      <path d="M15 4c1.8 0 3 1.3 3 3 0 1.2-.6 2-1.5 3 1 .7 1.5 1.7 1.5 3v2.5" />
+      <path d="M16.5 15.5 18 21" />
+      <path d="M13 10c-1.5 1-2.5 2.7-2.5 5v6" />
+      <path d="M10.5 15.5 8.5 21" />
+      <path d="M15 6.5c-3.5 0-6.5 2-6.5 5.5 0 1-.5 1.5-1.5 1.5" />
+      <circle
+        cx="16.3"
+        cy="6.2"
+        r=".4"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
 
 function InstagramIcon({ size = 16 }: { size?: number }) {
   return (
@@ -151,7 +207,7 @@ type Chapter = {
   navLabel: string;
   navDates: string;
   badge: string;
-  badgeIcon: typeof Flag;
+  badgeIcon: IconComponent;
   themeColor: string;
   heroImage: string;
   heroTitle: string;
@@ -858,6 +914,9 @@ const chapters: Chapter[] = [
       id: "varkala-weekend-sep-4",
       start: "4",
       end: "6",
+      badgeIcon: SurfboardIcon,
+      themeColor: "#38BDF8",
+      signatureActivity: "Surf lesson",
       heroImage: "/varkala/gallery-beach-cliff.jpg",
       gallery: [
         { alt: "A candid moment from a past chapter", image: "/varkala/sneak-2.jpg", className: "col-span-2 row-span-2" },
@@ -872,6 +931,9 @@ const chapters: Chapter[] = [
       id: "varkala-weekend-sep-11",
       start: "11",
       end: "13",
+      badgeIcon: HorseIcon,
+      themeColor: "#F97316",
+      signatureActivity: "Horse riding (seasonal, subject to availability)",
       heroImage: "/varkala/gallery-cliff-crew-selfie.jpg",
       gallery: [
         { alt: "Beach day with the crew", image: "/varkala/gallery-beach-crew.jpg", className: "col-span-2 row-span-2" },
@@ -886,6 +948,9 @@ const chapters: Chapter[] = [
       id: "varkala-weekend-sep-18",
       start: "18",
       end: "20",
+      badgeIcon: Kayak,
+      themeColor: "#A78BFA",
+      signatureActivity: "Mangrove kayaking",
       heroImage: "/varkala/hero-surf-lesson.jpg",
       gallery: [
         { alt: "Looking out over the valley on a past chapter", image: "/varkala/sneak-3.jpg", className: "col-span-2 row-span-2" },
@@ -900,6 +965,9 @@ const chapters: Chapter[] = [
       id: "varkala-weekend-sep-25",
       start: "25",
       end: "27",
+      badgeIcon: Scooter,
+      themeColor: "#EC4899",
+      signatureActivity: "Scooter exploration",
       heroImage: "/varkala/gallery-sunset.jpg",
       gallery: [
         { alt: "A group selfie at Varkala Cliff", image: "/varkala/gallery-cliff-crew-selfie.jpg", className: "col-span-2 row-span-2" },
@@ -910,15 +978,15 @@ const chapters: Chapter[] = [
         { alt: "A candid moment from a past chapter", image: "/varkala/sneak-2.jpg", className: "" },
       ],
     },
-  ].map(({ id, start, end, heroImage, gallery }): Chapter => {
+  ].map(({ id, start, end, badgeIcon, themeColor, signatureActivity, heroImage, gallery }): Chapter => {
     const dateChip = `${start}-${end} Sep 2026`;
     return {
       id,
       navLabel: "Varkala Weekend",
       navDates: dateChip,
       badge: `VARKALA WEEKEND · ${start}-${end} SEP 2026`,
-      badgeIcon: Waves,
-      themeColor: "#38BDF8",
+      badgeIcon,
+      themeColor,
       heroImage,
       heroTitle: "A Varkala weekend, whenever you need one.",
       heroSubtitle:
@@ -980,7 +1048,7 @@ const chapters: Chapter[] = [
         "Cliffside sunsets",
         "Hidden beaches",
         "Beach cafés",
-        "Surf lesson",
+        signatureActivity,
         "Community games",
         "Poolside evenings",
         "Photography walks",

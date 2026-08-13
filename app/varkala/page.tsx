@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import StickyBookingCard from "./StickyBookingCard";
+import TripCalendar from "./TripCalendar";
 import type { Metadata } from "next";
 import {
   ArrowRight,
@@ -935,6 +936,14 @@ const hiddenSpots = [
   },
 ];
 
+// Month is 0-indexed (7 = August, 9 = October) to match JS Date conventions.
+const CALENDAR_RANGES: Record<string, { month: number; start: number; end: number }> = {
+  "munnar-vagamon": { month: 7, start: 21, end: 23 },
+  onam: { month: 7, start: 26, end: 29 },
+  "raksha-bandhan": { month: 7, start: 28, end: 30 },
+  "sri-lanka-odyssey": { month: 9, start: 15, end: 21 },
+};
+
 const refundTiers = [
   { window: "30+ days before departure", refund: "75% refund" },
   { window: "15-29 days before departure", refund: "50% refund" },
@@ -950,6 +959,26 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
   const { chapter: chapterParam } = await searchParams;
   const chapter = chapters.find((c) => c.id === chapterParam) ?? chapters[0];
   const waHref = whatsappHref(chapter.whatsappMessage);
+
+  const calendarChapters = chapters
+    .map((c) => {
+      const range = CALENDAR_RANGES[c.id];
+      if (!range) return null;
+      return {
+        id: c.id,
+        navLabel: c.navLabel,
+        dateChip: c.dateChip,
+        themeColor: c.themeColor,
+        heroImage: c.heroImage,
+        price: c.price,
+        waHref: whatsappHref(c.whatsappMessage),
+        icon: <c.badgeIcon size={13} />,
+        month: range.month,
+        startDay: range.start,
+        endDay: range.end,
+      };
+    })
+    .filter((c): c is NonNullable<typeof c> => c !== null);
 
   return (
     <div className="relative min-h-screen bg-background">
@@ -1052,6 +1081,8 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             ))}
           </div>
         </section>
+
+        <TripCalendar chapters={calendarChapters} />
 
         <section>
           <div className="premium-border premium-shadow relative rounded-3xl">

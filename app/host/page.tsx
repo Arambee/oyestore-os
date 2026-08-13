@@ -189,7 +189,7 @@ export default function HostWithUsPage() {
             href={waHref}
             target="_blank"
             rel="noreferrer"
-            className="hidden items-center gap-2 rounded-full bg-pearl px-5 py-2.5 text-sm font-medium text-midnight transition hover:scale-[1.03] hover:bg-pearl/90 sm:flex"
+            className="tricolor-gradient hidden items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition hover:scale-[1.03] sm:flex"
           >
             <MessageCircle size={16} />
             WhatsApp us

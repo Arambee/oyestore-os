@@ -1312,7 +1312,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             href={waHref}
             target="_blank"
             rel="noreferrer"
-            className="hidden items-center gap-2 rounded-full bg-pearl px-5 py-2.5 text-sm font-medium text-midnight transition hover:scale-[1.03] hover:bg-pearl/90 sm:flex"
+            className="tricolor-gradient hidden items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition hover:scale-[1.03] sm:flex"
           >
             <MessageCircle size={16} />
             WhatsApp us
@@ -1382,7 +1382,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
                     href={waHref}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-[#052e16] transition hover:scale-[1.03]"
+                    className="tricolor-gradient inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition hover:scale-[1.03]"
                   >
                     <MessageCircle size={16} />
                     Message us on WhatsApp
@@ -1931,7 +1931,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
         target="_blank"
         rel="noreferrer"
         aria-label="Message Oyestore on WhatsApp"
-        className="premium-shadow fixed inset-x-4 bottom-4 z-20 flex items-center justify-center gap-2 rounded-full bg-[#25D366] py-4 text-sm font-semibold text-[#052e16] sm:hidden"
+        className="tricolor-gradient premium-shadow fixed inset-x-4 bottom-4 z-20 flex items-center justify-center gap-2 rounded-full py-4 text-sm font-semibold sm:hidden"
       >
         <MessageCircle size={18} />
         Chat on WhatsApp

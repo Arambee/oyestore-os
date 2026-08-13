@@ -53,6 +53,20 @@
     -webkit-text-fill-color: transparent;
   }
 
+  /* ─── Independence Day Tricolor ──────────────────────────────────────── */
+  .tricolor-gradient {
+    background: linear-gradient(
+      90deg,
+      #ff9933 0%,
+      #ff9933 30%,
+      #ffffff 45%,
+      #ffffff 55%,
+      #138808 70%,
+      #138808 100%
+    );
+    color: #0a0a0a;
+  }
+
   /* ─── Layout ──────────────────────────────────────────────────────────── */
   .section-padding {
     padding-top: var(--section-padding-y-sm);

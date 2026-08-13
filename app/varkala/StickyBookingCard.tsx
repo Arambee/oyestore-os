@@ -42,7 +42,7 @@ export default function StickyBookingCard({ price, waHref, advantage }: StickyBo
           href={waHref}
           target="_blank"
           rel="noreferrer"
-          className="mt-3 flex items-center justify-center gap-2 rounded-full bg-[#25D366] py-3 text-sm font-semibold text-[#052e16] transition hover:scale-[1.02]"
+          className="tricolor-gradient mt-3 flex items-center justify-center gap-2 rounded-full py-3 text-sm font-semibold transition hover:scale-[1.02]"
         >
           <MessageCircle size={16} />
           Message us on WhatsApp

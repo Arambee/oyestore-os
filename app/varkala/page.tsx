@@ -27,6 +27,7 @@ import {
   Store,
   Tag,
   Users,
+  Waves,
   X,
   Zap,
 } from "lucide-react";
@@ -92,7 +93,7 @@ function whatsappHref(message: string) {
 export const metadata: Metadata = {
   title: "Varkala, Munnar & Sri Lanka | Oyestore",
   description:
-    "Four chapters this season - Raksha Bandhan and Onam in Varkala, Munnar x Vagamon in the hills, plus The Odyssey road trip across Sri Lanka. Message us on WhatsApp for dates and details.",
+    "Raksha Bandhan and Onam in Varkala, Munnar x Vagamon in the hills, The Odyssey road trip across Sri Lanka, plus Varkala weekend departures through September. Message us on WhatsApp for dates and details.",
 };
 
 const varkalaHiddenSpots = [
@@ -837,6 +838,149 @@ const chapters: Chapter[] = [
     whatsappMessage:
       "Hi! I'm interested in The Odyssey - Sri Lanka road trip (15-21 Oct 2026, ₹59,999 · 7 Days/6 Nights). Can you share more details?",
   },
+  ...[
+    { id: "varkala-weekend-sep-4", start: "4", end: "6" },
+    { id: "varkala-weekend-sep-11", start: "11", end: "13" },
+    { id: "varkala-weekend-sep-18", start: "18", end: "20" },
+    { id: "varkala-weekend-sep-25", start: "25", end: "27" },
+  ].map(({ id, start, end }): Chapter => {
+    const dateChip = `${start}-${end} Sep 2026`;
+    return {
+      id,
+      navLabel: "Varkala Weekend",
+      navDates: dateChip,
+      badge: `VARKALA WEEKEND · ${start}-${end} SEP 2026`,
+      badgeIcon: Waves,
+      themeColor: "#38BDF8",
+      heroImage: "/varkala/hero-surf-lesson.jpg",
+      heroTitle: "A Varkala weekend, whenever you need one.",
+      heroSubtitle:
+        "Skip the long-weekend planning spiral. Cliffside sunsets, a surf lesson and slow mornings by the Arabian Sea - back home by Monday.",
+      price: "₹12,999 onwards",
+      duration: "2 Nights · 3 Days",
+      departure: "Bangalore / Pan India",
+      seats: "20 people",
+      dateChip,
+      aboutHook:
+        "Some weekends need a flight and a plan. This one just needs a Friday evening.",
+      aboutBody:
+        `A shorter version of everything people love about the Varkala chapters - cliffside sunsets, the surf, the slow mornings - built for a normal weekend, not a big trip. Depart Bangalore Friday evening, spend Saturday and Sunday in Varkala, and you're back home before the week starts. ${dateChip}.`,
+      perfectFor: ["Solo Travellers", "Friends", "Couples", "Creators", "First-Time Group Travellers"],
+      hiddenSpots: varkalaHiddenSpots,
+      sneakPeek: [
+        {
+          id: `${id}-1`,
+          alt: "A candid moment from a past chapter",
+          image: "/varkala/sneak-2.jpg",
+          className: "col-span-2 row-span-2",
+        },
+        {
+          id: `${id}-2`,
+          alt: "The crew, beach day",
+          image: "/varkala/gallery-beach-crew-shirtless.jpg",
+          className: "col-span-2",
+        },
+        {
+          id: `${id}-3`,
+          alt: "A surf lesson at sunset",
+          image: "/varkala/gallery-surf-lesson-sunset.jpg",
+          className: "col-span-2",
+        },
+        {
+          id: `${id}-4`,
+          alt: "Beach day with the crew",
+          image: "/varkala/gallery-beach-crew.jpg",
+          className: "",
+        },
+        {
+          id: `${id}-5`,
+          alt: "Catching your breath after a surf session",
+          image: "/varkala/gallery-surf-solo.jpg",
+          className: "",
+        },
+        {
+          id: `${id}-6`,
+          alt: "Looking out over the valley on a past chapter",
+          image: "/varkala/sneak-3.jpg",
+          className: "",
+        },
+      ],
+      days: [
+        {
+          day: "0",
+          title: "The City Stays Behind",
+          description: "Departure from Bangalore on Friday evening - the playlists begin and the city slowly fades away.",
+          activities: [
+            "Departure from Bangalore",
+            "The playlists begin",
+            "The city slowly fades away",
+            "Overnight journey towards Kerala",
+          ],
+        },
+        {
+          day: "1",
+          title: "Cliffs, Cafés & Coastlines",
+          description: "Welcome to Varkala - where the sea meets the cliffs and time slows down.",
+          activities: [
+            "Arrival & check-in, freshen up, traditional Kerala breakfast, community introductions",
+            "Explore Varkala Cliff and Black Beach",
+            "Surf lesson, café hopping, hidden viewpoints, photography walk",
+            "Sunset experience and a poolside social evening",
+            "Community activities, music and conversations",
+          ],
+        },
+        {
+          day: "2",
+          title: "Slow Sunday",
+          description: "One more morning by the sea, then the drive back to Bangalore.",
+          activities: [
+            "Free morning: café hopping, beach walk, revisit your favourite spots",
+            "Farewell lunch",
+            "Evening departure back to Bangalore",
+          ],
+        },
+        {
+          day: "3",
+          title: "Home",
+          description: "Early morning arrival in Bangalore - the weekend's over, the friendships are just getting started.",
+          activities: ["Early morning arrival in Bangalore"],
+        },
+      ],
+      experiences: [
+        "Cliffside sunsets",
+        "Hidden beaches",
+        "Beach cafés",
+        "Surf lesson",
+        "Community games",
+        "Poolside evenings",
+        "Photography walks",
+        "Slow travel",
+        "Local Kerala cuisine",
+        "New friendships",
+      ],
+      included: [
+        "Stay Accommodation",
+        "Daily Breakfast",
+        "Hosted Community Experience",
+        "Surfing",
+        "Community Activities",
+        "Poolside Social Evening",
+        "Beachside Experiences",
+        "AC Transportation from Bangalore, if opted in",
+      ],
+      notIncluded: [
+        "Lunch & Dinner",
+        "Personal Expenses",
+        "Adventure Activities not listed above",
+        "Shopping",
+        "Anything Not Mentioned Above",
+      ],
+      beforeYouBook:
+        `Every chapter is intentionally designed to stay flexible - weather changes, people change, and some of the best discoveries aren't found on Google Maps. The itinerary above is an overview of the experience; your official trip title, host reveal, meeting points, timings and surprise experiences are shared 72 hours before departure. Seats are limited to 20 people for the ${dateChip} dates - message us on WhatsApp to lock yours in.`,
+      whatsappMessage:
+        `Hi! I'm interested in the Varkala Weekend chapter (${dateChip}, ₹12,999 · 2 Nights/3 Days). Can you share more details?`,
+    };
+  }),
 ];
 
 const futurePillars = [
@@ -943,6 +1087,22 @@ const CALENDAR_RANGES: Record<string, { month: number; start: number; end: numbe
   onam: { month: 7, start: 26, end: 29 },
   "raksha-bandhan": { month: 7, start: 28, end: 30 },
   "sri-lanka-odyssey": { month: 9, start: 15, end: 21 },
+  "varkala-weekend-sep-4": { month: 8, start: 4, end: 6 },
+  "varkala-weekend-sep-11": { month: 8, start: 11, end: 13 },
+  "varkala-weekend-sep-18": { month: 8, start: 18, end: 20 },
+  "varkala-weekend-sep-25": { month: 8, start: 25, end: 27 },
+};
+
+// Where each chapter actually goes, for the calendar / homepage trip cards.
+const CALENDAR_DESTINATIONS: Record<string, string> = {
+  "munnar-vagamon": "Munnar & Vagamon, Kerala",
+  onam: "Varkala, Kerala",
+  "raksha-bandhan": "Varkala, Kerala",
+  "sri-lanka-odyssey": "Sri Lanka",
+  "varkala-weekend-sep-4": "Varkala, Kerala",
+  "varkala-weekend-sep-11": "Varkala, Kerala",
+  "varkala-weekend-sep-18": "Varkala, Kerala",
+  "varkala-weekend-sep-25": "Varkala, Kerala",
 };
 
 const refundTiers = [
@@ -972,6 +1132,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
         price: c.price,
         waHref: whatsappHref(c.whatsappMessage),
         icon: <c.badgeIcon size={13} />,
+        destination: CALENDAR_DESTINATIONS[c.id] ?? "",
         month: range.month,
         startDay: range.start,
         endDay: range.end,
@@ -1063,7 +1224,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
 
       <main className="relative mx-auto max-w-6xl space-y-10 px-4 sm:space-y-16 sm:px-6">
         <section>
-          <p className="text-xs font-medium tracking-wider text-platinum">FOUR CHAPTERS THIS SEASON · VARKALA, MUNNAR &amp; SRI LANKA</p>
+          <p className="text-xs font-medium tracking-wider text-platinum">THIS SEASON · VARKALA, MUNNAR &amp; SRI LANKA</p>
           <div className="scrollbar-none mt-3 flex gap-2 overflow-x-auto">
             {chapters.map((c) => (
               <Link

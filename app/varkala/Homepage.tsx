@@ -10,6 +10,7 @@ import {
   Check,
   Lock,
   Mail,
+  MapPin,
   MessageCircle,
   Sparkles,
   UserRound,
@@ -117,6 +118,15 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
   const activeMonth = MONTHS[activeMonthIndex];
   const monthChapters = chapters.filter((c) => c.month === activeMonth.month);
   const heroTiles = chapters.slice(0, 4);
+
+  // Multiple calendar entries can be the same recurring experience on
+  // different dates (e.g. the Varkala Weekend departures) - one mystery
+  // host card per distinct experience, not one per date.
+  const uniqueHostChapters = chapters.filter(
+    (c, i) => chapters.findIndex((other) => other.navLabel === c.navLabel) === i,
+  );
+  const mysteryBackdrop =
+    chapters.find((c) => c.destination.includes("Munnar")) ?? uniqueHostChapters[0] ?? chapters[0];
 
   return (
     <div className="relative min-h-screen bg-background">
@@ -249,12 +259,53 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
         </section>
 
         <section id="months" className="scroll-mt-6">
-          <p className="text-xs font-medium tracking-wider text-platinum">FOUR CHAPTERS THIS SEASON</p>
+          <p className="text-xs font-medium tracking-wider text-platinum">THIS SEASON</p>
           <h2 className="mt-2 max-w-md text-2xl font-black leading-snug text-foreground sm:text-3xl">
             Pick your month.
           </h2>
 
-          <div className="mt-5 grid gap-3 sm:grid-cols-3 sm:gap-4">
+          {/* Mobile: compact pills, each marked with the chapters (and places) running that month. */}
+          <div className="scrollbar-none mt-5 flex gap-2 overflow-x-auto sm:hidden">
+            {MONTHS.map((m, i) => {
+              const monthList = chapters.filter((c) => c.month === m.month);
+              const active = i === activeMonthIndex;
+              return (
+                <button
+                  key={m.label}
+                  type="button"
+                  onClick={() => setActiveMonthIndex(i)}
+                  className={`flex shrink-0 flex-col rounded-2xl border px-4 py-2.5 text-left transition ${
+                    active
+                      ? "border-[#fffff0]/25 bg-[#fffff0]/10 text-foreground"
+                      : "border-[#fffff0]/10 bg-[#fffff0]/[0.02] text-muted-foreground"
+                  }`}
+                >
+                  <span className="text-sm font-bold tracking-wide">{`${m.label} '26`}</span>
+                  {monthList.length > 0 ? (
+                    <span className="mt-1 flex items-center gap-1">
+                      {monthList.map((c) => (
+                        <span
+                          key={c.id}
+                          className="flex items-center gap-0.5 text-[10px] font-medium"
+                          style={{ color: c.themeColor }}
+                        >
+                          {c.icon}
+                        </span>
+                      ))}
+                      <span className="text-[10px] text-muted-foreground">
+                        {Array.from(new Set(monthList.map((c) => c.destination))).join(" · ")}
+                      </span>
+                    </span>
+                  ) : (
+                    <span className="mt-1 text-[10px] text-muted-foreground">Nothing yet</span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Desktop: full photo-backed cards. */}
+          <div className="mt-5 hidden gap-3 sm:grid sm:grid-cols-3 sm:gap-4">
             {MONTHS.map((m, i) => {
               const monthList = chapters.filter((c) => c.month === m.month);
               const cover = monthList[0];
@@ -325,6 +376,10 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
                     </span>
                     <div className="relative flex h-full flex-col justify-end p-5">
                       <p className="text-xl font-black text-foreground sm:text-2xl">{c.navLabel}</p>
+                      <p className="mt-0.5 flex items-center gap-1 text-xs text-white/70">
+                        <MapPin size={11} />
+                        {c.destination}
+                      </p>
                       <div className="mt-2 flex items-center justify-between">
                         <span className="text-sm font-semibold text-foreground/90">{c.price}</span>
                         <span className="flex items-center gap-1 text-xs font-medium text-foreground/80 transition group-hover:translate-x-1 group-hover:text-foreground">
@@ -358,57 +413,70 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
           )}
         </section>
 
-        <section>
-          <p className="text-xs font-medium tracking-wider text-platinum">MEET YOUR HOST</p>
-          <h2 className="mt-2 max-w-lg text-2xl font-black leading-snug text-foreground sm:text-3xl">
-            Every chapter has a host. Who stays a mystery - until 72 hours before departure.
-          </h2>
-          <p className="mt-3 max-w-xl text-sm text-muted-foreground">
-            Real creators and community hosts, not rotating agency guides. Names, faces and the trip
-            reveal all drop right before you travel - same as the rest of the itinerary.
-          </p>
+        <section className="relative overflow-hidden rounded-[2rem] px-6 py-14 text-center sm:px-10 sm:py-20">
+          {mysteryBackdrop && (
+            <Image
+              src={mysteryBackdrop.heroImage}
+              alt=""
+              fill
+              aria-hidden
+              sizes="100vw"
+              className="object-cover"
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/75 to-black/90" />
 
-          <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-            {chapters.map((c) => (
-              <div
-                key={c.id}
-                className="glass-dark premium-shadow flex flex-col items-center gap-3 rounded-3xl p-5 text-center"
-              >
-                <div className="relative flex size-16 shrink-0 items-center justify-center rounded-full bg-[#fffff0]/5 sm:size-20">
-                  <UserRound
-                    size={28}
-                    className="text-muted-foreground/40"
-                  />
-                  <span className="absolute -bottom-1 -right-1 flex size-6 items-center justify-center rounded-full border border-background bg-card">
-                    <Lock
-                      size={11}
-                      className="text-platinum"
+          <div className="relative">
+            <p className="flex items-center justify-center gap-1.5 text-xs font-medium tracking-wider text-platinum">
+              <Lock size={12} />
+              MEET YOUR HOST
+            </p>
+            <h2 className="text-gradient mx-auto mt-3 max-w-2xl text-3xl font-black leading-[1.1] sm:text-5xl">
+              Every chapter has a host. Who stays a mystery - until 72 hours before departure.
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-sm text-white/70 sm:text-base">
+              Real creators and community hosts, not rotating agency guides. Names, faces and the full
+              reveal drop right before you travel - same as the rest of the itinerary.
+            </p>
+
+            <div className="mt-10 flex flex-wrap justify-center gap-5 sm:gap-8">
+              {uniqueHostChapters.map((c) => (
+                <div
+                  key={c.navLabel}
+                  className="flex w-28 flex-col items-center gap-3 sm:w-36"
+                >
+                  <div className="relative flex size-20 shrink-0 items-center justify-center rounded-full border border-[#fffff0]/15 bg-[#fffff0]/5 backdrop-blur-xl sm:size-24">
+                    <UserRound
+                      size={32}
+                      className="text-white/40"
                     />
-                  </span>
-                </div>
-                <div>
+                    <span className="absolute -bottom-1 -right-1 flex size-7 items-center justify-center rounded-full border-2 border-background bg-card">
+                      <Lock
+                        size={12}
+                        className="text-platinum"
+                      />
+                    </span>
+                  </div>
                   <p
-                    className="flex items-center justify-center gap-1.5 text-xs font-medium"
+                    className="flex items-center justify-center gap-1.5 text-xs font-semibold"
                     style={{ color: c.themeColor }}
                   >
                     {c.icon}
                     {c.navLabel}
                   </p>
-                  <p className="mt-1 text-[11px] text-muted-foreground">Revealed 72h before departure</p>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+            <p className="mt-6 text-xs text-white/50">Revealed 72h before departure, every chapter.</p>
 
-          <div className="mt-5">
             <Link
               href="/host"
-              className="group inline-flex items-center gap-1.5 text-sm font-medium text-foreground/90 transition hover:text-foreground"
+              className="group mt-8 inline-flex items-center gap-2 rounded-full bg-pearl px-6 py-3 text-sm font-medium text-midnight transition hover:scale-[1.03] hover:bg-pearl/90"
             >
               Got an audience? Apply to host a chapter
               <ArrowUpRight
                 size={14}
-                className="shrink-0 text-muted-foreground transition group-hover:translate-x-0.5 group-hover:translate-y-[-0.5px] group-hover:text-foreground"
+                className="shrink-0 transition group-hover:translate-x-0.5 group-hover:translate-y-[-0.5px]"
               />
             </Link>
           </div>

@@ -14,6 +14,7 @@ export interface CalendarChapter {
   price: string;
   waHref: string;
   icon: React.ReactNode;
+  destination: string;
   month: number; // 0-indexed (7 = August)
   startDay: number;
   endDay: number;

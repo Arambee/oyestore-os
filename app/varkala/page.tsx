@@ -240,6 +240,12 @@ const chapters: Chapter[] = [
         image: "/varkala/sneak-3.jpg",
         className: "",
       },
+      {
+        id: "rb-8",
+        alt: "A houseboat on Kollam's backwaters",
+        image: "/varkala/gallery-houseboat.jpg",
+        className: "",
+      },
     ],
     days: [
       {
@@ -310,7 +316,7 @@ const chapters: Chapter[] = [
       "New friendships",
     ],
     included: [
-      "Stay Accommodation",
+      "Resort & Villa Accommodation",
       "Daily Breakfast",
       "Hosted Community Experience",
       "Backwater Experience",
@@ -398,6 +404,12 @@ const chapters: Chapter[] = [
         image: "/varkala/sneak-1.jpg",
         className: "",
       },
+      {
+        id: "on-8",
+        alt: "Sree Padmanabhaswamy Temple, Thiruvananthapuram",
+        image: "/varkala/gallery-temple.jpg",
+        className: "",
+      },
     ],
     days: [
       {
@@ -411,7 +423,7 @@ const chapters: Chapter[] = [
         title: "Where the Sea Meets the Sky",
         description: "26 August, Thiruvonam - today is Onam, and this year you'll celebrate it beside the Arabian Sea.",
         activities: [
-          "Arrival in Varkala, hotel check-in, freshen up, traditional Kerala breakfast, community welcome session",
+          "Arrival in Varkala, resort check-in, freshen up, traditional Kerala breakfast, community welcome session",
           "Traditional Onam Sadya served on banana leaves",
           "Onam celebrations with the local community, Pookalam experiences, cultural performances",
           "Explore Varkala Cliff, photography walk",
@@ -472,7 +484,7 @@ const chapters: Chapter[] = [
     ],
     included: [
       "AC Transportation from Bangalore (for with-transport bookings only)",
-      "Premium Stay Accommodation",
+      "Premium Resort & Villa Accommodation",
       "Traditional Onam Sadya Experience",
       "Daily Breakfast",
       "Hosted Community Experience",
@@ -626,7 +638,7 @@ const chapters: Chapter[] = [
       "Surprise moments",
     ],
     included: [
-      "Accommodation",
+      "Resort & Villa Accommodation",
       "Breakfasts",
       "Surprise Host",
       "Scooter Exploration",
@@ -838,12 +850,67 @@ const chapters: Chapter[] = [
     whatsappMessage:
       "Hi! I'm interested in The Odyssey - Sri Lanka road trip (15-21 Oct 2026, ₹59,999 · 7 Days/6 Nights). Can you share more details?",
   },
+  // Real, distinct photo sets per weekend so the four departures don't all
+  // show the exact same images - each pulls from a different corner of the
+  // real Varkala photo library instead of cloning Raksha Bandhan's set.
   ...[
-    { id: "varkala-weekend-sep-4", start: "4", end: "6" },
-    { id: "varkala-weekend-sep-11", start: "11", end: "13" },
-    { id: "varkala-weekend-sep-18", start: "18", end: "20" },
-    { id: "varkala-weekend-sep-25", start: "25", end: "27" },
-  ].map(({ id, start, end }): Chapter => {
+    {
+      id: "varkala-weekend-sep-4",
+      start: "4",
+      end: "6",
+      heroImage: "/varkala/gallery-beach-cliff.jpg",
+      gallery: [
+        { alt: "A candid moment from a past chapter", image: "/varkala/sneak-2.jpg", className: "col-span-2 row-span-2" },
+        { alt: "The crew at Varkala Cliff", image: "/varkala/gallery-cliff-crew-candid.jpg", className: "col-span-2" },
+        { alt: "A surf lesson at sunset", image: "/varkala/gallery-surf-lesson-sunset.jpg", className: "col-span-2" },
+        { alt: "The crew at a beach shack, after dark", image: "/varkala/gallery-crew-shack-night.jpg", className: "" },
+        { alt: "Catching your breath after a surf session", image: "/varkala/gallery-surf-solo.jpg", className: "" },
+        { alt: "Sunset from the cliff viewpoint", image: "/varkala/gallery-sunset.jpg", className: "" },
+      ],
+    },
+    {
+      id: "varkala-weekend-sep-11",
+      start: "11",
+      end: "13",
+      heroImage: "/varkala/gallery-cliff-crew-selfie.jpg",
+      gallery: [
+        { alt: "Beach day with the crew", image: "/varkala/gallery-beach-crew.jpg", className: "col-span-2 row-span-2" },
+        { alt: "An evening beach walk at sunset", image: "/varkala/gallery-beach-walk-sunset.jpg", className: "col-span-2" },
+        { alt: "Mangrove kayaking", image: "/varkala/gallery-kayak-real.jpg", className: "col-span-2" },
+        { alt: "A candid moment from a past chapter", image: "/varkala/sneak-1.jpg", className: "" },
+        { alt: "The crew, beach day", image: "/varkala/gallery-beach-crew-shirtless.jpg", className: "" },
+        { alt: "A walk through the forest trail", image: "/varkala/gallery-forest-trail.jpg", className: "" },
+      ],
+    },
+    {
+      id: "varkala-weekend-sep-18",
+      start: "18",
+      end: "20",
+      heroImage: "/varkala/hero-surf-lesson.jpg",
+      gallery: [
+        { alt: "Looking out over the valley on a past chapter", image: "/varkala/sneak-3.jpg", className: "col-span-2 row-span-2" },
+        { alt: "Varkala Cliff and the coastline", image: "/varkala/gallery-beach-cliff.jpg", className: "col-span-2" },
+        { alt: "The crew at a beach shack, after dark", image: "/varkala/gallery-crew-shack-night.jpg", className: "col-span-2" },
+        { alt: "Sunset from the cliff viewpoint", image: "/varkala/gallery-sunset.jpg", className: "" },
+        { alt: "The crew at Varkala Cliff", image: "/varkala/gallery-cliff-crew-candid.jpg", className: "" },
+        { alt: "Catching your breath after a surf session", image: "/varkala/gallery-surf-solo.jpg", className: "" },
+      ],
+    },
+    {
+      id: "varkala-weekend-sep-25",
+      start: "25",
+      end: "27",
+      heroImage: "/varkala/gallery-sunset.jpg",
+      gallery: [
+        { alt: "A group selfie at Varkala Cliff", image: "/varkala/gallery-cliff-crew-selfie.jpg", className: "col-span-2 row-span-2" },
+        { alt: "A walk through the forest trail", image: "/varkala/gallery-forest-trail.jpg", className: "col-span-2" },
+        { alt: "Mangrove kayaking", image: "/varkala/gallery-kayak-real.jpg", className: "col-span-2" },
+        { alt: "An evening beach walk at sunset", image: "/varkala/gallery-beach-walk-sunset.jpg", className: "" },
+        { alt: "Beach day with the crew", image: "/varkala/gallery-beach-crew.jpg", className: "" },
+        { alt: "A candid moment from a past chapter", image: "/varkala/sneak-2.jpg", className: "" },
+      ],
+    },
+  ].map(({ id, start, end, heroImage, gallery }): Chapter => {
     const dateChip = `${start}-${end} Sep 2026`;
     return {
       id,
@@ -852,7 +919,7 @@ const chapters: Chapter[] = [
       badge: `VARKALA WEEKEND · ${start}-${end} SEP 2026`,
       badgeIcon: Waves,
       themeColor: "#38BDF8",
-      heroImage: "/varkala/hero-surf-lesson.jpg",
+      heroImage,
       heroTitle: "A Varkala weekend, whenever you need one.",
       heroSubtitle:
         "Skip the long-weekend planning spiral. Cliffside sunsets, a surf lesson and slow mornings by the Arabian Sea - back home by Monday.",
@@ -867,44 +934,7 @@ const chapters: Chapter[] = [
         `A shorter version of everything people love about the Varkala chapters - cliffside sunsets, the surf, the slow mornings - built for a normal weekend, not a big trip. Depart Bangalore Friday evening, spend Saturday and Sunday in Varkala, and you're back home before the week starts. ${dateChip}.`,
       perfectFor: ["Solo Travellers", "Friends", "Couples", "Creators", "First-Time Group Travellers"],
       hiddenSpots: varkalaHiddenSpots,
-      sneakPeek: [
-        {
-          id: `${id}-1`,
-          alt: "A candid moment from a past chapter",
-          image: "/varkala/sneak-2.jpg",
-          className: "col-span-2 row-span-2",
-        },
-        {
-          id: `${id}-2`,
-          alt: "The crew, beach day",
-          image: "/varkala/gallery-beach-crew-shirtless.jpg",
-          className: "col-span-2",
-        },
-        {
-          id: `${id}-3`,
-          alt: "A surf lesson at sunset",
-          image: "/varkala/gallery-surf-lesson-sunset.jpg",
-          className: "col-span-2",
-        },
-        {
-          id: `${id}-4`,
-          alt: "Beach day with the crew",
-          image: "/varkala/gallery-beach-crew.jpg",
-          className: "",
-        },
-        {
-          id: `${id}-5`,
-          alt: "Catching your breath after a surf session",
-          image: "/varkala/gallery-surf-solo.jpg",
-          className: "",
-        },
-        {
-          id: `${id}-6`,
-          alt: "Looking out over the valley on a past chapter",
-          image: "/varkala/sneak-3.jpg",
-          className: "",
-        },
-      ],
+      sneakPeek: gallery.map((g, i) => ({ id: `${id}-${i + 1}`, ...g })),
       days: [
         {
           day: "0",
@@ -959,7 +989,7 @@ const chapters: Chapter[] = [
         "New friendships",
       ],
       included: [
-        "Stay Accommodation",
+        "Resort & Villa Accommodation",
         "Daily Breakfast",
         "Hosted Community Experience",
         "Surfing",
@@ -1249,8 +1279,6 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             ))}
           </div>
         </section>
-
-        <TripCalendar chapters={calendarChapters} />
 
         <section>
           <div className="premium-border premium-shadow relative rounded-3xl">
@@ -1695,6 +1723,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           </div>
         </section>
 
+        <TripCalendar chapters={calendarChapters} />
       </main>
 
       <StickyBookingCard

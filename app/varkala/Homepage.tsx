@@ -50,6 +50,17 @@ const ecosystemPillars = [
   "A community feed that grows with every trip - the photos, stories and recommendations feed straight back into the next chapter",
 ];
 
+// Real photos from Oyestore travellers/hosts, not tied to any one chapter's
+// destination - used generically here rather than mislabeled as a specific
+// current chapter's location.
+const communityPhotos = [
+  { src: "/kodai/kodai-crew-viewpoint.jpg", alt: "A group of travellers at a misty viewpoint" },
+  { src: "/kodai/kodai-crew-roadtrip.jpg", alt: "The crew, road trip stop" },
+  { src: "/kodai/kodai-misty-hills.jpg", alt: "Clouds rolling over the hills" },
+  { src: "/kodai/kodai-hillside-solo.jpg", alt: "Taking in the view, solo" },
+  { src: "/kodai/kodai-valley-view.jpg", alt: "A valley view from the hills" },
+];
+
 interface MonthDef {
   label: string;
   month: number; // 0-indexed
@@ -486,6 +497,35 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
                 className="shrink-0 transition group-hover:translate-x-0.5 group-hover:translate-y-[-0.5px]"
               />
             </Link>
+          </div>
+        </section>
+
+        <section>
+          <p className="text-xs font-medium tracking-wider text-platinum">FROM THE COMMUNITY</p>
+          <h2 className="mt-2 max-w-lg text-2xl font-black leading-snug text-foreground sm:text-3xl">
+            Real trips. Real people.
+          </h2>
+          <p className="mt-3 max-w-xl text-sm text-muted-foreground">
+            Straight from Oyestore travellers and hosts out on the road - not stock photography.
+          </p>
+
+          <div className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3">
+            {communityPhotos.map((photo, i) => (
+              <div
+                key={photo.src}
+                className={`relative overflow-hidden rounded-2xl ${
+                  i === 0 ? "col-span-2 row-span-2 aspect-square" : "aspect-square"
+                }`}
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes="(min-width: 640px) 25vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            ))}
           </div>
         </section>
 

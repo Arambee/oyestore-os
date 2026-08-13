@@ -55,15 +55,7 @@
 
   /* ─── Independence Day Tricolor ──────────────────────────────────────── */
   .tricolor-gradient {
-    background: linear-gradient(
-      90deg,
-      #ff9933 0%,
-      #ff9933 30%,
-      #ffffff 45%,
-      #ffffff 55%,
-      #138808 70%,
-      #138808 100%
-    );
+    background: linear-gradient(90deg, #ffb74d 0%, #ffffff 50%, #66bb6a 100%);
     color: #0a0a0a;
   }
 

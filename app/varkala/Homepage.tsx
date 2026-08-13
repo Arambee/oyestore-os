@@ -352,11 +352,17 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
         <section>
           {monthChapters.length > 0 ? (
             <div className="grid gap-4 sm:grid-cols-2">
-              {monthChapters.map((c) => (
+              {monthChapters.map((c, i) => {
+                // Odd count: center the trailing card instead of leaving it
+                // flush left with blank space beside it.
+                const isTrailingOdd = monthChapters.length % 2 !== 0 && i === monthChapters.length - 1;
+                return (
                 <Link
                   key={c.id}
                   href={`/varkala?chapter=${c.id}`}
-                  className="group premium-border premium-shadow relative overflow-hidden rounded-3xl transition hover:scale-[1.01]"
+                  className={`group premium-border premium-shadow relative overflow-hidden rounded-3xl transition hover:scale-[1.01] ${
+                    isTrailingOdd ? "sm:col-span-2 sm:mx-auto sm:w-1/2" : ""
+                  }`}
                 >
                   <div className="relative h-56 w-full sm:h-64">
                     <Image
@@ -390,7 +396,8 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
                     </div>
                   </div>
                 </Link>
-              ))}
+                );
+              })}
             </div>
           ) : (
             <div className="glass-dark premium-shadow flex flex-col items-center gap-3 rounded-3xl border border-dashed border-[#fffff0]/15 py-12 text-center">

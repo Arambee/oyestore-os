@@ -54,6 +54,10 @@ const ecosystemPillars = [
 // destination - used generically here rather than mislabeled as a specific
 // current chapter's location.
 const communityPhotos = [
+  { src: "/community/varkala-horse-riders.jpg", alt: "Beach horse riders on a past chapter" },
+  { src: "/community/varkala-canopy-group.jpg", alt: "The crew under the trees" },
+  { src: "/community/varkala-beach-crew-candid.jpg", alt: "A candid moment, beach day" },
+  { src: "/community/wayanad-resort-night.jpg", alt: "The crew outside the resort, first night" },
   { src: "/kodai/kodai-crew-viewpoint.jpg", alt: "A group of travellers at a misty viewpoint" },
   { src: "/kodai/kodai-crew-roadtrip.jpg", alt: "The crew, road trip stop" },
   { src: "/kodai/kodai-misty-hills.jpg", alt: "Clouds rolling over the hills" },

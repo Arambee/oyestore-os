@@ -3,6 +3,7 @@ import Link from "next/link";
 import Homepage from "./Homepage";
 import StickyBookingCard from "./StickyBookingCard";
 import TripCalendar from "./TripCalendar";
+import WavingFlag from "./WavingFlag";
 import type { Metadata } from "next";
 import type { ComponentType, CSSProperties, SVGProps } from "react";
 import {
@@ -1272,6 +1273,9 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
         />
         <div className="absolute right-0 top-1/3 size-[28rem] rounded-full bg-[#fffff0]/[0.03] blur-[120px]" />
         <div className="absolute bottom-0 left-1/3 size-[24rem] rounded-full bg-[#fffff0]/[0.03] blur-[120px]" />
+        <div className="absolute left-5 top-4 hidden opacity-90 sm:block">
+          <WavingFlag />
+        </div>
       </div>
 
       <header className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-6 sm:px-6">

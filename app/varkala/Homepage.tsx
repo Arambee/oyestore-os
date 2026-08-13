@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import WavingFlag from "./WavingFlag";
 import {
   ArrowDown,
   ArrowRight,
@@ -169,6 +170,9 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
         />
         <div className="absolute right-0 top-1/3 size-[28rem] rounded-full bg-[#fffff0]/[0.03] blur-[120px]" />
         <div className="absolute bottom-0 left-1/3 size-[24rem] rounded-full bg-[#fffff0]/[0.03] blur-[120px]" />
+        <div className="absolute left-5 top-4 hidden opacity-90 sm:block">
+          <WavingFlag />
+        </div>
       </div>
 
       <header className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-6 sm:px-6">

@@ -90,7 +90,7 @@ function whatsappHref(message: string) {
 export const metadata: Metadata = {
   title: "Varkala, Munnar & Sri Lanka | Oyestore",
   description:
-    "Five chapters this season - Independence Day, Raksha Bandhan and Onam in Varkala, Munnar x Vagamon in the hills, plus The Odyssey road trip across Sri Lanka. Message us on WhatsApp for dates and details.",
+    "Four chapters this season - Raksha Bandhan and Onam in Varkala, Munnar x Vagamon in the hills, plus The Odyssey road trip across Sri Lanka. Message us on WhatsApp for dates and details.",
 };
 
 const varkalaHiddenSpots = [
@@ -172,152 +172,6 @@ type Chapter = {
 };
 
 const chapters: Chapter[] = [
-  {
-    id: "independence-day",
-    navLabel: "Independence Day",
-    navDates: "14-16 Aug 2026",
-    badge: "INDEPENDENCE DAY CHAPTER · 14-16 AUG 2026",
-    badgeIcon: Flag,
-    themeColor: "#FF9933",
-    heroImage: "https://images.unsplash.com/photo-1655394602738-eff266100405?auto=format&fit=crop&w=1200&q=80",
-    heroTitle: "Varkala asks you to stay.",
-    heroSubtitle: "Some places ask you to visit. This one doesn't let you leave on time.",
-    price: "₹12,999 onwards",
-    duration: "3 Days · 4 Nights",
-    departure: "Bangalore / Pan India",
-    seats: "20 people",
-    dateChip: "14-16 Aug 2026",
-    aboutHook:
-      "Days begin with ocean air, drift through cafés overlooking the Arabian Sea, and end with sunsets that convince everyone to postpone tomorrow.",
-    aboutBody:
-      "This chapter isn't designed around rushing from one attraction to another - it's built around freedom. Freedom to stop wherever the road feels beautiful, to have conversations that weren't planned, to remember what weekends are supposed to feel like. Your official trip title, host and surprise experiences are revealed 72 hours before departure - because some stories deserve to unfold naturally.",
-    perfectFor: ["Solo Travellers", "Friends", "Couples", "Creators", "First-Time Group Travellers"],
-    hiddenSpots: varkalaHiddenSpots,
-    sneakPeek: [
-      {
-        id: "id-1",
-        alt: "Weekend crew from a past Independence Day chapter",
-        image: "/varkala/sneak-1.jpg",
-        className: "col-span-2 row-span-2",
-      },
-      {
-        id: "id-2",
-        alt: "The crew on the cliff rocks",
-        image: "/varkala/gallery-cliff-crew-selfie.jpg",
-        className: "col-span-2",
-      },
-      {
-        id: "id-3",
-        alt: "Bonfire night on the beach",
-        image: "/varkala/gallery-bonfire.jpg",
-        className: "col-span-2",
-      },
-      {
-        id: "id-4",
-        alt: "The crew kayaking through the backwaters",
-        image: "/varkala/gallery-kayak-real.jpg",
-        className: "",
-      },
-      {
-        id: "id-5",
-        alt: "The red cliffs of Varkala meeting the Arabian Sea",
-        image: "/varkala/gallery-beach-cliff.jpg",
-        className: "",
-      },
-      {
-        id: "id-6",
-        alt: "Taking in the view from the cliff",
-        image: "/varkala/gallery-cliff-crew-candid.jpg",
-        className: "",
-      },
-      { id: "id-7", alt: "A candid moment from a past chapter", image: "/varkala/sneak-2.jpg", className: "" },
-    ],
-    days: [
-      {
-        day: "0",
-        title: "The City Stays Behind",
-        description: "Thursday night, the city stays behind and the weekend starts on the highway.",
-        activities: [
-          "Departure from Bangalore, Thursday night",
-          "Work ends, notifications slowly stop mattering",
-          "Highway replaces traffic, music replaces meetings",
-          "Introductions become conversations",
-          "Overnight journey to Varkala",
-        ],
-      },
-      {
-        day: "1",
-        title: "The Cliffs Know Your Name Now",
-        description: "Arrival day, taken slow - the cliff is yours to explore at your own pace.",
-        activities: [
-          "Arrive, freshen up, breakfast - nobody is waiting for you here",
-          "Cliffside walks along the Varkala cliff",
-          "Ocean-view cafés and hidden stairways down to the beach",
-          "Independent exploration - go wherever looks interesting",
-          "Sunset over the Arabian Sea",
-          "Evening: welcome bonfire, music, food and stories as the group forms",
-        ],
-      },
-      {
-        day: "2",
-        title: "The Best Plans Are Never Planned",
-        description: "A scooter, the coastline, and no fixed plan - today belongs to curiosity.",
-        activities: [
-          "Scooter exploration along the coastline",
-          "Stop wherever a café or view looks interesting",
-          "Beach hopping to spots that never needed a name",
-          "Watching locals go about their day",
-          "Sunset viewpoints and a few surprises along the way",
-          "Night: music, laughter, and people who didn't know each other yesterday",
-        ],
-      },
-      {
-        day: "3",
-        title: "Leave Different",
-        description: "One unhurried last morning, then the highway back to Bangalore.",
-        activities: [
-          "Wake up without an alarm, one final cliffside walk",
-          "Coffee without checking the time, one last look at the sea",
-          "Late checkout",
-          "Begin the journey back to Bangalore",
-          "Somewhere on the highway home, everyone starts planning the next chapter",
-        ],
-      },
-    ],
-    experiences: [
-      "Ocean-view cafés",
-      "Scenic scooter routes",
-      "Cliffside sunsets",
-      "Coastal culture",
-      "Hidden local gems",
-      "Community experiences",
-      "Photography-friendly locations",
-      "Slow travel",
-      "Surprise moments",
-    ],
-    included: [
-      "Accommodation",
-      "Breakfasts",
-      "Surprise Host",
-      "Scooter Exploration",
-      "Backwater Experience",
-      "Community Activities",
-      "Beachside Experiences",
-      "Unlimited Main Character Moments",
-      "Horse Riding",
-    ],
-    notIncluded: [
-      "Lunch & Dinner",
-      "Personal Expenses",
-      "Adventure Activities not listed above",
-      "Shopping",
-      "AC Transportation from Bangalore (we can book it for you)",
-    ],
-    beforeYouBook:
-      "Every chapter is intentionally designed to stay flexible - weather changes, people change, and some of the best discoveries aren't found on Google Maps. The itinerary above is an overview of the experience; your official trip title, host reveal, meeting points, timings and surprise experiences are shared 72 hours before departure. Seats are limited to 20 people for the 14-16 August 2026 dates - message us on WhatsApp to lock yours in.",
-    whatsappMessage:
-      "Hi! I'm interested in the Independence Day Varkala chapter (14-16 Aug 2026, ₹12,999 · 3 Days/4 Nights). Can you share more details?",
-  },
   {
     id: "raksha-bandhan",
     navLabel: "Raksha Bandhan",
@@ -1064,7 +918,7 @@ const afterYouBookSteps = [
 ];
 
 const ecosystemPillars = [
-  "A themed chapter every season - Independence Day, Raksha Bandhan, Onam, Munnar x Vagamon, and expeditions like The Odyssey - never the same trip twice",
+  "A themed chapter every season - Raksha Bandhan, Onam, Munnar x Vagamon, and expeditions like The Odyssey - never the same trip twice",
   "A destinations vault written by locals and creators who've actually been there, not scraped listings",
   "A creator network - real hosts building a track record chapter by chapter, not a rotating agency guide",
   "A community feed that grows with every trip - the photos, stories and recommendations feed straight back into the next chapter",
@@ -1121,12 +975,6 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           className="absolute -left-40 -top-40 size-[32rem] rounded-full opacity-[0.12] blur-[120px] transition-colors duration-500"
           style={{ backgroundColor: chapter.themeColor }}
         />
-        {chapter.id === "independence-day" && (
-          <div
-            className="absolute -bottom-40 -right-40 size-[28rem] rounded-full opacity-[0.08] blur-[120px]"
-            style={{ backgroundColor: "#138808" }}
-          />
-        )}
         <div className="absolute right-0 top-1/3 size-[28rem] rounded-full bg-[#fffff0]/[0.03] blur-[120px]" />
         <div className="absolute bottom-0 left-1/3 size-[24rem] rounded-full bg-[#fffff0]/[0.03] blur-[120px]" />
       </div>
@@ -1179,7 +1027,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
 
       <main className="relative mx-auto max-w-6xl space-y-10 px-4 sm:space-y-16 sm:px-6">
         <section>
-          <p className="text-xs font-medium tracking-wider text-platinum">FIVE CHAPTERS THIS SEASON · VARKALA, MUNNAR &amp; SRI LANKA</p>
+          <p className="text-xs font-medium tracking-wider text-platinum">FOUR CHAPTERS THIS SEASON · VARKALA, MUNNAR &amp; SRI LANKA</p>
           <div className="scrollbar-none mt-3 flex gap-2 overflow-x-auto">
             {chapters.map((c) => (
               <Link

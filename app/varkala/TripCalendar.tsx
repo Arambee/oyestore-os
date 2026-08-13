@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MessageCircle, Sparkles } from "lucide-react";
+import { ArrowRight, CalendarDays, ChevronUp, MessageCircle, Sparkles } from "lucide-react";
 
 export interface CalendarChapter {
   id: string;
@@ -44,6 +44,7 @@ function buildGrid(year: number, month: number) {
 }
 
 export default function TripCalendar({ chapters }: { chapters: CalendarChapter[] }) {
+  const [isOpen, setIsOpen] = useState(false);
   const [activeMonthIndex, setActiveMonthIndex] = useState(0);
   const activeMonth = MONTHS[activeMonthIndex];
   const grid = buildGrid(activeMonth.year, activeMonth.month);
@@ -57,15 +58,82 @@ export default function TripCalendar({ chapters }: { chapters: CalendarChapter[]
     return monthChapters.filter((c) => day >= c.startDay && day <= c.endDay);
   }
 
+  if (!isOpen) {
+    return (
+      <section>
+        <button
+          type="button"
+          onClick={() => setIsOpen(true)}
+          className="glass-dark premium-shadow group relative flex w-full items-center justify-between overflow-hidden rounded-3xl p-6 text-left transition hover:bg-[#fffff0]/[0.03] sm:p-8"
+        >
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full opacity-20 blur-3xl"
+            style={{ backgroundColor: chapters[0]?.themeColor ?? "#FB7185" }}
+          />
+          <div className="relative flex items-center gap-4">
+            <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-[#fffff0]/5 text-platinum">
+              <CalendarDays size={22} />
+            </span>
+            <div>
+              <p className="flex items-center gap-1.5 text-xs font-medium tracking-wider text-platinum">
+                <Sparkles size={11} />
+                THE OYESTORE CALENDAR
+              </p>
+              <h2 className="mt-1 text-xl font-black text-foreground sm:text-2xl">See what&apos;s coming</h2>
+              <div className="mt-2 flex items-center">
+                {chapters.slice(0, 4).map((c, i) => (
+                  <div
+                    key={c.id}
+                    className="relative size-8 shrink-0 overflow-hidden rounded-full border-2 border-background"
+                    style={{ marginLeft: i === 0 ? 0 : -10, zIndex: 4 - i }}
+                  >
+                    <Image
+                      src={c.heroImage}
+                      alt={c.navLabel}
+                      fill
+                      sizes="32px"
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+                <span className="ml-3 text-xs text-muted-foreground">
+                  {`${chapters.length} chapters across Aug-Oct '26`}
+                </span>
+              </div>
+            </div>
+          </div>
+          <ArrowRight
+            size={20}
+            className="relative shrink-0 text-muted-foreground transition group-hover:translate-x-1 group-hover:text-foreground"
+          />
+        </button>
+      </section>
+    );
+  }
+
   return (
     <section>
-      <p className="flex items-center gap-1.5 text-xs font-medium tracking-wider text-platinum">
-        <Sparkles size={12} />
-        THE OYESTORE CALENDAR
-      </p>
-      <h2 className="text-gradient mt-2 max-w-xl text-2xl font-black leading-snug sm:text-3xl">
-        See what&apos;s coming, pick your window.
-      </h2>
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className="flex items-center gap-1.5 text-xs font-medium tracking-wider text-platinum">
+            <Sparkles size={12} />
+            THE OYESTORE CALENDAR
+          </p>
+          <h2 className="text-gradient mt-2 max-w-xl text-2xl font-black leading-snug sm:text-3xl">
+            See what&apos;s coming, pick your window.
+          </h2>
+        </div>
+        <button
+          type="button"
+          onClick={() => setIsOpen(false)}
+          aria-label="Hide the calendar"
+          className="flex shrink-0 items-center gap-1.5 rounded-full border border-[#fffff0]/10 bg-[#fffff0]/[0.02] px-3 py-2 text-xs font-medium text-muted-foreground transition hover:bg-[#fffff0]/5 hover:text-foreground"
+        >
+          <ChevronUp size={14} />
+          Hide
+        </button>
+      </div>
 
       <div className="scrollbar-none mt-5 flex gap-2 overflow-x-auto">
         {MONTHS.map((m, i) => (
@@ -84,8 +152,16 @@ export default function TripCalendar({ chapters }: { chapters: CalendarChapter[]
         ))}
       </div>
 
-      <div className="glass-dark premium-shadow mt-4 rounded-3xl p-4 sm:p-8">
-        <div className="grid grid-cols-7 gap-1 sm:gap-2">
+      <div className="glass-dark premium-shadow relative mt-4 overflow-hidden rounded-3xl p-4 sm:p-8">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: "radial-gradient(#fffff0 1px, transparent 1px)",
+            backgroundSize: "16px 16px",
+          }}
+        />
+        <div className="relative grid grid-cols-7 gap-1 sm:gap-2">
           {WEEKDAYS.map((w, i) => (
             <div
               key={`${w}-${i}`}
@@ -107,6 +183,7 @@ export default function TripCalendar({ chapters }: { chapters: CalendarChapter[]
 
             const active = chaptersForDay(day);
             const isToday = isCurrentMonth && today.getDate() === day;
+            const startingHere = active.filter((c) => c.startDay === day);
 
             return (
               <div
@@ -137,6 +214,11 @@ export default function TripCalendar({ chapters }: { chapters: CalendarChapter[]
                     ))}
                   </div>
                 )}
+                {startingHere.length > 0 && (
+                  <span className="absolute left-0.5 top-0.5 text-[9px] leading-none sm:left-1 sm:top-1 sm:[&>svg]:size-3">
+                    {startingHere[0].icon}
+                  </span>
+                )}
                 <span
                   className={`relative flex size-full items-center justify-center text-[11px] font-semibold sm:text-sm ${
                     active.length > 0 ? "text-foreground" : "text-muted-foreground/50"
@@ -149,7 +231,7 @@ export default function TripCalendar({ chapters }: { chapters: CalendarChapter[]
           })}
         </div>
 
-        <div className="mt-6 border-t border-[#fffff0]/10 pt-6">
+        <div className="relative mt-6 border-t border-[#fffff0]/10 pt-6">
           {monthChapters.length > 0 ? (
             <div className="space-y-3">
               {monthChapters.map((c) => (

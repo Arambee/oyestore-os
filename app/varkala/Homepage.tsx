@@ -4,11 +4,15 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
+  ArrowDown,
   ArrowRight,
   ArrowUpRight,
+  Check,
+  Lock,
   Mail,
   MessageCircle,
   Sparkles,
+  UserRound,
 } from "lucide-react";
 import type { CalendarChapter } from "./TripCalendar";
 
@@ -16,6 +20,27 @@ const INSTAGRAM_URL = "https://www.instagram.com/oyestoreforgram/";
 const WHATSAPP_NUMBER = "918400181281";
 const GENERIC_WHATSAPP_MESSAGE = "Hi! I'm looking at Oyestore's upcoming chapters. Can you share more details?";
 const genericWaHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(GENERIC_WHATSAPP_MESSAGE)}`;
+
+// Same brand promise + "why us" copy used on every chapter detail page -
+// this is Oyestore's actual philosophy, not homepage-specific marketing.
+const oyestorePromise = "You pick the place. We take care of the rest.";
+
+const oyestoreAdvantage = [
+  "Stay in handpicked places",
+  "Curated local experiences",
+  "Everything planned before you arrive",
+  "No itinerary headaches",
+  "Real-time trip updates",
+  "A host who actually knows the destination",
+];
+
+const diyComparison = [
+  { task: "Find a place to stay", diy: "Hours of scrolling listings", oyestore: "Handpicked, already done" },
+  { task: "Figure out transport", diy: "Compare cabs, buses, routes", oyestore: "Planned for you" },
+  { task: "Research what's worth seeing", diy: "Dig through blogs and reels", oyestore: "Curated by people who've been" },
+  { task: "Build an itinerary", diy: "Piece it together yourself", oyestore: "Done before you arrive" },
+  { task: "Coordinate everything on the day", diy: "You're the trip manager", oyestore: "You just show up" },
+];
 
 const ecosystemPillars = [
   "A themed chapter every season - Raksha Bandhan, Onam, Munnar x Vagamon, and expeditions like The Odyssey - never the same trip twice",
@@ -91,6 +116,7 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
   const [activeMonthIndex, setActiveMonthIndex] = useState(defaultIndex === -1 ? 0 : defaultIndex);
   const activeMonth = MONTHS[activeMonthIndex];
   const monthChapters = chapters.filter((c) => c.month === activeMonth.month);
+  const heroTiles = chapters.slice(0, 4);
 
   return (
     <div className="relative min-h-screen bg-background">
@@ -114,7 +140,7 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
         />
         <div
           className="absolute -left-40 -top-40 size-[32rem] rounded-full opacity-[0.12] blur-[120px] transition-colors duration-500"
-          style={{ backgroundColor: activeMonth ? monthChapters[0]?.themeColor ?? "#FB7185" : "#FB7185" }}
+          style={{ backgroundColor: monthChapters[0]?.themeColor ?? "#FB7185" }}
         />
         <div className="absolute right-0 top-1/3 size-[28rem] rounded-full bg-[#fffff0]/[0.03] blur-[120px]" />
         <div className="absolute bottom-0 left-1/3 size-[24rem] rounded-full bg-[#fffff0]/[0.03] blur-[120px]" />
@@ -166,61 +192,106 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
         </div>
       </header>
 
-      <main className="relative mx-auto max-w-6xl space-y-10 px-4 sm:space-y-14 sm:px-6">
-        <section className="pt-4 text-center sm:pt-10">
-          <p className="flex items-center justify-center gap-1.5 text-xs font-medium tracking-wider text-platinum">
-            <Sparkles size={12} />
-            THE OYESTORE CALENDAR
-          </p>
-          <h1 className="text-gradient mx-auto mt-3 max-w-2xl text-4xl font-black leading-[1.05] tracking-tight sm:text-6xl">
-            Pick a month. Pick your trip.
-          </h1>
-          <p className="mx-auto mt-4 max-w-lg text-sm text-muted-foreground sm:text-base">
-            Every chapter Oyestore is running this season, laid out by month. Choose one to see who&apos;s
-            going, when, and for how much.
-          </p>
+      <main className="relative mx-auto max-w-6xl space-y-10 px-4 sm:space-y-16 sm:px-6">
+        <section className="relative overflow-hidden rounded-[2rem]">
+          <div className="grid h-[430px] grid-cols-2 grid-rows-2 gap-1.5 sm:h-[580px] sm:grid-cols-4 sm:grid-rows-2">
+            {heroTiles.map((c, i) => (
+              <div
+                key={c.id}
+                className={`group relative overflow-hidden ${
+                  i === 0 ? "sm:col-span-2 sm:row-span-2" : i === 3 ? "sm:col-span-2" : ""
+                }`}
+              >
+                <Image
+                  src={c.heroImage}
+                  alt={c.navLabel}
+                  fill
+                  priority={i === 0}
+                  sizes="(min-width: 640px) 50vw, 100vw"
+                  className="object-cover transition duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-black/35" />
+                <span
+                  className="absolute bottom-2.5 left-2.5 flex items-center gap-1.5 text-[10px] font-semibold tracking-wide text-white/90 sm:bottom-3.5 sm:left-3.5 sm:text-xs"
+                  style={{ color: c.themeColor }}
+                >
+                  {c.icon}
+                  <span className="text-white/90">{c.navLabel}</span>
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center p-4 sm:p-8">
+            <div className="glass-dark premium-shadow pointer-events-auto max-w-lg rounded-[1.75rem] px-6 py-8 text-center sm:px-12 sm:py-11">
+              <p className="flex items-center justify-center gap-1.5 text-xs font-medium tracking-wider text-platinum">
+                <Sparkles size={12} />
+                THE OYESTORE CALENDAR
+              </p>
+              <h1 className="mt-3 text-2xl font-black leading-[1.15] tracking-tight text-foreground sm:text-4xl">
+                Tired of the same old, boring &amp; silly trips?
+              </h1>
+              <p className="text-gradient mt-1 text-2xl font-black leading-[1.05] tracking-tight sm:text-4xl">
+                Let&apos;s bring better.
+              </p>
+              <p className="mx-auto mt-4 max-w-sm text-sm text-muted-foreground sm:text-base">
+                {`${oyestorePromise} Pick a month below to see what's on.`}
+              </p>
+              <a
+                href="#months"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-pearl px-5 py-2.5 text-sm font-medium text-midnight transition hover:scale-[1.03] hover:bg-pearl/90"
+              >
+                See what&apos;s coming
+                <ArrowDown size={14} />
+              </a>
+            </div>
+          </div>
         </section>
 
-        <section>
-          <div className="grid gap-3 sm:grid-cols-3 sm:gap-4">
+        <section id="months" className="scroll-mt-6">
+          <p className="text-xs font-medium tracking-wider text-platinum">FOUR CHAPTERS THIS SEASON</p>
+          <h2 className="mt-2 max-w-md text-2xl font-black leading-snug text-foreground sm:text-3xl">
+            Pick your month.
+          </h2>
+
+          <div className="mt-5 grid gap-3 sm:grid-cols-3 sm:gap-4">
             {MONTHS.map((m, i) => {
-              const count = chapters.filter((c) => c.month === m.month).length;
-              const monthPhotos = chapters.filter((c) => c.month === m.month).slice(0, 4);
+              const monthList = chapters.filter((c) => c.month === m.month);
+              const cover = monthList[0];
               const active = i === activeMonthIndex;
               return (
                 <button
                   key={m.label}
                   type="button"
                   onClick={() => setActiveMonthIndex(i)}
-                  className={`glass-dark premium-shadow relative overflow-hidden rounded-3xl p-5 text-left transition sm:p-6 ${
-                    active ? "ring-2 ring-[#fffff0]/40" : "hover:bg-[#fffff0]/[0.03]"
+                  className={`group relative h-40 overflow-hidden rounded-3xl text-left transition sm:h-48 ${
+                    active ? "ring-2 ring-[#fffff0]/60" : "opacity-75 hover:opacity-100"
                   }`}
                 >
-                  <p className="text-2xl font-black tracking-tight text-foreground sm:text-3xl">
-                    {m.label} <span className="text-muted-foreground">&apos;26</span>
-                  </p>
-                  <p className="mt-1 text-xs text-muted-foreground">
-                    {count > 0 ? `${count} chapter${count > 1 ? "s" : ""} running` : "Nothing confirmed yet"}
-                  </p>
-                  {monthPhotos.length > 0 && (
-                    <div className="mt-4 flex items-center">
-                      {monthPhotos.map((c, idx) => (
-                        <div
-                          key={c.id}
-                          className="relative size-9 shrink-0 overflow-hidden rounded-full border-2 border-background"
-                          style={{ marginLeft: idx === 0 ? 0 : -10, zIndex: 4 - idx }}
-                        >
-                          <Image
-                            src={c.heroImage}
-                            alt={c.navLabel}
-                            fill
-                            sizes="36px"
-                            className="object-cover"
-                          />
-                        </div>
-                      ))}
-                    </div>
+                  {cover ? (
+                    <>
+                      <Image
+                        src={cover.heroImage}
+                        alt={m.label}
+                        fill
+                        sizes="(min-width: 640px) 33vw, 100vw"
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
+                    </>
+                  ) : (
+                    <div className="glass-dark absolute inset-0" />
                   )}
+                  <div className="relative flex h-full flex-col justify-end p-5">
+                    <p className="text-2xl font-black text-foreground sm:text-3xl">
+                      {m.label} <span className="font-bold text-muted-foreground/80">&apos;26</span>
+                    </p>
+                    <p className="mt-1 text-xs text-white/80">
+                      {monthList.length > 0
+                        ? `${monthList.length} chapter${monthList.length > 1 ? "s" : ""} running`
+                        : "Nothing confirmed yet"}
+                    </p>
+                  </div>
                 </button>
               );
             })}
@@ -285,6 +356,110 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
               </a>
             </div>
           )}
+        </section>
+
+        <section>
+          <p className="text-xs font-medium tracking-wider text-platinum">MEET YOUR HOST</p>
+          <h2 className="mt-2 max-w-lg text-2xl font-black leading-snug text-foreground sm:text-3xl">
+            Every chapter has a host. Who stays a mystery - until 72 hours before departure.
+          </h2>
+          <p className="mt-3 max-w-xl text-sm text-muted-foreground">
+            Real creators and community hosts, not rotating agency guides. Names, faces and the trip
+            reveal all drop right before you travel - same as the rest of the itinerary.
+          </p>
+
+          <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+            {chapters.map((c) => (
+              <div
+                key={c.id}
+                className="glass-dark premium-shadow flex flex-col items-center gap-3 rounded-3xl p-5 text-center"
+              >
+                <div className="relative flex size-16 shrink-0 items-center justify-center rounded-full bg-[#fffff0]/5 sm:size-20">
+                  <UserRound
+                    size={28}
+                    className="text-muted-foreground/40"
+                  />
+                  <span className="absolute -bottom-1 -right-1 flex size-6 items-center justify-center rounded-full border border-background bg-card">
+                    <Lock
+                      size={11}
+                      className="text-platinum"
+                    />
+                  </span>
+                </div>
+                <div>
+                  <p
+                    className="flex items-center justify-center gap-1.5 text-xs font-medium"
+                    style={{ color: c.themeColor }}
+                  >
+                    {c.icon}
+                    {c.navLabel}
+                  </p>
+                  <p className="mt-1 text-[11px] text-muted-foreground">Revealed 72h before departure</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-5">
+            <Link
+              href="/host"
+              className="group inline-flex items-center gap-1.5 text-sm font-medium text-foreground/90 transition hover:text-foreground"
+            >
+              Got an audience? Apply to host a chapter
+              <ArrowUpRight
+                size={14}
+                className="shrink-0 text-muted-foreground transition group-hover:translate-x-0.5 group-hover:translate-y-[-0.5px] group-hover:text-foreground"
+              />
+            </Link>
+          </div>
+        </section>
+
+        <section className="glass-dark premium-shadow rounded-3xl p-6 sm:p-10">
+          <p className="text-gradient max-w-xl text-2xl font-black leading-snug sm:text-3xl">{oyestorePromise}</p>
+
+          <div className="mt-8 grid gap-8 sm:grid-cols-2">
+            <div>
+              <p className="text-xs font-medium tracking-wider text-platinum">WHY OYESTORE?</p>
+              <ul className="mt-3 space-y-2.5">
+                {oyestoreAdvantage.map((point) => (
+                  <li
+                    key={point}
+                    className="flex items-start gap-2 text-sm text-foreground/90"
+                  >
+                    <Check
+                      size={16}
+                      className="mt-0.5 shrink-0 text-[#25D366]"
+                    />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <p className="text-xs font-medium tracking-wider text-platinum">PLAN IT YOURSELF, OR DON&apos;T</p>
+              <div className="mt-3 space-y-2.5">
+                {diyComparison.map((row) => (
+                  <div
+                    key={row.task}
+                    className="rounded-xl border border-[#fffff0]/10 bg-[#fffff0]/[0.03] p-3"
+                  >
+                    <p className="text-sm font-medium text-foreground/90">{row.task}</p>
+                    <div className="mt-1.5 flex items-center gap-2 text-xs">
+                      <span className="text-muted-foreground/70 line-through decoration-[#fffff0]/20">
+                        {row.diy}
+                      </span>
+                      <ArrowRight
+                        size={11}
+                        className="shrink-0 text-muted-foreground/50"
+                      />
+                      <span className="font-medium text-[#25D366]">{row.oyestore}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </section>
       </main>
 

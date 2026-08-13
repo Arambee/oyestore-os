@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Homepage from "./Homepage";
 import StickyBookingCard from "./StickyBookingCard";
 import TripCalendar from "./TripCalendar";
 import type { Metadata } from "next";
@@ -957,8 +958,6 @@ interface VarkalaLandingPageProps {
 
 export default async function VarkalaLandingPage({ searchParams }: VarkalaLandingPageProps) {
   const { chapter: chapterParam } = await searchParams;
-  const chapter = chapters.find((c) => c.id === chapterParam) ?? chapters[0];
-  const waHref = whatsappHref(chapter.whatsappMessage);
 
   const calendarChapters = chapters
     .map((c) => {
@@ -979,6 +978,14 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
       };
     })
     .filter((c): c is NonNullable<typeof c> => c !== null);
+
+  const chapter = chapters.find((c) => c.id === chapterParam);
+  if (!chapter) {
+    // No (valid) chapter requested - this is now the site's actual homepage:
+    // a month picker that fans out into that month's chapters.
+    return <Homepage chapters={calendarChapters} />;
+  }
+  const waHref = whatsappHref(chapter.whatsappMessage);
 
   return (
     <div className="relative min-h-screen bg-background">
@@ -1061,7 +1068,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             {chapters.map((c) => (
               <Link
                 key={c.id}
-                href={c.id === chapters[0].id ? "/varkala" : `/varkala?chapter=${c.id}`}
+                href={`/varkala?chapter=${c.id}`}
                 className={`flex shrink-0 flex-col rounded-2xl border px-4 py-2.5 transition ${
                   c.id === chapter.id
                     ? "border-[#fffff0]/25"
@@ -1616,7 +1623,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
                 {chapters.map((c) => (
                   <li key={c.id}>
                     <Link
-                      href={c.id === chapters[0].id ? "/varkala" : `/varkala?chapter=${c.id}`}
+                      href={`/varkala?chapter=${c.id}`}
                       className="group flex items-center justify-between gap-2 text-sm text-foreground/90 transition hover:text-foreground"
                     >
                       <span className="flex items-center gap-2">

@@ -46,7 +46,11 @@
   }
 
   .text-gradient {
-    color: var(--color-pearl);
+    background: linear-gradient(90deg, #cfcecf 0%, #ffffff 50%, #cfcecf 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
   }
 
   /* ─── Layout ──────────────────────────────────────────────────────────── */

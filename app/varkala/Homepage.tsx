@@ -284,16 +284,19 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
             {MONTHS.map((m, i) => {
               const monthList = chapters.filter((c) => c.month === m.month);
               const active = i === activeMonthIndex;
+              const accent = monthList[0]?.themeColor ?? "#fffff0";
               return (
                 <button
                   key={m.label}
                   type="button"
                   onClick={() => setActiveMonthIndex(i)}
-                  className={`flex shrink-0 flex-col rounded-2xl border px-4 py-2.5 text-left transition ${
-                    active
-                      ? "border-[#fffff0]/25 bg-[#fffff0]/10 text-foreground"
-                      : "border-[#fffff0]/10 bg-[#fffff0]/[0.02] text-muted-foreground"
+                  className={`flex shrink-0 flex-col rounded-2xl border px-4 py-2.5 text-left transition hover:brightness-125 ${
+                    active ? "text-foreground" : "text-muted-foreground opacity-70 hover:opacity-100"
                   }`}
+                  style={{
+                    borderColor: `${accent}${active ? "66" : "2e"}`,
+                    backgroundColor: `${accent}${active ? "1f" : "0f"}`,
+                  }}
                 >
                   <span className="text-sm font-bold tracking-wide">{`${m.label} '26`}</span>
                   {monthList.length > 0 ? (

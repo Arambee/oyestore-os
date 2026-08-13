@@ -1260,12 +1260,13 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
               <Link
                 key={c.id}
                 href={`/varkala?chapter=${c.id}`}
-                className={`flex shrink-0 flex-col rounded-2xl border px-4 py-2.5 transition ${
-                  c.id === chapter.id
-                    ? "border-[#fffff0]/25"
-                    : "border-[#fffff0]/10 bg-[#fffff0]/[0.02] hover:bg-[#fffff0]/5"
+                className={`flex shrink-0 flex-col rounded-2xl border px-4 py-2.5 transition hover:brightness-125 ${
+                  c.id === chapter.id ? "" : "opacity-70 hover:opacity-100"
                 }`}
-                style={c.id === chapter.id ? { backgroundColor: `${c.themeColor}1a` } : undefined}
+                style={{
+                  borderColor: `${c.themeColor}${c.id === chapter.id ? "66" : "2e"}`,
+                  backgroundColor: `${c.themeColor}${c.id === chapter.id ? "1f" : "0f"}`,
+                }}
               >
                 <span className="flex items-center gap-1.5 text-sm font-bold text-foreground">
                   <c.badgeIcon

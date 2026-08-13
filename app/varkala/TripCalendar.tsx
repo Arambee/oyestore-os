@@ -137,20 +137,27 @@ export default function TripCalendar({ chapters }: { chapters: CalendarChapter[]
       </div>
 
       <div className="scrollbar-none mt-5 flex gap-2 overflow-x-auto">
-        {MONTHS.map((m, i) => (
-          <button
-            key={m.label}
-            type="button"
-            onClick={() => setActiveMonthIndex(i)}
-            className={`shrink-0 rounded-full border px-5 py-2.5 text-sm font-bold tracking-wide transition ${
-              i === activeMonthIndex
-                ? "border-[#fffff0]/25 bg-[#fffff0]/10 text-foreground"
-                : "border-[#fffff0]/10 bg-[#fffff0]/[0.02] text-muted-foreground hover:bg-[#fffff0]/5"
-            }`}
-          >
-            {m.label} &apos;26
-          </button>
-        ))}
+        {MONTHS.map((m, i) => {
+          const monthChapters = chapters.filter((c) => c.month === m.month);
+          const accent = monthChapters[0]?.themeColor ?? "#fffff0";
+          const active = i === activeMonthIndex;
+          return (
+            <button
+              key={m.label}
+              type="button"
+              onClick={() => setActiveMonthIndex(i)}
+              className={`shrink-0 rounded-full border px-5 py-2.5 text-sm font-bold tracking-wide transition hover:brightness-125 ${
+                active ? "text-foreground" : "text-muted-foreground opacity-70 hover:opacity-100"
+              }`}
+              style={{
+                borderColor: `${accent}${active ? "66" : "2e"}`,
+                backgroundColor: `${accent}${active ? "1f" : "0f"}`,
+              }}
+            >
+              {`${m.label} '26`}
+            </button>
+          );
+        })}
       </div>
 
       <div className="glass-dark premium-shadow relative mt-4 overflow-hidden rounded-3xl p-4 sm:p-8">

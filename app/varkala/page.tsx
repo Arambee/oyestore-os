@@ -442,7 +442,7 @@ const chapters: Chapter[] = [
     heroTitle: "Come home to Kerala this Onam.",
     heroSubtitle:
       "Homes bloom with Pookalams, families gather for the Sadya, and an entire state slows down to celebrate. This year, celebrate it beside the Arabian Sea.",
-    price: "₹14,999 onwards (without transport)",
+    price: "₹14,999 onwards",
     basePrice: 14999,
     duration: "4 Days · 5 Nights",
     departure: "Bangalore / Pan India",
@@ -600,7 +600,7 @@ const chapters: Chapter[] = [
     beforeYouBook:
       "Every chapter is intentionally designed to stay flexible - weather changes, people change, and some of the best discoveries aren't found on Google Maps. The itinerary above is an overview of the experience; your official trip title, host reveal, meeting points, timings and surprise experiences are shared 72 hours before departure. Seats are limited to 20 people for the 26-29 August 2026 dates - message us on WhatsApp to lock yours in.",
     whatsappMessage:
-      "Hi! I'm interested in the Onam Varkala chapter (26-29 Aug 2026, ₹14,999 onwards without transport · 4 Days/5 Nights). Can you share more details?",
+      "Hi! I'm interested in the Onam Varkala chapter (26-29 Aug 2026, ₹14,999 onwards · 4 Days/5 Nights). Can you share more details?",
   },
   {
     id: "munnar-vagamon",

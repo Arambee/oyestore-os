@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import WavingFlag from "./WavingFlag";
 import {
   ArrowDown,
   ArrowRight,
@@ -170,9 +169,6 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
         />
         <div className="absolute right-0 top-1/3 size-[28rem] rounded-full bg-[#fffff0]/[0.03] blur-[120px]" />
         <div className="absolute bottom-0 left-1/3 size-[24rem] rounded-full bg-[#fffff0]/[0.03] blur-[120px]" />
-        <div className="absolute left-5 top-4 hidden opacity-90 sm:block">
-          <WavingFlag />
-        </div>
       </div>
 
       <header className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-6 sm:px-6">
@@ -213,7 +209,7 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
             href={genericWaHref}
             target="_blank"
             rel="noreferrer"
-            className="tricolor-gradient hidden items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition hover:scale-[1.03] sm:flex"
+            className="hidden items-center gap-2 rounded-full bg-pearl px-5 py-2.5 text-sm font-medium text-midnight transition hover:scale-[1.03] hover:bg-pearl/90 sm:flex"
           >
             <MessageCircle size={16} />
             WhatsApp us
@@ -268,7 +264,7 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
               </p>
               <a
                 href="#months"
-                className="tricolor-gradient mt-6 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition hover:scale-[1.03]"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-pearl px-5 py-2.5 text-sm font-medium text-midnight transition hover:scale-[1.03] hover:bg-pearl/90"
               >
                 See what&apos;s coming
                 <ArrowDown size={14} />
@@ -409,17 +405,7 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
                         {c.destination}
                       </p>
                       <div className="mt-2 flex items-center justify-between">
-                        <span className="flex items-center gap-1.5 text-sm font-semibold text-foreground/90">
-                          {c.onSale && (
-                            <span className="text-xs font-normal text-white/50 line-through">{c.originalPrice}</span>
-                          )}
-                          {c.price}
-                          {c.onSale && (
-                            <span className="tricolor-gradient rounded-full px-1.5 py-0.5 text-[9px] font-black tracking-wide">
-                              15% OFF
-                            </span>
-                          )}
-                        </span>
+                        <span className="text-sm font-semibold text-foreground/90">{c.price}</span>
                         <span className="flex items-center gap-1 text-xs font-medium text-foreground/80 transition group-hover:translate-x-1 group-hover:text-foreground">
                           See the chapter
                           <ArrowRight size={14} />
@@ -443,7 +429,7 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
                 href={genericWaHref}
                 target="_blank"
                 rel="noreferrer"
-                className="tricolor-gradient mt-1 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition hover:scale-[1.03]"
+                className="mt-1 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-sm font-semibold text-[#052e16] transition hover:scale-[1.03]"
               >
                 <MessageCircle size={14} />
                 Notify me
@@ -726,7 +712,7 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
         target="_blank"
         rel="noreferrer"
         aria-label="Message Oyestore on WhatsApp"
-        className="tricolor-gradient premium-shadow fixed inset-x-4 bottom-4 z-20 flex items-center justify-center gap-2 rounded-full py-4 text-sm font-semibold sm:hidden"
+        className="premium-shadow fixed inset-x-4 bottom-4 z-20 flex items-center justify-center gap-2 rounded-full bg-[#25D366] py-4 text-sm font-semibold text-[#052e16] sm:hidden"
       >
         <MessageCircle size={18} />
         Chat on WhatsApp

@@ -12,8 +12,6 @@ export interface CalendarChapter {
   themeColor: string;
   heroImage: string;
   price: string;
-  originalPrice?: string;
-  onSale: boolean;
   waHref: string;
   icon: React.ReactNode;
   destination: string;
@@ -268,15 +266,7 @@ export default function TripCalendar({ chapters }: { chapters: CalendarChapter[]
                       {c.dateChip}
                     </span>
                     <p className="mt-0.5 truncate font-bold text-foreground">{c.navLabel}</p>
-                    <p className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                      {c.onSale && <span className="line-through">{c.originalPrice}</span>}
-                      {c.price}
-                      {c.onSale && (
-                        <span className="tricolor-gradient rounded-full px-1.5 py-0.5 text-[9px] font-black tracking-wide">
-                          15% OFF
-                        </span>
-                      )}
-                    </p>
+                    <p className="text-sm text-muted-foreground">{c.price}</p>
                   </div>
                   <ArrowRight
                     size={18}

@@ -3,7 +3,6 @@ import Link from "next/link";
 import Homepage from "./Homepage";
 import StickyBookingCard from "./StickyBookingCard";
 import TripCalendar from "./TripCalendar";
-import WavingFlag from "./WavingFlag";
 import type { Metadata } from "next";
 import type { ComponentType, CSSProperties, SVGProps } from "react";
 import {
@@ -147,38 +146,6 @@ function whatsappHref(message: string) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
-// Independence Day sale - 15% off every priced chapter, valid only on
-// 15 Aug 2026 in India time. Checked in IST specifically so the offer
-// starts/ends on the right day regardless of the server's own timezone.
-const INDEPENDENCE_DAY_DISCOUNT = 0.15;
-
-function isIndependenceDaySaleLive(): boolean {
-  const ist = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
-  return ist.getFullYear() === 2026 && ist.getMonth() === 7 && ist.getDate() === 15;
-}
-
-/**
- * Given a price string like "₹12,999 onwards" and its numeric base, returns
- * the sale-adjusted display string plus the original for strikethrough -
- * only when the sale is live and a numeric base price exists (skips
- * "Message us for pricing" chapters, which have no basePrice to discount).
- */
-function applyIndependenceDaySale(
-  price: string,
-  basePrice: number | undefined,
-): { display: string; original?: string; onSale: boolean } {
-  if (!basePrice || !isIndependenceDaySaleLive()) {
-    return { display: price, onSale: false };
-  }
-  const discounted = Math.round(basePrice * (1 - INDEPENDENCE_DAY_DISCOUNT));
-  const suffix = price.replace(/^₹[\d,]+/, "");
-  return {
-    display: `₹${discounted.toLocaleString("en-IN")}${suffix}`,
-    original: price,
-    onSale: true,
-  };
-}
-
 export const metadata: Metadata = {
   title: "Varkala, Munnar & Sri Lanka | Oyestore",
   description:
@@ -246,8 +213,6 @@ type Chapter = {
   heroTitle: string;
   heroSubtitle: string;
   price: string;
-  /** Numeric starting price backing `price`, for the Independence Day sale calc. Omit if price is "Message us for pricing". */
-  basePrice?: number;
   duration: string;
   departure: string;
   seats: string;
@@ -278,7 +243,6 @@ const chapters: Chapter[] = [
     heroSubtitle:
       "Some bonds are built by blood. Some are built by choice. Trade the crowded malls for cliffside sunsets.",
     price: "₹12,999 onwards",
-    basePrice: 12999,
     duration: "3 Days · 4 Nights",
     departure: "Bangalore / Pan India",
     seats: "20 people",
@@ -443,7 +407,6 @@ const chapters: Chapter[] = [
     heroSubtitle:
       "Homes bloom with Pookalams, families gather for the Sadya, and an entire state slows down to celebrate. This year, celebrate it beside the Arabian Sea.",
     price: "₹14,999 onwards",
-    basePrice: 14999,
     duration: "4 Days · 5 Nights",
     departure: "Bangalore / Pan India",
     seats: "20 people",
@@ -614,7 +577,6 @@ const chapters: Chapter[] = [
     heroSubtitle:
       "Freedom isn't always found by the sea. Sometimes it's waiting at the next hairpin bend.",
     price: "₹14,999 onwards",
-    basePrice: 14999,
     duration: "3 Days · 4 Nights",
     departure: "Bangalore / Pan India",
     seats: "20 people",
@@ -766,7 +728,6 @@ const chapters: Chapter[] = [
     heroSubtitle:
       "800+ kilometres across one of the world's most diverse islands - mountain roads, tea plantations, wildlife safaris and endless coastlines.",
     price: "₹59,999 per person",
-    basePrice: 59999,
     duration: "7 Days · 6 Nights",
     departure: "Bengaluru / Pan India",
     seats: "20 explorers",
@@ -1031,7 +992,6 @@ const chapters: Chapter[] = [
       heroSubtitle:
         "Skip the long-weekend planning spiral. Cliffside sunsets, a surf lesson and slow mornings by the Arabian Sea - back home by Monday.",
       price: "₹12,999 onwards",
-      basePrice: 12999,
       duration: "2 Nights · 3 Days",
       departure: "Bangalore / Pan India",
       seats: "20 people",
@@ -1261,16 +1221,13 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
     .map((c) => {
       const range = CALENDAR_RANGES[c.id];
       if (!range) return null;
-      const sale = applyIndependenceDaySale(c.price, c.basePrice);
       return {
         id: c.id,
         navLabel: c.navLabel,
         dateChip: c.dateChip,
         themeColor: c.themeColor,
         heroImage: c.heroImage,
-        price: sale.display,
-        originalPrice: sale.original,
-        onSale: sale.onSale,
+        price: c.price,
         waHref: whatsappHref(c.whatsappMessage),
         icon: <c.badgeIcon size={13} />,
         destination: CALENDAR_DESTINATIONS[c.id] ?? "",
@@ -1288,7 +1245,6 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
     return <Homepage chapters={calendarChapters} />;
   }
   const waHref = whatsappHref(chapter.whatsappMessage);
-  const chapterSale = applyIndependenceDaySale(chapter.price, chapter.basePrice);
 
   return (
     <div className="relative min-h-screen bg-background">
@@ -1316,9 +1272,6 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
         />
         <div className="absolute right-0 top-1/3 size-[28rem] rounded-full bg-[#fffff0]/[0.03] blur-[120px]" />
         <div className="absolute bottom-0 left-1/3 size-[24rem] rounded-full bg-[#fffff0]/[0.03] blur-[120px]" />
-        <div className="absolute left-5 top-4 hidden opacity-90 sm:block">
-          <WavingFlag />
-        </div>
       </div>
 
       <header className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-6 sm:px-6">
@@ -1359,7 +1312,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             href={waHref}
             target="_blank"
             rel="noreferrer"
-            className="tricolor-gradient hidden items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition hover:scale-[1.03] sm:flex"
+            className="hidden items-center gap-2 rounded-full bg-pearl px-5 py-2.5 text-sm font-medium text-midnight transition hover:scale-[1.03] hover:bg-pearl/90 sm:flex"
           >
             <MessageCircle size={16} />
             WhatsApp us
@@ -1429,7 +1382,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
                     href={waHref}
                     target="_blank"
                     rel="noreferrer"
-                    className="tricolor-gradient inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition hover:scale-[1.03]"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-[#052e16] transition hover:scale-[1.03]"
                   >
                     <MessageCircle size={16} />
                     Message us on WhatsApp
@@ -1449,8 +1402,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
               <Stat
                 icon={Tag}
                 label="Starts From"
-                value={chapterSale.display}
-                originalValue={chapterSale.original}
+                value={chapter.price}
               />
               <Stat
                 icon={Calendar}
@@ -1473,8 +1425,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           <div className="scrollbar-none relative z-10 mx-1 -mt-5 flex gap-2 overflow-x-auto sm:hidden">
             <StatChip
               icon={Tag}
-              value={chapterSale.display}
-              originalValue={chapterSale.original}
+              value={chapter.price}
             />
             <StatChip
               icon={Calendar}
@@ -1845,8 +1796,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
       </main>
 
       <StickyBookingCard
-        price={chapterSale.display}
-        originalPrice={chapterSale.original}
+        price={chapter.price}
         waHref={waHref}
         advantage={oyestoreAdvantage}
       />
@@ -1981,7 +1931,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
         target="_blank"
         rel="noreferrer"
         aria-label="Message Oyestore on WhatsApp"
-        className="tricolor-gradient premium-shadow fixed inset-x-4 bottom-4 z-20 flex items-center justify-center gap-2 rounded-full py-4 text-sm font-semibold sm:hidden"
+        className="premium-shadow fixed inset-x-4 bottom-4 z-20 flex items-center justify-center gap-2 rounded-full bg-[#25D366] py-4 text-sm font-semibold text-[#052e16] sm:hidden"
       >
         <MessageCircle size={18} />
         Chat on WhatsApp
@@ -1990,45 +1940,19 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
   );
 }
 
-function StatChip({
-  icon: Icon,
-  value,
-  originalValue,
-}: {
-  icon: typeof Users;
-  value: string;
-  originalValue?: string;
-}) {
+function StatChip({ icon: Icon, value }: { icon: typeof Users; value: string }) {
   return (
     <div className="glass-dark premium-shadow flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-3.5 py-2 text-xs font-bold text-foreground">
       <Icon
         size={14}
         className="text-platinum"
       />
-      {originalValue && (
-        <span className="text-muted-foreground/60 line-through">{originalValue}</span>
-      )}
       {value}
-      {originalValue && (
-        <span className="tricolor-gradient rounded-full px-1.5 py-0.5 text-[9px] font-black tracking-wide">
-          15% OFF
-        </span>
-      )}
     </div>
   );
 }
 
-function Stat({
-  icon: Icon,
-  label,
-  value,
-  originalValue,
-}: {
-  icon: typeof Users;
-  label: string;
-  value: string;
-  originalValue?: string;
-}) {
+function Stat({ icon: Icon, label, value }: { icon: typeof Users; label: string; value: string }) {
   return (
     <div className="flex items-center gap-3">
       <Icon
@@ -2036,22 +1960,8 @@ function Stat({
         className="text-platinum"
       />
       <div>
-        <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
-          {label}
-          {originalValue && (
-            <span className="tricolor-gradient rounded-full px-1.5 py-0.5 text-[9px] font-black tracking-wide">
-              15% OFF
-            </span>
-          )}
-        </p>
-        <p className="text-base font-bold text-foreground">
-          {originalValue && (
-            <span className="mr-1.5 text-sm font-medium text-muted-foreground/60 line-through">
-              {originalValue}
-            </span>
-          )}
-          {value}
-        </p>
+        <p className="text-xs text-muted-foreground">{label}</p>
+        <p className="text-base font-bold text-foreground">{value}</p>
       </div>
     </div>
   );

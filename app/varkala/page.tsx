@@ -147,9 +147,9 @@ function whatsappHref(message: string) {
 }
 
 export const metadata: Metadata = {
-  title: "Varkala, Munnar & Sri Lanka | Oyestore",
+  title: "Varkala & Sri Lanka | Oyestore",
   description:
-    "Raksha Bandhan and Onam in Varkala, Munnar x Vagamon in the hills, The Odyssey road trip across Sri Lanka, plus Varkala weekend departures through September. Message us on WhatsApp for dates and details.",
+    "Raksha Bandhan and Onam in Varkala, The Odyssey road trip across Sri Lanka, plus Varkala weekend departures through September. Message us on WhatsApp for dates and details.",
 };
 
 const varkalaHiddenSpots = [
@@ -564,157 +564,6 @@ const chapters: Chapter[] = [
       "Every chapter is intentionally designed to stay flexible - weather changes, people change, and some of the best discoveries aren't found on Google Maps. The itinerary above is an overview of the experience; your official trip title, host reveal, meeting points, timings and surprise experiences are shared 72 hours before departure. Seats are limited to 20 people for the 26-29 August 2026 dates - message us on WhatsApp to lock yours in.",
     whatsappMessage:
       "Hi! I'm interested in the Onam Varkala chapter (26-29 Aug 2026, ₹14,999 onwards · 4 Days/5 Nights). Can you share more details?",
-  },
-  {
-    id: "munnar-vagamon",
-    navLabel: "Munnar x Vagamon",
-    navDates: "21-23 Aug 2026",
-    badge: "MUNNAR X VAGAMON CHAPTER · 21-23 AUG 2026",
-    badgeIcon: Mountain,
-    themeColor: "#4F8A5B",
-    heroImage: "/munnar-vagamon/hero-reservoir-group.jpg",
-    heroTitle: "Let the mountains conquer your mind.",
-    heroSubtitle:
-      "Freedom isn't always found by the sea. Sometimes it's waiting at the next hairpin bend.",
-    price: "₹14,999 onwards",
-    duration: "3 Days · 4 Nights",
-    departure: "Bangalore / Pan India",
-    seats: "20 people",
-    dateChip: "21-23 Aug 2026",
-    aboutHook:
-      "Days begin with mist rolling over endless tea gardens, drift through winding roads and hidden cafés, disappear into valleys where time slows down, and end with sunsets that remind you how small your worries really are.",
-    aboutBody:
-      "This chapter isn't about conquering mountains. It's about letting the mountains conquer your mind. From Munnar's tea estates to Vagamon's rolling meadows, over 3 days and 4 nights. Your official trip title, host and surprise experiences are revealed 72 hours before departure - because every road deserves a story.",
-    perfectFor: ["Solo Travellers", "Friends", "Couples", "Creators", "First-Time Group Travellers"],
-    sneakPeek: [
-      {
-        id: "mv-1",
-        alt: "Looking out over the mist-covered hills",
-        image: "/munnar-vagamon/gallery-mist-portrait.jpg",
-        className: "col-span-2 row-span-2",
-      },
-      {
-        id: "mv-2",
-        alt: "Watching the sky turn pink from the infinity pool",
-        image: "/munnar-vagamon/gallery-pool-sunset.jpg",
-        className: "col-span-2",
-      },
-      {
-        id: "mv-3",
-        alt: "The crew, ready to roll out for the weekend",
-        image: "/munnar-vagamon/gallery-night-arrival.jpg",
-        className: "col-span-2",
-      },
-      {
-        id: "mv-4",
-        alt: "Bamboo rafting across the water",
-        image: "/munnar-vagamon/gallery-bamboo-raft-v2.jpg",
-        className: "",
-      },
-      {
-        id: "mv-5",
-        alt: "A detour through a sunflower field",
-        image: "/munnar-vagamon/gallery-sunflower-field-v2.jpg",
-        className: "",
-      },
-      {
-        id: "mv-6",
-        alt: "Golden hour, flower behind the ear",
-        image: "/munnar-vagamon/gallery-flower-portrait.jpg",
-        className: "",
-      },
-      {
-        id: "mv-7",
-        alt: "The whole gang, reservoir-side",
-        image: "/munnar-vagamon/gallery-reservoir-group-2.jpg",
-        className: "",
-      },
-    ],
-    days: [
-      {
-        day: "0",
-        title: "The Mountains Are Waiting",
-        description: "Thursday night, the city slowly disappears behind you and the mountains start calling.",
-        activities: [
-          "Departure from Bangalore, Thursday night",
-          "Office groups go silent, streetlights turn into highways",
-          "Highways slowly become forests",
-          "Someone connects their playlist, someone instantly skips the first song",
-          "Overnight journey towards Munnar",
-        ],
-      },
-      {
-        day: "1",
-        title: "Where the Clouds Live",
-        description: "Welcome to Munnar - a day with no rush, only roads worth stopping for.",
-        activities: [
-          "Wake up to cooler air, freshen up, breakfast",
-          "Wander through endless tea estates and hidden waterfalls",
-          "Scenic viewpoints and cafés tucked away in the hills",
-          "Golden light and mountains that simply exist, no rush",
-          "Evening: music, dinner, stories and mountain air as the group forms",
-        ],
-      },
-      {
-        day: "2",
-        title: "The Best Plans Are Never Planned",
-        description: "Leave Munnar behind and discover Vagamon at its own pace.",
-        activities: [
-          "Ride through winding roads where every turn feels like a postcard",
-          "Rolling meadows, pine forests, hidden viewpoints, quiet valleys",
-          "Stop because the chai smelled good, stay because the view was better",
-          "Photography stops and a few surprises along the way",
-          "Evening: campfire, laughter and stories as the sun disappears behind the hills",
-        ],
-      },
-      {
-        day: "3",
-        title: "Leave Lighter",
-        description: "One unhurried last morning, then the journey back to Bangalore.",
-        activities: [
-          "Wake up slowly, watch the clouds one last time",
-          "Order chai without checking your watch, one final photograph",
-          "Check out",
-          "Begin the journey back to Bangalore",
-          "Somewhere between the mountains and the city, everyone starts wondering when they'll return",
-        ],
-      },
-    ],
-    experiences: [
-      "Tea plantations",
-      "Scenic mountain drives",
-      "Hidden cafés",
-      "Waterfalls",
-      "Rolling meadows",
-      "Pine forests",
-      "Sunrise and sunset viewpoints",
-      "Photography-friendly locations",
-      "Community experiences",
-      "Slow mountain mornings",
-      "Surprise moments",
-    ],
-    included: [
-      "Resort & Villa Accommodation",
-      "Breakfasts",
-      "Surprise Host",
-      "Scooter Exploration",
-      "Campfire Experience",
-      "Community Activities",
-      "Tea Estate & Viewpoint Visits",
-      "Unlimited Main Character Moments",
-      "AC Transportation from Bangalore, if opted in (at real-time bus fares)",
-    ],
-    notIncluded: [
-      "Lunch & Dinner",
-      "Personal Expenses",
-      "Adventure Activities not included above",
-      "Shopping",
-      "Anything Not Mentioned Above",
-    ],
-    beforeYouBook:
-      "Every chapter is intentionally designed to remain flexible - weather changes, people change, and some of the best discoveries aren't found on Google Maps. The itinerary above is an overview of the experience; your official trip title, host reveal, meeting points, timings and surprise experiences are shared 72 hours before departure. AC transportation from Bangalore is optional and billed at real-time bus fares, so it's quoted separately when you book. Seats are limited to 20 people for the 21-23 August 2026 dates - message us on WhatsApp to lock yours in.",
-    whatsappMessage:
-      "Hi! I'm interested in the Munnar x Vagamon chapter (21-23 Aug 2026, ₹14,999 · 3 Days/4 Nights). Can you share more details?",
   },
   {
     id: "sri-lanka-odyssey",
@@ -1162,7 +1011,7 @@ const afterYouBookSteps = [
 ];
 
 const ecosystemPillars = [
-  "A themed chapter every season - Raksha Bandhan, Onam, Munnar x Vagamon, and expeditions like The Odyssey - never the same trip twice",
+  "A themed chapter every season - Raksha Bandhan, Onam, and expeditions like The Odyssey - never the same trip twice",
   "A destinations vault written by locals and creators who've actually been there, not scraped listings",
   "A creator network - real hosts building a track record chapter by chapter, not a rotating agency guide",
   "A community feed that grows with every trip - the photos, stories and recommendations feed straight back into the next chapter",
@@ -1181,7 +1030,6 @@ const hiddenSpots = [
 
 // Month is 0-indexed (7 = August, 9 = October) to match JS Date conventions.
 const CALENDAR_RANGES: Record<string, { month: number; start: number; end: number }> = {
-  "munnar-vagamon": { month: 7, start: 21, end: 23 },
   onam: { month: 7, start: 26, end: 29 },
   "raksha-bandhan": { month: 7, start: 28, end: 30 },
   "sri-lanka-odyssey": { month: 9, start: 15, end: 21 },
@@ -1193,7 +1041,6 @@ const CALENDAR_RANGES: Record<string, { month: number; start: number; end: numbe
 
 // Where each chapter actually goes, for the calendar / homepage trip cards.
 const CALENDAR_DESTINATIONS: Record<string, string> = {
-  "munnar-vagamon": "Munnar & Vagamon, Kerala",
   onam: "Varkala, Kerala",
   "raksha-bandhan": "Varkala, Kerala",
   "sri-lanka-odyssey": "Sri Lanka",
@@ -1322,7 +1169,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
 
       <main className="relative mx-auto max-w-6xl space-y-10 px-4 sm:space-y-16 sm:px-6">
         <section>
-          <p className="text-xs font-medium tracking-wider text-platinum">THIS SEASON · VARKALA, MUNNAR &amp; SRI LANKA</p>
+          <p className="text-xs font-medium tracking-wider text-platinum">THIS SEASON · VARKALA &amp; SRI LANKA</p>
           <div className="scrollbar-none mt-3 flex gap-2 overflow-x-auto">
             {chapters.map((c) => (
               <Link

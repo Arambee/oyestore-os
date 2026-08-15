@@ -44,7 +44,7 @@ const diyComparison = [
 ];
 
 const ecosystemPillars = [
-  "A themed chapter every season - Raksha Bandhan, Onam, Munnar x Vagamon, and expeditions like The Odyssey - never the same trip twice",
+  "A themed chapter every season - Raksha Bandhan, Onam, and expeditions like The Odyssey - never the same trip twice",
   "A destinations vault written by locals and creators who've actually been there, not scraped listings",
   "A creator network - real hosts building a track record chapter by chapter, not a rotating agency guide",
   "A community feed that grows with every trip - the photos, stories and recommendations feed straight back into the next chapter",
@@ -140,8 +140,7 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
   const uniqueHostChapters = chapters.filter(
     (c, i) => chapters.findIndex((other) => other.navLabel === c.navLabel) === i,
   );
-  const mysteryBackdrop =
-    chapters.find((c) => c.destination.includes("Munnar")) ?? uniqueHostChapters[0] ?? chapters[0];
+  const mysteryBackdrop = uniqueHostChapters[0] ?? chapters[0];
 
   return (
     <div className="relative min-h-screen bg-background">

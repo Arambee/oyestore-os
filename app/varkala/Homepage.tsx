@@ -409,7 +409,17 @@ export default function Homepage({ chapters }: { chapters: CalendarChapter[] }) 
                         {c.destination}
                       </p>
                       <div className="mt-2 flex items-center justify-between">
-                        <span className="text-sm font-semibold text-foreground/90">{c.price}</span>
+                        <span className="flex items-center gap-1.5 text-sm font-semibold text-foreground/90">
+                          {c.onSale && (
+                            <span className="text-xs font-normal text-white/50 line-through">{c.originalPrice}</span>
+                          )}
+                          {c.price}
+                          {c.onSale && (
+                            <span className="tricolor-gradient rounded-full px-1.5 py-0.5 text-[9px] font-black tracking-wide">
+                              15% OFF
+                            </span>
+                          )}
+                        </span>
                         <span className="flex items-center gap-1 text-xs font-medium text-foreground/80 transition group-hover:translate-x-1 group-hover:text-foreground">
                           See the chapter
                           <ArrowRight size={14} />

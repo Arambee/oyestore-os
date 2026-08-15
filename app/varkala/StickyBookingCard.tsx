@@ -5,11 +5,12 @@ import { Check, MessageCircle, Shield } from "lucide-react";
 
 interface StickyBookingCardProps {
   price: string;
+  originalPrice?: string;
   waHref: string;
   advantage: string[];
 }
 
-export default function StickyBookingCard({ price, waHref, advantage }: StickyBookingCardProps) {
+export default function StickyBookingCard({ price, originalPrice, waHref, advantage }: StickyBookingCardProps) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -36,6 +37,14 @@ export default function StickyBookingCard({ price, waHref, advantage }: StickyBo
       }`}
     >
       <div className="glass-dark premium-shadow rounded-2xl p-5">
+        {originalPrice && (
+          <p className="flex items-center gap-1.5">
+            <span className="text-sm font-medium text-muted-foreground/60 line-through">{originalPrice}</span>
+            <span className="tricolor-gradient rounded-full px-1.5 py-0.5 text-[9px] font-black tracking-wide">
+              15% OFF
+            </span>
+          </p>
+        )}
         <p className="text-2xl font-black text-foreground">{price}</p>
 
         <a

@@ -147,6 +147,38 @@ function whatsappHref(message: string) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
+// Independence Day sale - 15% off every priced chapter, valid only on
+// 15 Aug 2026 in India time. Checked in IST specifically so the offer
+// starts/ends on the right day regardless of the server's own timezone.
+const INDEPENDENCE_DAY_DISCOUNT = 0.15;
+
+function isIndependenceDaySaleLive(): boolean {
+  const ist = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
+  return ist.getFullYear() === 2026 && ist.getMonth() === 7 && ist.getDate() === 15;
+}
+
+/**
+ * Given a price string like "₹12,999 onwards" and its numeric base, returns
+ * the sale-adjusted display string plus the original for strikethrough -
+ * only when the sale is live and a numeric base price exists (skips
+ * "Message us for pricing" chapters, which have no basePrice to discount).
+ */
+function applyIndependenceDaySale(
+  price: string,
+  basePrice: number | undefined,
+): { display: string; original?: string; onSale: boolean } {
+  if (!basePrice || !isIndependenceDaySaleLive()) {
+    return { display: price, onSale: false };
+  }
+  const discounted = Math.round(basePrice * (1 - INDEPENDENCE_DAY_DISCOUNT));
+  const suffix = price.replace(/^₹[\d,]+/, "");
+  return {
+    display: `₹${discounted.toLocaleString("en-IN")}${suffix}`,
+    original: price,
+    onSale: true,
+  };
+}
+
 export const metadata: Metadata = {
   title: "Varkala, Munnar & Sri Lanka | Oyestore",
   description:
@@ -214,6 +246,8 @@ type Chapter = {
   heroTitle: string;
   heroSubtitle: string;
   price: string;
+  /** Numeric starting price backing `price`, for the Independence Day sale calc. Omit if price is "Message us for pricing". */
+  basePrice?: number;
   duration: string;
   departure: string;
   seats: string;
@@ -244,6 +278,7 @@ const chapters: Chapter[] = [
     heroSubtitle:
       "Some bonds are built by blood. Some are built by choice. Trade the crowded malls for cliffside sunsets.",
     price: "₹12,999 onwards",
+    basePrice: 12999,
     duration: "3 Days · 4 Nights",
     departure: "Bangalore / Pan India",
     seats: "20 people",
@@ -578,6 +613,7 @@ const chapters: Chapter[] = [
     heroSubtitle:
       "Freedom isn't always found by the sea. Sometimes it's waiting at the next hairpin bend.",
     price: "₹14,999 onwards",
+    basePrice: 14999,
     duration: "3 Days · 4 Nights",
     departure: "Bangalore / Pan India",
     seats: "20 people",
@@ -729,6 +765,7 @@ const chapters: Chapter[] = [
     heroSubtitle:
       "800+ kilometres across one of the world's most diverse islands - mountain roads, tea plantations, wildlife safaris and endless coastlines.",
     price: "₹59,999 per person",
+    basePrice: 59999,
     duration: "7 Days · 6 Nights",
     departure: "Bengaluru / Pan India",
     seats: "20 explorers",
@@ -993,6 +1030,7 @@ const chapters: Chapter[] = [
       heroSubtitle:
         "Skip the long-weekend planning spiral. Cliffside sunsets, a surf lesson and slow mornings by the Arabian Sea - back home by Monday.",
       price: "₹12,999 onwards",
+      basePrice: 12999,
       duration: "2 Nights · 3 Days",
       departure: "Bangalore / Pan India",
       seats: "20 people",
@@ -1222,13 +1260,16 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
     .map((c) => {
       const range = CALENDAR_RANGES[c.id];
       if (!range) return null;
+      const sale = applyIndependenceDaySale(c.price, c.basePrice);
       return {
         id: c.id,
         navLabel: c.navLabel,
         dateChip: c.dateChip,
         themeColor: c.themeColor,
         heroImage: c.heroImage,
-        price: c.price,
+        price: sale.display,
+        originalPrice: sale.original,
+        onSale: sale.onSale,
         waHref: whatsappHref(c.whatsappMessage),
         icon: <c.badgeIcon size={13} />,
         destination: CALENDAR_DESTINATIONS[c.id] ?? "",
@@ -1246,6 +1287,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
     return <Homepage chapters={calendarChapters} />;
   }
   const waHref = whatsappHref(chapter.whatsappMessage);
+  const chapterSale = applyIndependenceDaySale(chapter.price, chapter.basePrice);
 
   return (
     <div className="relative min-h-screen bg-background">
@@ -1406,7 +1448,8 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
               <Stat
                 icon={Tag}
                 label="Starts From"
-                value={chapter.price}
+                value={chapterSale.display}
+                originalValue={chapterSale.original}
               />
               <Stat
                 icon={Calendar}
@@ -1429,7 +1472,8 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           <div className="scrollbar-none relative z-10 mx-1 -mt-5 flex gap-2 overflow-x-auto sm:hidden">
             <StatChip
               icon={Tag}
-              value={chapter.price}
+              value={chapterSale.display}
+              originalValue={chapterSale.original}
             />
             <StatChip
               icon={Calendar}
@@ -1800,7 +1844,8 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
       </main>
 
       <StickyBookingCard
-        price={chapter.price}
+        price={chapterSale.display}
+        originalPrice={chapterSale.original}
         waHref={waHref}
         advantage={oyestoreAdvantage}
       />
@@ -1944,19 +1989,45 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
   );
 }
 
-function StatChip({ icon: Icon, value }: { icon: typeof Users; value: string }) {
+function StatChip({
+  icon: Icon,
+  value,
+  originalValue,
+}: {
+  icon: typeof Users;
+  value: string;
+  originalValue?: string;
+}) {
   return (
     <div className="glass-dark premium-shadow flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-3.5 py-2 text-xs font-bold text-foreground">
       <Icon
         size={14}
         className="text-platinum"
       />
+      {originalValue && (
+        <span className="text-muted-foreground/60 line-through">{originalValue}</span>
+      )}
       {value}
+      {originalValue && (
+        <span className="tricolor-gradient rounded-full px-1.5 py-0.5 text-[9px] font-black tracking-wide">
+          15% OFF
+        </span>
+      )}
     </div>
   );
 }
 
-function Stat({ icon: Icon, label, value }: { icon: typeof Users; label: string; value: string }) {
+function Stat({
+  icon: Icon,
+  label,
+  value,
+  originalValue,
+}: {
+  icon: typeof Users;
+  label: string;
+  value: string;
+  originalValue?: string;
+}) {
   return (
     <div className="flex items-center gap-3">
       <Icon
@@ -1964,8 +2035,22 @@ function Stat({ icon: Icon, label, value }: { icon: typeof Users; label: string;
         className="text-platinum"
       />
       <div>
-        <p className="text-xs text-muted-foreground">{label}</p>
-        <p className="text-base font-bold text-foreground">{value}</p>
+        <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
+          {label}
+          {originalValue && (
+            <span className="tricolor-gradient rounded-full px-1.5 py-0.5 text-[9px] font-black tracking-wide">
+              15% OFF
+            </span>
+          )}
+        </p>
+        <p className="text-base font-bold text-foreground">
+          {originalValue && (
+            <span className="mr-1.5 text-sm font-medium text-muted-foreground/60 line-through">
+              {originalValue}
+            </span>
+          )}
+          {value}
+        </p>
       </div>
     </div>
   );

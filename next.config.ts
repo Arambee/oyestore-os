@@ -20,28 +20,34 @@ const nextConfig: NextConfig = {
   // (test.oyestore.in, previews, localhost) is untouched and keeps hitting
   // the real app/(marketing)/page.tsx homepage at "/".
   async rewrites() {
-    return [
-      {
-        source: "/",
-        destination: "/varkala",
-        has: [
-          {
-            type: "host",
-            value: "oyestore.in",
-          },
-        ],
-      },
-      {
-        source: "/",
-        destination: "/varkala",
-        has: [
-          {
-            type: "host",
-            value: "www.oyestore.in",
-          },
-        ],
-      },
-    ];
+    // beforeFiles, not a plain array: a plain array is only checked *after*
+    // Next's own filesystem routes, so it would never fire here since "/"
+    // already resolves to app/(marketing)/page.tsx. beforeFiles runs ahead
+    // of that resolution, so the host match can actually override it.
+    return {
+      beforeFiles: [
+        {
+          source: "/",
+          destination: "/varkala",
+          has: [
+            {
+              type: "host",
+              value: "oyestore.in",
+            },
+          ],
+        },
+        {
+          source: "/",
+          destination: "/varkala",
+          has: [
+            {
+              type: "host",
+              value: "www.oyestore.in",
+            },
+          ],
+        },
+      ],
+    };
   },
 };
 

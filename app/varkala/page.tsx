@@ -228,6 +228,7 @@ type Chapter = {
   sneakPeek: { id: string; alt: string; image: string; className: string }[];
   beforeYouBook: string;
   whatsappMessage: string;
+  soldOut?: boolean;
 };
 
 const chapters: Chapter[] = [
@@ -397,6 +398,7 @@ const chapters: Chapter[] = [
   },
   {
     id: "onam",
+    soldOut: true,
     navLabel: "Onam",
     navDates: "26-29 Aug 2026",
     badge: "ONAM CHAPTER · 26-29 AUG 2026",
@@ -1075,6 +1077,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
         themeColor: c.themeColor,
         heroImage: c.heroImage,
         price: c.price,
+        soldOut: c.soldOut ?? false,
         waHref: whatsappHref(c.whatsappMessage),
         icon: <c.badgeIcon size={13} />,
         destination: CALENDAR_DESTINATIONS[c.id] ?? "",
@@ -1189,6 +1192,11 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
                     style={{ color: c.themeColor }}
                   />
                   {c.navLabel}
+                  {c.soldOut && (
+                    <span className="rounded-full bg-[#fffff0]/10 px-1.5 py-0.5 text-[9px] font-black tracking-wide text-foreground/70">
+                      SOLD OUT
+                    </span>
+                  )}
                 </span>
                 <span className="text-xs text-muted-foreground">{c.navDates}</span>
               </Link>
@@ -1217,6 +1225,11 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
                 />
                 {chapter.badge}
               </span>
+              {chapter.soldOut && (
+                <span className="absolute right-6 top-6 z-10 inline-flex w-fit items-center rounded-full bg-[#fffff0]/90 px-3 py-1 text-[11px] font-black tracking-wide text-midnight sm:px-4 sm:py-1.5 sm:text-xs">
+                  SOLD OUT
+                </span>
+              )}
 
               <div className="relative flex h-full flex-col justify-end p-6 sm:p-10">
                 <h1 className="text-gradient max-w-xl text-4xl font-black leading-[1.02] tracking-tight sm:text-6xl">
@@ -1232,7 +1245,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
                     className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-[#052e16] transition hover:scale-[1.03]"
                   >
                     <MessageCircle size={16} />
-                    Message us on WhatsApp
+                    {chapter.soldOut ? "Join the Waitlist" : "Message us on WhatsApp"}
                   </a>
                   <a
                     href="#the-chapter"
@@ -1249,7 +1262,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
               <Stat
                 icon={Tag}
                 label="Starts From"
-                value={chapter.price}
+                value={chapter.soldOut ? "Sold Out" : chapter.price}
               />
               <Stat
                 icon={Calendar}
@@ -1272,7 +1285,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
           <div className="scrollbar-none relative z-10 mx-1 -mt-5 flex gap-2 overflow-x-auto sm:hidden">
             <StatChip
               icon={Tag}
-              value={chapter.price}
+              value={chapter.soldOut ? "Sold Out" : chapter.price}
             />
             <StatChip
               icon={Calendar}
@@ -1644,6 +1657,7 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
 
       <StickyBookingCard
         price={chapter.price}
+        soldOut={chapter.soldOut}
         waHref={waHref}
         advantage={oyestoreAdvantage}
       />
@@ -1739,6 +1753,11 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
                         />
                         {c.navLabel}
                         <span className="text-muted-foreground">· {c.navDates}</span>
+                        {c.soldOut && (
+                          <span className="rounded-full bg-[#fffff0]/10 px-1.5 py-0.5 text-[9px] font-black tracking-wide text-foreground/70">
+                            SOLD OUT
+                          </span>
+                        )}
                       </span>
                       <ArrowUpRight
                         size={14}

@@ -5,11 +5,12 @@ import { Check, MessageCircle, Shield } from "lucide-react";
 
 interface StickyBookingCardProps {
   price: string;
+  soldOut?: boolean;
   waHref: string;
   advantage: string[];
 }
 
-export default function StickyBookingCard({ price, waHref, advantage }: StickyBookingCardProps) {
+export default function StickyBookingCard({ price, soldOut, waHref, advantage }: StickyBookingCardProps) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -36,7 +37,14 @@ export default function StickyBookingCard({ price, waHref, advantage }: StickyBo
       }`}
     >
       <div className="glass-dark premium-shadow rounded-2xl p-5">
-        <p className="text-2xl font-black text-foreground">{price}</p>
+        <div className="flex items-center justify-between">
+          <p className="text-2xl font-black text-foreground">{soldOut ? "Sold Out" : price}</p>
+          {soldOut && (
+            <span className="rounded-full bg-[#fffff0]/10 px-2 py-0.5 text-[9px] font-black tracking-wide text-foreground/70">
+              SOLD OUT
+            </span>
+          )}
+        </div>
 
         <a
           href={waHref}
@@ -45,7 +53,7 @@ export default function StickyBookingCard({ price, waHref, advantage }: StickyBo
           className="mt-3 flex items-center justify-center gap-2 rounded-full bg-[#25D366] py-3 text-sm font-semibold text-[#052e16] transition hover:scale-[1.02]"
         >
           <MessageCircle size={16} />
-          Message us on WhatsApp
+          {soldOut ? "Join the Waitlist" : "Message us on WhatsApp"}
         </a>
 
         <a

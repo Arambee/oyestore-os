@@ -12,6 +12,7 @@ export interface CalendarChapter {
   themeColor: string;
   heroImage: string;
   price: string;
+  soldOut: boolean;
   waHref: string;
   icon: React.ReactNode;
   destination: string;
@@ -254,7 +255,7 @@ export default function TripCalendar({ chapters }: { chapters: CalendarChapter[]
                       alt={c.navLabel}
                       fill
                       sizes="80px"
-                      className="object-cover"
+                      className={`object-cover ${c.soldOut ? "grayscale" : ""}`}
                     />
                   </div>
                   <div className="min-w-0 flex-1">
@@ -265,8 +266,15 @@ export default function TripCalendar({ chapters }: { chapters: CalendarChapter[]
                       {c.icon}
                       {c.dateChip}
                     </span>
-                    <p className="mt-0.5 truncate font-bold text-foreground">{c.navLabel}</p>
-                    <p className="text-sm text-muted-foreground">{c.price}</p>
+                    <p className="mt-0.5 flex items-center gap-1.5 truncate font-bold text-foreground">
+                      {c.navLabel}
+                      {c.soldOut && (
+                        <span className="rounded-full bg-[#fffff0]/10 px-2 py-0.5 text-[9px] font-black tracking-wide text-foreground/70">
+                          SOLD OUT
+                        </span>
+                      )}
+                    </p>
+                    <p className="text-sm text-muted-foreground">{c.soldOut ? "Waitlist only" : c.price}</p>
                   </div>
                   <ArrowRight
                     size={18}

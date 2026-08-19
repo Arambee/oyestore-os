@@ -1059,6 +1059,13 @@ const refundTiers = [
   { window: "Less than 7 days / no-show", refund: "No refund" },
 ];
 
+const termsAndConditions = [
+  "We reserve the right to rearrange the itinerary to suit availability without changing the total number of days or compromising on any service.",
+  "All guests must carry a government-issued ID card.",
+  "Confirmation of physical & mental health is required before starting any trek/tour with us.",
+  "No refund will be provided for problems due to government orders, harsh weather, protests, landslides, or other unforeseen circumstances.",
+];
+
 interface VarkalaLandingPageProps {
   searchParams: Promise<{ chapter?: string }>;
 }
@@ -1542,6 +1549,21 @@ export default async function VarkalaLandingPage({ searchParams }: VarkalaLandin
             </li>
             <li>One free date change if requested 15+ days before departure, subject to seat availability.</li>
             <li>Any refund amount is credited back to your original payment method within 21 days.</li>
+          </ul>
+        </section>
+
+        <section className="glass-dark premium-shadow rounded-2xl p-5 sm:p-6">
+          <p className="text-xs font-medium tracking-wider text-platinum">TERMS &amp; CONDITIONS</p>
+          <ul className="mt-3 space-y-2.5">
+            {termsAndConditions.map((term) => (
+              <li
+                key={term}
+                className="flex items-start gap-2 text-sm text-muted-foreground"
+              >
+                <span className="mt-2 size-1 shrink-0 rounded-full bg-[#fffff0]/25" />
+                {term}
+              </li>
+            ))}
           </ul>
         </section>
 

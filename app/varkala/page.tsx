@@ -246,7 +246,7 @@ const chapters: Chapter[] = [
     price: "₹12,999 onwards",
     duration: "3 Days · 4 Nights",
     departure: "Bangalore / Pan India",
-    seats: "20 people",
+    seats: "7 seats left",
     dateChip: "28-30 Aug 2026",
     aboutHook:
       "Leave behind the crowded malls, predictable lunches and routine celebrations. Trade them for cliffside sunsets, road trips that never seem to end, and morning chai overlooking the Arabian Sea.",
@@ -392,7 +392,7 @@ const chapters: Chapter[] = [
       "Anything Not Mentioned Above",
     ],
     beforeYouBook:
-      "Every chapter is intentionally designed to stay flexible - weather changes, people change, and some of the best discoveries aren't found on Google Maps. The itinerary above is an overview of the experience; your official trip title, host reveal, meeting points, timings and surprise experiences are shared 72 hours before departure. Seats are limited to 20 people for the 28-30 August 2026 dates - message us on WhatsApp to lock yours in.",
+      "Every chapter is intentionally designed to stay flexible - weather changes, people change, and some of the best discoveries aren't found on Google Maps. The itinerary above is an overview of the experience; your official trip title, host reveal, meeting points, timings and surprise experiences are shared 72 hours before departure. Only 7 seats left for the 28-30 August 2026 dates - message us on WhatsApp to lock yours in.",
     whatsappMessage:
       "Hi! I'm interested in the Raksha Bandhan Varkala chapter (28-30 Aug 2026, ₹12,999 · 3 Days/4 Nights). Can you share more details?",
   },
